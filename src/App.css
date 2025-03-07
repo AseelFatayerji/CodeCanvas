@@ -2,16 +2,32 @@
 
 nav div a {
     color: black;
-    transition: underline 0.3s ease-in 0.2s;
+}
+
+nav div a::after {
+    background: black;    
+    border-radius: 3px;
+    color: black;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0px; 
+    transition: width 300ms ease-in;
 }
 
 nav div a:hover {
     color: black;
-    text-decoration-line: underline;
-    text-decoration-thickness: 3px;
 }
+
+nav div a:hover::after {
+    width: 100%;
+}
+
+nav div a.active::after {    
+    border-radius: 3px;
+    width: 100%;
+}
+
 nav div a.active {
     color: black;
-    text-decoration-line: underline;
-    text-decoration-thickness: 3px;
 }
