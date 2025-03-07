@@ -2,12 +2,13 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import Loader from "../components/loader";
 import Model from "../model_loader/testscene";
+import Sky from "../model_loader/sky";
 
 function Home() {
   const adjustModel = () => {
     let screenScale = null;
     let screenPose;
-    let rotation = [2.4,0,0];
+    let rotation = [2.4, 0, 0];
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9, 0.9];
       screenPose = [-14, -6.5, -43];
@@ -17,6 +18,9 @@ function Home() {
     }
     return [screenScale, screenPose, rotation];
   };
+
+  const hours = new Date().getHours();
+  const isDayTime = hours > 6 && hours < 20;
   const [modelScale, modelPose, rotation] = adjustModel();
 
   return (
@@ -27,9 +31,11 @@ function Home() {
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
-          <ambientLight />
+          <directionalLight position={[1, 1, 1]} intensity={2.5} />
+          <ambientLight intensity={0.5} />
           <spotLight />
-          <Model position={modelPose} scale={modelScale} rotation ={rotation} />
+          <Sky isDay={isDayTime} />
+          <Model position={modelPose} scale={modelScale} rotation={rotation} />
         </Suspense>
       </Canvas>
     </section>
