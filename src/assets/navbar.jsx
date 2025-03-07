@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <header className="p-3 rounded-md backdrop-blur-sm bg-white/30 fixed w-full z-20 top-0 start-0 ">
+    <header className="p-3 rounded-md backdrop-blur-sm bg-white/30 fixed w-full z-20 top-0 start-0">
       <nav className="flex text-lg justify-between">
         <div>
           <NavLink to="/" className="">
