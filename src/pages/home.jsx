@@ -8,25 +8,38 @@ import Bird from "../model_loader/testcharacter";
 
 function Home() {
   const [isRotating, setRotating] = useState(false);
-
+  const [cameraPose, setCameraPose] = useState([0, 0, 200]);
   const adjustModel = () => {
     let screenScale = null;
     let screenPose;
     let rotation = [-1.5, 0, 0];
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPose = [-14, -6.5, -43];
+    if (window.innerWidth < 768) {      
+      screenScale = [2, 2, 2];
+      screenPose = [-25, -30, -30];
     } else {
       screenScale = [1.5, 1.5, 1.5];
-      screenPose = [-20, -20, -30];
+      screenPose = [-25, -40, -40];
     }
     return [screenScale, screenPose, rotation];
+  };
+  const adjustCharacter = () => {
+    let characterScale = null;
+    let characterPose;
+    let rotation = [-1.5, 0, 0];
+    if (window.innerWidth < 768) {
+      characterScale = [4, 4, 4];
+      characterPose = [0, -20, 150];
+    } else {
+      characterScale = [5, 5, 5];
+      characterPose = [0, -20, 150];
+    }
+    return [characterScale, characterPose, rotation];
   };
 
   const hours = new Date().getHours();
   const isDayTime = hours > 6 && hours < 20;
   const [modelScale, modelPose, rotation] = adjustModel();
-
+  const [characterScale, characterPose] = adjustCharacter();
   return (
     <section className="w-lvw h-lvh items-center justify-end">
       <Canvas
@@ -34,7 +47,7 @@ function Home() {
         className={`w-lvw h-lvh bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
-        camera={{ near: 0.1, far: 1000, position: [0, 0, 100] }}
+        camera={{ near: 0.1, far: 1000, position: [0, 0, 200] }}
       >
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={2.5} />
@@ -48,8 +61,12 @@ function Home() {
             isRotating={isRotating}
             setRotating={setRotating}
           />
-          {/* <Bird /> */}
-
+          <Bird
+            isRotating={isRotating}
+            setRotating={setRotating}
+            position={characterPose}
+            scale={characterScale}
+          />
         </Suspense>
       </Canvas>
     </section>

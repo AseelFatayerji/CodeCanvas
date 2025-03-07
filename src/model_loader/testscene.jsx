@@ -7,17 +7,30 @@ function Model({ isRotating, setRotating, ...props }) {
   const { nodes, materials } = useGLTF(island);
   const [rotation, setRotation] = useState(props.rotation);
   const modelRef = useRef();
-  const { gl } = useThree();
 
   const [modelRotationZ, setModelRotationZ] = useState(0);
 
   const onKeyDown = (event) => {
     switch (event.key) {
       case "ArrowLeft":
-        setModelRotationZ((prevRotation) => prevRotation + 0.05); // Rotate counterclockwise on Z-axis
+        setRotating(true);
+        setModelRotationZ((prevRotation) => prevRotation + 0.05);
         break;
       case "ArrowRight":
-        setModelRotationZ((prevRotation) => prevRotation - 0.05); // Rotate clockwise on Z-axis
+        setRotating(true);
+        setModelRotationZ((prevRotation) => prevRotation - 0.05);
+        break;
+      default:
+        break;
+    }
+  };
+  const onKeyUp = (event) => {
+    switch (event.key) {
+      case "ArrowLeft":
+        setRotating(false);
+        break;
+      case "ArrowRight":
+        setRotating(false);
         break;
       default:
         break;
@@ -26,14 +39,16 @@ function Model({ isRotating, setRotating, ...props }) {
 
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("keyup", onKeyUp);
 
     return () => {
       window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("keyup", onKeyUp);
     };
   }, []);
 
   useEffect(() => {
-    setRotation([0, 0, modelRotationZ]); // Only rotate around the Z-axis
+    setRotation([0, 0, modelRotationZ]);
   }, [modelRotationZ]);
 
   return (
