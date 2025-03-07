@@ -1,12 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./screens/home";
-import Services from "./screens/services";
-import Gallery from "./screens/gallery";
-import Projects from "./screens/projects";
-import Contact from "./screens/contact";
-import Navbar from "./assets/navbar";
-import About from "./screens/about";
+import { Home, About, Contact, Gallery, Projects, Services } from "./pages";
+import Navbar from "./components/navbar";
 
 function App() {
   return (
