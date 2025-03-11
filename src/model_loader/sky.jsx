@@ -1,9 +1,9 @@
 import { useGLTF } from "@react-three/drei";
-import day from "../assests/models/day.glb";
-import night from "../assests/models/night.glb";
+import day from "../assets/models/day.glb";
+import night from "../assets/models/night.glb";
 
 function Sky(props) {
-  const setDay = props.isDay ? useGLTF(night) : useGLTF(day);
+  const setDay = props.isDay ? useGLTF(day) : useGLTF(night);
   return (
     <mesh>
       <primitive object={setDay.scene} />

@@ -1,7 +1,7 @@
 
 function Services() {
     return (
-      <header className="header">
+      <header className="w-lvw h-lvh">
         Services
       </header>
     );

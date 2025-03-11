@@ -1,6 +1,6 @@
 import { useAnimations, useGLTF, useScroll } from "@react-three/drei";
 import { use, useEffect, useRef } from "react";
-import bird from "../assests/models/bird.glb";
+import bird from "../assets/models/bird.glb";
 
 function Bird({ isRotating, ...props }) {
   const ref = useRef();

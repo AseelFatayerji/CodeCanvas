@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
-import island from "../assests/models/island.glb";
+import island from "../assets/models/island.glb";
 import { useThree } from "@react-three/fiber";
 
 function Model({ isRotating, setRotating, ...props }) {

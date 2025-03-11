@@ -5,10 +5,10 @@ import Loader from "../components/loader";
 import Model from "../model_loader/testscene";
 import Sky from "../model_loader/sky";
 import Bird from "../model_loader/testcharacter";
+import Popup from "../components/popup";
 
 function Home() {
   const [isRotating, setRotating] = useState(false);
-  const [cameraPose, setCameraPose] = useState([0, 0, 200]);
   const adjustModel = () => {
     let screenScale = null;
     let screenPose;
@@ -42,6 +42,9 @@ function Home() {
   const [characterScale, characterPose] = adjustCharacter();
   return (
     <section className="w-lvw h-lvh items-center justify-end">
+      <div>
+        {/* {currentStage && <Popup currentStage={currentStage} />} currentStage are insdide the model */}
+      </div>
       <Canvas
         id="modelLoader"
         className={`w-lvw h-lvh bg-transparent ${
