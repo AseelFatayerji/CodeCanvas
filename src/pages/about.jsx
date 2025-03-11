@@ -13,8 +13,8 @@ function About() {
       screenScale = [0.2, 0.2, 0.2];
       screenPose = [5, -20, -35];
     } else {
-      screenScale = [1.6, 1.6, 1.6];
-      screenPose = [-20, -100, -140];
+      screenScale = [1.7, 1.7, 1.7];
+      screenPose = [-20, -110, -140];
     }
     return [screenScale, screenPose, rotation];
   };
@@ -38,7 +38,9 @@ function About() {
           />
         </Suspense>
       </Canvas>
-      <div className="fixed inset-0 flex items-center justify-end">hi</div>
+      <div className="inset-0 fixed flex self-center justify-self-center backdrop-blur-md bg-white/5 w-90 h-65 mr-23 mb-32">
+        hi
+      </div>
     </section>
   );
 }
