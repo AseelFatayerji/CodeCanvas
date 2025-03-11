@@ -1,5 +1,12 @@
 .bookshelf {
-    background-image: url("../assets/backgrounds/background.png");
+    background-image: url("../assets/backgrounds/bookshelf.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+.character {
+    background-image: url("../assets/backgrounds/character.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

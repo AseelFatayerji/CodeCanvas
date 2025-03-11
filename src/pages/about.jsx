@@ -14,7 +14,7 @@ function About() {
       screenPose = [5, -20, -35];
     } else {
       screenScale = [1.7, 1.7, 1.7];
-      screenPose = [-20, -110, -140];
+      screenPose = [-20, -125, -120];
     }
     return [screenScale, screenPose, rotation];
   };
@@ -38,8 +38,16 @@ function About() {
           />
         </Suspense>
       </Canvas>
-      <div className="inset-0 fixed flex self-center justify-self-center backdrop-blur-md bg-white/5 w-90 h-65 mr-23 mb-32">
-        hi
+      <div className="inset-0 fixed flex self-center justify-self-center backdrop-blur-md bg-white/5 w-100 h-73 mr-26 mb-15">
+        <div className="flex justify-evenly w-full h-full ">
+          <div className="w-40 p-5"><img src="src\assets\backgrounds\character.png" className="h-full"/></div>
+          <div className=" text-black font-bold text-pretty w-60">
+            I'm Aseel Fatayerji, an artist specializing in concept art,
+            illustration, and 3D modeling. I create imaginative worlds and
+            unique characters, by blending traditional techniques with digital
+            tools. Let’s collaborate to bring your vision to life!.
+          </div>
+        </div>
       </div>
     </section>
   );
