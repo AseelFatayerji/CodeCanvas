@@ -38,14 +38,19 @@ function About() {
           />
         </Suspense>
       </Canvas>
-      <div className="inset-0 fixed flex self-center justify-self-center backdrop-blur-md bg-white/5 w-100 h-73 mr-26 mb-15">
-        <div className="flex justify-evenly w-full h-full ">
-          <div className="w-40 p-5"><img src="src\assets\backgrounds\character.png" className="h-full"/></div>
-          <div className=" text-black font-bold text-pretty w-60">
-            I'm Aseel Fatayerji, an artist specializing in concept art,
-            illustration, and 3D modeling. I create imaginative worlds and
-            unique characters, by blending traditional techniques with digital
-            tools. Let’s collaborate to bring your vision to life!.
+      <div className="inset-0 fixed flex self-center justify-self-center backdrop-blur-md bg-white/5 w-100 h-75 mr-26 mb-15">
+        <div className="w-full h-full ">
+          <div className="w-full flex justify-center items-center p-5">
+            <img
+              src="src\assets\backgrounds\character.png"
+              className="h-full w-30 "
+            />
+          </div>
+          <div className="  text-center text-black font-bold text-pretty w-full mb-5 ">
+            I'm Aseel Fatayerji, an artist specializing in concept art, and 3D
+            modeling. I create colorful worlds and unique characters, by
+            blending traditional techniques with digital tools. Let’s
+            collaborate to bring your vision to life!.
           </div>
         </div>
       </div>
