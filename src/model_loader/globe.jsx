@@ -41,6 +41,7 @@ function Globe(props) {
         ref={ref}
         position={props.position}
         scale={props.scale}
+        rotation={[0,0,0]}
         onClick={handleClick}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}

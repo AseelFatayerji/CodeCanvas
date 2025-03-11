@@ -11,7 +11,7 @@ function About() {
     let rotation = [0, 0, 0];
     if (window.innerWidth < 768) {
       screenScale = [0.2, 0.2, 0.2];
-      screenPose = [0, -15, -35];
+      screenPose = [5, -20, -35];
     } else {
       screenScale = [1.6, 1.6, 1.6];
       screenPose = [-20, -100, -140];
@@ -28,7 +28,7 @@ function About() {
       >
         <Suspense fallback={<Loader />}>
           <directionalLight position={[-1, 2, 1]} intensity={1.5} />
-          <directionalLight position={[1, 2, -1]} intensity={1.5} />
+          <directionalLight position={[1, -1, -1]} intensity={1.5} />
           <directionalLight position={[1, 1, 1]} intensity={1.5} />
           <Globe position={modelPose} scale={modelScale} />
           <Computer
@@ -38,7 +38,7 @@ function About() {
           />
         </Suspense>
       </Canvas>
-      {/* <div className="fixed inset-0 flex items-center justify-center">hi</div> */}
+      <div className="fixed inset-0 flex items-center justify-end">hi</div>
     </section>
   );
 }
