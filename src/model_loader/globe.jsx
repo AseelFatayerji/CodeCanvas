@@ -32,8 +32,10 @@ function Globe(props) {
   return (
     <>
       {hovered && !clicked && (
-        <Html className="top-24 left-68 w-max h-min p-2 rounded-md backdrop-blur-sm bg-white/30 text-black ">
-          <p className="text-sm">Click Me</p>
+        <Html>
+          <div className="backdrop-blur-sm bg-white/30 fixed font-bold rounded-md right-50 w-15 h-min p-2 text-black text-center text-sm top-60">
+            Spin
+          </div>
         </Html>
       )}
 
@@ -41,7 +43,7 @@ function Globe(props) {
         ref={ref}
         position={props.position}
         scale={props.scale}
-        rotation={[0,0,0]}
+        rotation={[0, 0, 0]}
         onClick={handleClick}
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
