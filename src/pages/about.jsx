@@ -45,7 +45,7 @@ function About() {
               className={
                 screenSize
                   ? "inset-0 fixed text-white text-sm flex self-center justify-self-center rounded-lg backdrop-blur-md bg-white/5 w-80 h-60 p-2"
-                  : "inset-0 fixed text-white text-m flex self-center justify-self-center backdrop-blur-md bg-white/5 w-93 h-68 mb-10 p-2"
+                  : "inset-0 fixed text-white text-m flex self-center justify-self-center w-93 h-68 mb-10 p-2"
               }
             >
               <div className="w-full h-full ">
