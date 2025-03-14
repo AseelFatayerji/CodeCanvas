@@ -5,7 +5,7 @@ function AboutText(props) {
     <Html>
       <div
         className={`inset-0 fixed text-white text-sm flex self-center justify-self-center ${
-          props.screenSize ? "w-80 h-60 p-1" : "w-95 h-68 mb-10 p-2"
+          props.screenSize ? "w-80 h-60 p-1" : "w-95 h-68 mb-10 p-3"
         }`}
       >
         <div className="w-full h-full ">
