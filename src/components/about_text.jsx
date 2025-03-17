@@ -5,15 +5,15 @@ function AboutText(props) {
     <Html>
       <div
         className={`inset-0 fixed text-white text-sm flex self-center justify-self-center ${
-          props.screenSize ? "w-80 h-60 p-1" : "w-95 h-68 mb-10 p-3"
+          props.screenSize ? "w-80 h-60 p-2" : "w-95 h-68 mb-40 p-3"
         }`}
       >
         <div className="w-full h-full ">
           <div className="w-full flex justify-center items-center">
             <img
               src="src\assets\backgrounds\character.png"
-              className={`h-full mb-2 p-2 ${
-                props.screenSize ? "w-25" : "w-30 "
+              className={`mb-2 rounded-full ${
+                props.screenSize ? "h-25 w-20" : "h-30 w-25 "
               }`}
             />
           </div>
