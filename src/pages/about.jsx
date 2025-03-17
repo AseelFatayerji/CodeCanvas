@@ -14,11 +14,11 @@ function About() {
     let screenPose;
     let rotation = [0, 0, 0];
     if (screenSize) {
-      screenScale = [0.2, 0.2, 0.2];
-      screenPose = [-0.1, -15, -20];
+      screenScale = [0.11, 0.11, 0.11];
+      screenPose = [0, -13.5, -16];
     } else {
-      screenScale = [1.7, 1.7, 1.7];
-      screenPose = [-1, -124, -115];
+      screenScale = [1.3, 1.3, 1.3];
+      screenPose = [-1, -130, -150];
     }
     return [screenScale, screenPose, rotation];
   };

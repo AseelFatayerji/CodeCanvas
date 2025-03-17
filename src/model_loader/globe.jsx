@@ -34,7 +34,7 @@ function Globe(props) {
       {hovered && !clicked && (
         <Html>
           <div
-            className="backdrop-blur-sm bg-white/30 fixed font-bold rounded-md right-50 w-15 h-min p-2 text-black text-center text-sm top-60"
+            className="backdrop-blur-sm bg-white/30 fixed font-bold rounded-md right-50 w-15 h-min p-2 text-black text-center text-sm top-70"
             onClick={handleClick}
           >
             Spin
