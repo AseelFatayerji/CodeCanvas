@@ -15,7 +15,7 @@ function Gallery() {
     let rotation = [0.05, 0, 0];
     if (screenSize) {
       screenScale = [0.11, 0.11, 0.11];
-      screenPose = [0, -16, -16];
+      screenPose = [0, -17, -16];
     } else {
       screenScale = [1.5, 1.5, 1.5];
       screenPose = [0, -200, -160];
