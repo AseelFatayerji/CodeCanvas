@@ -14,7 +14,7 @@ function Gallery() {
     let rotation = [0.05, 0, 0];
     if (screenSize) {
       screenScale = [0.11, 0.11, 0.11];
-      screenPose = [0, -13.5, -16];
+      screenPose = [0, -16, -16];
     } else {
       screenScale = [1.5, 1.5, 1.5];
       screenPose = [0, -200, -160];
@@ -30,9 +30,7 @@ function Gallery() {
         camera={{ near: 0.1, far: 1000, position: [0, 0, 0] }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[-1, 2, 1]} intensity={1.5} />
-          <directionalLight position={[-2, -1, -1]} intensity={1} />
-          <directionalLight position={[1, 1, 1]} intensity={1.5} />
+          <ambientLight position={[2, 2, 2]} intensity={2} />
           <JoyStick position={modelPose} scale={modelScale} />
           <Arcade position={modelPose} scale={modelScale} rotation={rotation} />
         </Suspense>

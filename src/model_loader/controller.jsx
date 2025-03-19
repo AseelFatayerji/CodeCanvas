@@ -7,6 +7,50 @@ function JoyStick(props) {
   const { scene, animations } = useGLTF(controller);
   const { actions } = useAnimations(animations, ref);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.key) {
+        case "ArrowUp":
+          actions["up"].play();
+          break;
+        case "ArrowDown":
+          actions["down"].play();
+          break;
+        case "ArrowLeft":
+          actions["left"].play();
+          break;
+        case "ArrowRight":
+          actions["right"].play();
+          break;
+        default:
+          break;
+      }
+    };
+    const handleKeyUp = (event) => {
+      switch (event.key) {
+        case "ArrowUp":
+          actions["up"].stop();
+          break;
+        case "ArrowDown":
+          actions["down"].stop();
+          break;
+        case "ArrowLeft":
+          actions["left"].stop();
+          break;
+        case "ArrowRight":
+          actions["right"].stop();
+          break;
+        default:
+          break;
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, []);
   return (
     <>
       <mesh
