@@ -5,6 +5,7 @@ import "../css/backgrounds.css";
 import Loader from "../components/loader";
 import Arcade from "../model_loader/aracde_inside";
 import JoyStick from "../model_loader/controller";
+import Carousal from "../components/gallery_carousal";
 
 function Gallery() {
   const screenSize = window.innerWidth < 760;
@@ -33,6 +34,7 @@ function Gallery() {
           <ambientLight position={[2, 2, 2]} intensity={2} />
           <JoyStick position={modelPose} scale={modelScale} />
           <Arcade position={modelPose} scale={modelScale} rotation={rotation} />
+          <Carousal screenSize={screenSize} />
         </Suspense>
       </Canvas>
     </section>
