@@ -23,7 +23,7 @@ function Gallery() {
   };
   const [modelScale, modelPose, rotation] = adjustModel();
   return (
-    <section className="w-lvw h-lvh items-center bookshelf">
+    <section className="w-lvw h-lvh items-center wooden">
       <Canvas
         id="modelLoader"
         className="w-lvw h-lvh bg-transparent z-0"

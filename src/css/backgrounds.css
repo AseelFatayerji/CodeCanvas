@@ -5,3 +5,10 @@
     background-position: center;
     height: 100vh;
 }
+.wooden {
+    background-image: url("../assets/backgrounds/wooden.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
