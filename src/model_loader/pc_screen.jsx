@@ -1,10 +1,15 @@
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 import computer from "../assets/models/retro.glb";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 function Computer(props) {
   const ref = useRef();
-  const { scene, animation } = useGLTF(computer);
+  const { scene, animations } = useGLTF(computer);
+  const { actions } = useAnimations(animations, ref);
+  useEffect(() => {
+    actions["spin"].play();
+  }, [actions]);
+
   return (
     <mesh
       ref={ref}

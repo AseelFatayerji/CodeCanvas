@@ -1,6 +1,6 @@
-import { useAnimations, useGLTF, useCursor } from "@react-three/drei";
+import { useAnimations, useGLTF } from "@react-three/drei";
 import controller from "../assets/models/JoyStick.glb";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 function JoyStick(props) {
   const ref = useRef();

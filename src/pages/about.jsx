@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
-import "../css/backgrounds.css";
 import Loader from "../components/loader";
 import Computer from "../model_loader/pc_screen";
 import Globe from "../model_loader/globe";
+import Lamp from "../model_loader/lamp";
 import AboutText from "../components/about_text";
 
 function About() {
@@ -15,7 +15,7 @@ function About() {
     let rotation = [0, 0, 0];
     if (screenSize) {
       screenScale = [0.11, 0.11, 0.11];
-      screenPose = [0, -13.5, -16];
+      screenPose = [0, -14, -14];
     } else {
       screenScale = [1.3, 1.3, 1.3];
       screenPose = [-1, -130, -150];
@@ -34,6 +34,7 @@ function About() {
           <directionalLight position={[-1, 2, 1]} intensity={1.5} />
           <directionalLight position={[-2, -1, -1]} intensity={1} />
           <directionalLight position={[1, 1, 1]} intensity={1.5} />
+          <Lamp position={modelPose} scale={modelScale} />
           <Globe position={modelPose} scale={modelScale} />
           <Computer
             position={modelPose}
