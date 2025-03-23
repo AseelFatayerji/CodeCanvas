@@ -22,7 +22,7 @@ function AboutText(props) {
           your vision to life!.
         </div>
       </div>
-      <Clock />
+      <Clock size={props.screenSize}/>
     </Html>
   );
 }
