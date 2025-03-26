@@ -2,10 +2,10 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
 import "../css/backgrounds.css";
-import Loader from "../components/loader";
+import Loader from "../components/loaders/loader";
 import Arcade from "../model_loader/arcade_inside";
 import JoyStick from "../model_loader/controller";
-import Carousal from "../components/gallery_carousal";
+import Carousal from "../components/text/gallery_carousal";
 
 function Gallery() {
   const screenSize = window.innerWidth < 760;

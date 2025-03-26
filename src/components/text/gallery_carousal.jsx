@@ -1,5 +1,5 @@
 import { useAnimations, useGLTF } from "@react-three/drei";
-import controller from "../assets/models/JoyStick.glb";
+import controller from "../../assets/models/JoyStick.glb";
 import { Html } from "@react-three/drei";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
