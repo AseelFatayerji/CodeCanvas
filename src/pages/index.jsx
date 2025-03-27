@@ -1,8 +1,8 @@
-import Home from "./home";
-import Services from "./services";
-import Gallery from "./gallery";
-import Projects from "./projects";
-import Contact from "./contact";
-import About from "./about";
+import Home from "./3D/homeome";
+import Services from "./3D/servicesces";
+import Gallery from "./3D/galleryery";
+import Projects from "./3D/projectscts";
+import Contact from "./3D/contactact";
+import About from "./3D/aboutout";
 
 export { Home, Services, Gallery, Projects, Contact, About };
