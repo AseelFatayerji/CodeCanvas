@@ -24,11 +24,11 @@ function Clock(props) {
     <div
       className={`inset-0 fixed self-end ${
         props.size
-          ? "justify-self-start ml-2 -mb-2 "
-          : "justify-self-center mr-76 mb-4 p-2 "
+          ? "justify-self-start"
+          : "justify-self-center mr-75 mb-3 p-2 "
       }`}
     >
-      <div className={`flex justify-evenly gap-1 ${props.size ? "text-xl":"text-3xl"}`}>
+      <div className={`flex justify-evenly gap-1 ${props.size ? "text-xl ":"text-3xl"}`}>
         <div className=" font-bold  p-1 rounded-lg border-2 font-mono text-yellow-300/50 tracking-wider">
           <span>{Math.trunc(hrs / 10)}</span>
         </div>
