@@ -5,7 +5,7 @@ import Loader from "../../components/loaders/loader";
 import Computer from "../../model_loader/pc_screen";
 import Globe from "../../model_loader/globe";
 import Lamp from "../../model_loader/lamp";
-import AboutText from "../../components/text/about_text";
+import AboutText from "../../components/items/about_text";
 
 function About() {
   const screenSize = window.innerWidth < 760;

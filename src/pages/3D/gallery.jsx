@@ -5,10 +5,10 @@ import "../../css/backgrounds.css";
 import Loader from "../../components/loaders/loader";
 import Arcade from "../../model_loader/arcade_inside";
 import JoyStick from "../../model_loader/controller";
-import Carousal from "../../components/text/gallery_carousal";
+import Carousal from "../../components/items/gallery_carousal";
 
 function Gallery() {
-  const screenSize = window.innerWidth < 760;
+  const screenSize = window.innerWidth < 700;
   const adjustModel = () => {
     let screenScale = null;
     let screenPose;
