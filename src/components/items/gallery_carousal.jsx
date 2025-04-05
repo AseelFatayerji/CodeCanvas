@@ -83,7 +83,7 @@ function Carousal(props) {
 
   return (
     <Html className="">
-      <div className={`fixed w-85 justify-center items-center ${props.screenSize ? "top-90" : "top-35 left-130"}`} ref={refs}>
+      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-100 top-40 left-165"}`} ref={refs}>
         <motion.div className={`overflow-hidden relative`} >
           <motion.div
             onMouseDown={handleMouseDown}
@@ -97,17 +97,20 @@ function Carousal(props) {
             className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <motion.div className="min-w-1/3 p-2" key={index}>
-                <img src={img} className="h-45 w-35 rounded-lg" />
+              <motion.div className="min-w-1/3 p-1" key={index}>
+                <img src={img} className="h-55 w-45 rounded-lg" />
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div>          
         </motion.div>
+        
+        <div className={`fixed justify-end w-35 h-55 left-gallery ${props.screenSize ? "top-80" : " top-41 "}`}></div>
+        <div className={`fixed justify-center w-35 h-55 right-gallery  ${props.screenSize ? "top-80 right-6" : " top-41 right-162"}`}></div>
         <div className="flex justify-between">
         <div>
           <button
             onMouseDown={prevImage}
-            className="bg-black text-white rounded-full shadow-md"
+            className="bg-black text-white rounded-full shadow-md mt-1"
           >
             Prev
           </button>
@@ -116,7 +119,7 @@ function Carousal(props) {
         <div>
           <button
             onMouseDown={nextImage}
-            className="bg-black text-white rounded-full shadow-md"
+            className="bg-black text-white rounded-full shadow-md mt-1"
           >
             Next
           </button>
