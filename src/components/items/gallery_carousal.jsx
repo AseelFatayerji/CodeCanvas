@@ -83,7 +83,7 @@ function Carousal(props) {
 
   return (
     <Html className="">
-      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-100 top-40 left-165"}`} ref={refs}>
+      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-100 top-40 left-163"}`} ref={refs}>
         <motion.div className={`overflow-hidden relative`} >
           <motion.div
             onMouseDown={handleMouseDown}
@@ -104,8 +104,8 @@ function Carousal(props) {
           </motion.div>          
         </motion.div>
         
-        <div className={`fixed justify-end w-35 h-55 left-gallery ${props.screenSize ? "top-80" : " top-41 "}`}></div>
-        <div className={`fixed justify-center w-35 h-55 right-gallery  ${props.screenSize ? "top-80 right-6" : " top-41 right-162"}`}></div>
+        <div className={`fixed w-15 h-55 left-gallery ${props.screenSize ? "top-80" : " top-41 "}`}></div>
+        <div className={`fixed w-15 h-55 right-gallery ${props.screenSize ? "top-80 right-6" : " top-41 right-163"}`}></div>
         <div className="flex justify-between">
         <div>
           <button
