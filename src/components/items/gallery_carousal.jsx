@@ -62,7 +62,7 @@ function Carousal(props) {
   };
 
   useEffect(() => {
-    x.set(-currentIndex * (100 - 3));
+    x.set(-currentIndex * (100 - 2));
     const handleKeyDown = (event) => {
       switch (event.key) {
         case "ArrowLeft":
@@ -91,7 +91,7 @@ function Carousal(props) {
             style={{ x }}
             drag="x"
             dragConstraints={{
-              left: -((totalImages - 3) * (100)),
+              left: -((totalImages) * (100-2)),
               right: 0
             }}
             className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
