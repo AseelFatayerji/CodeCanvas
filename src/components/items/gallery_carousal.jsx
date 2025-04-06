@@ -1,35 +1,7 @@
-
-// import { Html } from "@react-three/drei";
-// import { motion, useScroll, useTransform } from "framer-motion";
-// import { useRef, useEffect, useState } from "react";
-
-// function Carousal(props) {
-//   const refs = useRef(null);
-//   const imgs = ["src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png"];
-
-//   return (
-//     <Html className="">
-//       <div className={`fixed w-90 justify-center items-center ${props.screenSize ? "top-90" : "top-35 left-110"}`} ref={refs}>
-//         <motion.div className="overflow-hidden relative" ref={refs}>
-//           <motion.div drag="x" dragConstraints={{ right: 0, left: -(imgs.length * 100) }} className={`flex min-w bg-black `}>
-//             {imgs.map((img, index) => (
-//               <motion.div className="min-w-1/3 p-2" key={index}>
-//                 <img src={img} className="h-45 w-35 rounded-lg" />
-//               </motion.div>))}
-//           </motion.div>
-//         </motion.div>
-
-//       </div>
-
-//     </Html >
-//   );
-// }
-
-// export default Carousal;
-
 import { Html } from "@react-three/drei";
 import { motion, useMotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import ImageCard from "./image-card";
 
 function Carousal(props) {
   const refs = useRef(null);
@@ -83,7 +55,7 @@ function Carousal(props) {
 
   return (
     <Html className="">
-      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-100 top-40 left-163"}`} ref={refs}>
+      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-90 top-35 left-125"}`} ref={refs}>
         <motion.div className={`overflow-hidden relative`} >
           <motion.div
             onMouseDown={handleMouseDown}
@@ -91,40 +63,18 @@ function Carousal(props) {
             style={{ x }}
             drag="x"
             dragConstraints={{
-              left: -((totalImages) * (100-2)),
+              left: -((totalImages) * (100 - 2)),
               right: 0
             }}
             className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <motion.div className="min-w-1/3 p-1" key={index}>
-                <img src={img} className="h-55 w-45 rounded-lg" />
-              </motion.div>
+              <ImageCard key={index} src={img} />
             ))}
-          </motion.div>          
+          </motion.div>
+          <div className={`fixed w-15 h-50 left-gallery ${props.screenSize ? "top-80" : " top-35 "}`}></div>
+          <div className={`fixed w-15 h-50 right-gallery ${props.screenSize ? "top-80 right-6" : " top-35 right-125"}`}></div>
         </motion.div>
-        
-        <div className={`fixed w-15 h-55 left-gallery ${props.screenSize ? "top-80" : " top-41 "}`}></div>
-        <div className={`fixed w-15 h-55 right-gallery ${props.screenSize ? "top-80 right-6" : " top-41 right-163"}`}></div>
-        <div className="flex justify-between">
-        <div>
-          <button
-            onMouseDown={prevImage}
-            className="bg-black text-white rounded-full shadow-md mt-1"
-          >
-            Prev
-          </button>
-        </div>
-
-        <div>
-          <button
-            onMouseDown={nextImage}
-            className="bg-black text-white rounded-full shadow-md mt-1"
-          >
-            Next
-          </button>
-        </div>
-        </div>
       </div>
     </Html>
   );

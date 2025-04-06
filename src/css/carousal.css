@@ -1,23 +1,70 @@
-.carousel {
-    position: relative;
-    perspective: 10000px;
+/* From Uiverse.io by ElSombrero2 */ 
+.card {
+  width: fit-content;
+  height: fit-content;
+  background: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 3px 1px #00000088;
 }
 
-.inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    transform-style: preserve-3d;
-    width: 100%;
+.card .content { 
+  z-index: 1;
+  color: white; 
 }
 
-.item {
-    width: 300px;
-    height: 200px;
-    margin: 0 10px;
-    transition: transform 0.5s ease-in-out;
-    position: absolute;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    transform-origin: center center;
+.content::before {
+  opacity: 0;
+  transition: opacity 300ms;
+  content: " ";
+  display: block;
+  background: white;
+  position: absolute;
+  filter: blur(50px);
+  overflow: hidden;
+}
+
+.card:hover .content::before {
+  opacity: 1;
+}
+
+.card::before {
+  opacity: 0;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 80px;
+  height: 360px;
+  background: linear-gradient(#2226ff, #ffffff);
+  transition: opacity 300ms;
+  animation: rotation_9018 8000ms infinite linear;
+  animation-play-state: paused;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.card::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  width: 250px;
+  height: 360px;
+  background: #17171733;
+  backdrop-filter: blur(50px);
+}
+
+@keyframes rotation_9018 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
