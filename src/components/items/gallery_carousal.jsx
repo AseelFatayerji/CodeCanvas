@@ -6,13 +6,10 @@ import ImageCard from "./image-card";
 function Carousal(props) {
   const refs = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const imgs = [
-    "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png",
-    "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png",
-    "src/assets/backgrounds/wooden.png", "src/assets/backgrounds/character.png",
-    "src/assets/backgrounds/character.png", "src/assets/backgrounds/character.png"
-  ];
-
+  const imgs = [];
+  for (var i = 16; i >=1; i--) {
+    imgs.push("src/assets/gallery-images/image-" + i+".png")
+  }
   const totalImages = imgs.length;
 
   const nextImage = () => {
@@ -34,7 +31,7 @@ function Carousal(props) {
   };
 
   useEffect(() => {
-    x.set(-currentIndex * (100 - 2));
+    x.set(-currentIndex * (180-2));
     const handleKeyDown = (event) => {
       switch (event.key) {
         case "ArrowLeft":
@@ -62,8 +59,8 @@ function Carousal(props) {
             onMouseUp={handleMouseUp}
             style={{ x }}
             drag="x"
-            dragConstraints={{
-              left: -((totalImages) * (100 - 2)),
+            dragConstraints={{              
+              left: (-totalImages*(160-2)),
               right: 0
             }}
             className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
