@@ -31,7 +31,7 @@ function Carousal(props) {
   };
 
   useEffect(() => {
-    x.set(-currentIndex * (100-3));
+    x.set(-currentIndex * (120-3));
     const handleKeyDown = (event) => {
       switch (event.key) {
         case "ArrowLeft":
@@ -60,7 +60,7 @@ function Carousal(props) {
             style={{ x }}
             drag="x"
             dragConstraints={{              
-              left: (-totalImages*(100-3)),
+              left: (-totalImages*(120-3)),
               right: 0
             }}
             className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -69,8 +69,6 @@ function Carousal(props) {
               <ImageCard key={index} src={img} />
             ))}
           </motion.div>
-          <div className={`fixed w-15 h-60 left-gallery ${props.screenSize ? "top-80" : " top-35 "}`}></div>
-          <div className={`fixed w-15 h-60 right-gallery ${props.screenSize ? "top-80 right-6" : " top-35 right-125"}`}></div>
         </motion.div>
       </div>
     </Html>
