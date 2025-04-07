@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import "../../css/carousal.css";
 
 const ImageCard = ({ src }) => {
-    const [isHovered, setIsHovered] = useState(false);
-
     return (
-        <motion.div className='min-w-1/2'>
+        <motion.div className='min-w-1/3 ml-3'>
             <div className="card rounded-2xl p-2" id="card">
                 <div className="content">
-                    <div style={{backgroundImage:`url(${src})`}} className='h-45 w-35 rounded-lg bg-cover bg-center'/>
+                    <img src={src} className='h-40 w-30 rounded-lg' />
+                    <div className='pt-5 justify-center text-center'>
+                        Expand Button
+                    </div>
                 </div>
             </div>
         </motion.div>
