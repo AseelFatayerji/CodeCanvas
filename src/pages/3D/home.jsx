@@ -2,7 +2,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useState, useRef, useEffect } from "react";
 import Loader from "../../components/loaders/loader";
 
-import Model from "../../model_loader/testscene";
+import Model from "../../model_loader/street";
 import Sky from "../../model_loader/sky";
 import Bird from "../../model_loader/testcharacter";
 import Popup from "../../components/popup";
