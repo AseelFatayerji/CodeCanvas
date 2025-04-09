@@ -12,7 +12,7 @@ const ImageCard = ({ src, desc, onClick }) => {
                     <div className="content text-right">
                         <img src={src} className='h-30 w-25 rounded-lg -z-1' />
 
-                        <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} className='bg-transparent text-gray-300 text-lg border border-gray-300 border-b-4 font-medium overflow-hidden relative p-1 pl-2 pr-2 mt-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group' onClick={onClick} />
+                        <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} className='cursor-pointer bg-transparent text-gray-300 text-lg border border-gray-300 border-b-4 font-medium overflow-hidden relative p-1 pl-2 pr-2 mt-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group' onClick={onClick} />
                     </div>
                 </div>
             </motion.div>
