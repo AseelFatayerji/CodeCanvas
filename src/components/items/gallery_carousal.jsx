@@ -7,7 +7,7 @@ function Carousal(props) {
   const refs = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const imgs = [];
-  for (var i = 15; i >=1; i--) {
+  for (var i = 16; i >=1; i--) {
     imgs.push("src/assets/gallery-images/image-" + i+".png")
   }
   const totalImages = imgs.length;
@@ -63,10 +63,10 @@ function Carousal(props) {
               left: (-totalImages*(120-3)),
               right: 0
             }}
-            className={`flex min-w ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <ImageCard key={index} src={img} />
+              <ImageCard key={index} src={img} desc={""} />
             ))}
           </motion.div>
         </motion.div>
