@@ -87,7 +87,7 @@ function Carousal(props) {
         {showImage && selectedImageIndex !== null && (
           <Image
             src={imgs[selectedImageIndex]}
-            desc={discription[selectedImageIndex]} 
+            desc={discription[totalImages-selectedImageIndex]} 
             showImage={showImage}
             setShowImage={setShowImage}
           />
