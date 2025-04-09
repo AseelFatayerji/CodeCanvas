@@ -8,13 +8,14 @@ import "../../css/carousal.css";
 function Carousal(props) {
   const refs = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showImage, setShowImage] = useState(false);   
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null);  
+  const [showImage, setShowImage] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   const imgs = [];
   for (var i = 16; i >= 1; i--) {
     imgs.push("src/assets/gallery-images/image-" + i + ".png");
   }
+  const discription = ["Gouache Paint", "Graphite Pencils", "Ink", "Graphite Pencils", "Graphite Pencils", "Mixed Media (Gouache Paint with Gold Leaf)", "Mixed Media (Gouache Paint with Colored Pencils)", "Graphite Pencil", "Alchole Markers", "Gouache Paint", "Gouache Paint", "Gouache Paint", "Gouache Paint", "Graphite Pencil", "Graphite Pencil", "Digital Art", "Digital Art"];
   const totalImages = imgs.length;
 
   const nextImage = () => {
@@ -84,11 +85,11 @@ function Carousal(props) {
         </motion.div>
 
         {showImage && selectedImageIndex !== null && (
-          <Image 
-            src={imgs[selectedImageIndex]} 
-            desc={""} 
-            showImage={showImage} 
-            setShowImage={setShowImage} 
+          <Image
+            src={imgs[selectedImageIndex]}
+            desc={discription[selectedImageIndex]} 
+            showImage={showImage}
+            setShowImage={setShowImage}
           />
         )}
       </div>
