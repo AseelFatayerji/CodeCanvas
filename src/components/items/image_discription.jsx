@@ -10,9 +10,9 @@ function Image({ src, desc, setShowImage }) {
                 <div >
                     <FontAwesomeIcon icon={faXmark} className='text-lg text-white border-3 bg-gray-400 cursor-pointer p-2 m-1 rounded-md border-black shadow-[3px_3px_0px_#000000] font-extrabold transition-all ease-in-out duration-300 hover:translate-x-[1.5px] hover:translate-y-[1.5px] hover:shadow-[1.5px_1.5px_0px_#000000] hover:bg-gray-800 active:translate-x-[3px] active:shadow-nonemt-2.5 active:translate-y-[3px] active:shadow-none' onClick={() => { setShowImage(false) }} />
                 </div>
-                <div class="content">
-                    <img src={src} className='h-100 w-80 rounded-2xl' />
-                    <h1>{desc}</h1>
+                <div class="content ">
+                    <img src={src} className='h-95 w-80 rounded-2xl' />
+                    <div className='text-xl text-center p-3 mb-3 mt-3'>Medium Used: {desc}</div>
                 </div>
             </div>
         </div>
