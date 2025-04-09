@@ -7,7 +7,7 @@ function Carousal(props) {
   const refs = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const imgs = [];
-  for (var i = 16; i >=1; i--) {
+  for (var i = 15; i >=1; i--) {
     imgs.push("src/assets/gallery-images/image-" + i+".png")
   }
   const totalImages = imgs.length;
