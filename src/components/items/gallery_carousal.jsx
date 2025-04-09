@@ -3,6 +3,7 @@ import { motion, useMotionValue } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import ImageCard from "./image-card";
 import Image from "./image_discription";
+import "../../css/carousal.css";
 
 function Carousal(props) {
   const refs = useRef(null);
