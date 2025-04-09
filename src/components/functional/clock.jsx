@@ -16,7 +16,8 @@ function Clock(props) {
     let min = time.getMinutes();
     let sec = time.getSeconds();
     const meridian = hrs >= 12 ? "pm" : "am";
-    hrs %= 12 || 12;
+    hrs %= 12;
+    hrs = (hrs == 0 )? 12 : 12;
     return [hrs, min, sec, meridian];
   };
   let [hrs, min, sec, mer] = timeFormat();
