@@ -75,7 +75,7 @@ function Carousal(props) {
               top: 0,
               bottom: 0,
             }}
-            className={`flex ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex h-90 ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
               <ImageCard key={index} src={img} desc={""} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
