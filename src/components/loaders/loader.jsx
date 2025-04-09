@@ -4,7 +4,7 @@ import '../../css/loader.css';
 function Loader() {
   return (
     <Html>
-      <div className="bg-gray-900 w-screen h-screen ">
+      <div className="w-screen h-screen ">
         <div className="spinner fixed inset-0 self-center justify-self-center">
           <div></div>
           <div></div>
