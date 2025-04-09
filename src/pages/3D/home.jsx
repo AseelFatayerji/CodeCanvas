@@ -17,8 +17,8 @@ function Home() {
       screenScale = [2, 2, 2];
       screenPose = [-25, -30, -30];
     } else {
-      screenScale = [1.5, 1.5, 1.5];
-      screenPose = [-25, -40, -40];
+      screenScale = [0.3, 0.3, 0.3];
+      screenPose = [-30, -110, -130];
     }
     return [screenScale, screenPose, rotation];
   };
@@ -31,7 +31,7 @@ function Home() {
       characterPose = [0, -20, 150];
     } else {
       characterScale = [5, 5, 5];
-      characterPose = [0, -20, 150];
+      characterPose = [0, -40, 150];
     }
     return [characterScale, characterPose, rotation];
   };
@@ -50,7 +50,7 @@ function Home() {
         className={`w-lvw h-lvh bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
         }`}
-        camera={{ near: 0.1, far: 1000, position: [0, 0, 200] }}
+        camera={{ near: 0.2, far: 1000, position: [0, 0, 100] }}
       >
         <Suspense fallback={<Loader />}>
           <directionalLight position={[1, 1, 1]} intensity={2.5} />

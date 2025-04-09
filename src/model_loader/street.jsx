@@ -4,7 +4,7 @@ import street from "../assets/models/street-base.glb";
 import { useThree } from "@react-three/fiber";
 
 function Model({ isRotating, setRotating, ...props }) {
-  const { nodes, materials } = useGLTF(island);
+  const { nodes, scene } = useGLTF(street);
   const [rotation, setRotation] = useState(props.rotation);
   const modelRef = useRef();
 
@@ -52,17 +52,14 @@ function Model({ isRotating, setRotating, ...props }) {
   }, [modelRotationZ]);
 
   return (
-    <>
-      <group {...props}>
-        <group ref={modelRef} rotation={rotation} scale={props.scale}>
-          <mesh
-            geometry={nodes.Object_2.geometry}
-            material={materials.palette}
-            position={props.position}
-          />
-        </group>
-      </group>
-    </>
+    <mesh
+      ref={modelRef}
+      position={props.position}
+      scale={props.scale}
+      rotation={rotation}
+    >
+      <primitive object={scene} />
+    </mesh>
   );
 }
 
