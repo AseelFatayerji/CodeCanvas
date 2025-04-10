@@ -5,6 +5,7 @@ import "../../css/backgrounds.css";
 import Loader from "../../components/loaders/loader";
 import Arcade from "../../model_loader/project_arcade";
 import JoyStick from "../../model_loader/controller";
+import Timeline from "../../components/items/projects_timeline";
 
 function Projects() {
   const screenSize = window.innerWidth < 700;
@@ -33,6 +34,7 @@ function Projects() {
           <ambientLight position={[2, 2, 2]} intensity={2} />
           <JoyStick position={modelPose} scale={modelScale} />
           <Arcade position={modelPose} scale={modelScale} rotation={rotation} />
+          <Timeline />
         </Suspense>
       </Canvas>
     </section>
