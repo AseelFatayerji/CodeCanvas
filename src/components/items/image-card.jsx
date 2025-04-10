@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import "../../css/carousal.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 
-const ImageCard = ({ src, desc, onClick }) => {
+const ImageCard = ({ src, onClick, animate="" }) => {
     return (
         <>
-            <motion.div className='min-w-1/3'>
+            <motion.div className={`min-w-1/3 ${animate}`}>
                 <div className="card bg-gray-800/50 rounded-lg p-2 h-fit ml-3 shadow-[7px_7px_0px_0px_rgba(0,_0,_0,_0.2)]" id="card">
                     <div className="content text-right">
                         <img src={src} className='h-30 w-25 rounded-lg -z-1' />

@@ -9,7 +9,7 @@ function Carousal(props) {
   const refs = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showImage, setShowImage] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const imgs = [];
   for (var i = 16; i >= 1; i--) {
@@ -72,7 +72,7 @@ function Carousal(props) {
 
   return (
     <Html className="">
-      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-90 top-35 left-125"}`} ref={refs}>
+      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-90 top-30 left-125"}`} ref={refs}>
         <motion.div className={`overflow-hidden relative`}>
           <motion.div
             onMouseDown={handleMouseDown}
@@ -82,14 +82,11 @@ function Carousal(props) {
             dragConstraints={{
               left: -totalImages * (100 - 3),
               right: 0,
-              top: 0,
-              bottom: 0,
             }}
-            className={`flex h-fit ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex max-h-fit p-3 ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <ImageCard src={img} key={index} desc={""} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
-
+              <ImageCard src={img} key={index} desc={""}  animate={index === (currentIndex) ? 'floating' : ''} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
             ))}
           </motion.div>
           <div className="flex justify-center space-x-2 mt-5">
@@ -114,7 +111,7 @@ function Carousal(props) {
           />
         )}
       </div>
-    </Html>
+    </Html >
   );
 }
 

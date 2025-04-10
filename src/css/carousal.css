@@ -36,7 +36,7 @@
   width: 80px;
   height: 360px;
   background: linear-gradient(#2226ff, #ffffff);
-  transition: opacity 300ms;
+  transition: opacity 300ms;  
   animation: rotation_9018 8000ms infinite linear;
   animation-play-state: paused;
 }
@@ -64,4 +64,14 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.floating {
+  animation: floatUpDown 1.2s ease-in-out infinite;
 }
