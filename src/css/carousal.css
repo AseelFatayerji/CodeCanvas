@@ -8,9 +8,9 @@
   position: relative;
 }
 
-.card .content { 
+.card .content {
   z-index: 1;
-  color: white; 
+  color: white;
 }
 
 .content::before {
@@ -36,7 +36,7 @@
   width: 80px;
   height: 360px;
   background: linear-gradient(#2226ff, #ffffff);
-  transition: opacity 300ms;  
+  transition: opacity 300ms;
   animation: rotation_9018 8000ms infinite linear;
   animation-play-state: paused;
 }
@@ -56,10 +56,15 @@
   backdrop-filter: blur(10px);
 }
 
+.floating {
+  animation: floatUpDown 1.2s ease-in-out infinite;
+}
+
 @keyframes rotation_9018 {
   0% {
     transform: rotate(0deg);
   }
+
 
   100% {
     transform: rotate(360deg);
@@ -67,11 +72,15 @@
 }
 
 @keyframes floatUpDown {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
+  0% {
+    transform: translateY(0);
+  }
 
-.floating {
-  animation: floatUpDown 1.2s ease-in-out infinite;
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

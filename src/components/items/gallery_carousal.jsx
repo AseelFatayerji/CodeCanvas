@@ -73,7 +73,7 @@ function Carousal(props) {
   return (
     <Html className="">
       <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-90 top-30 left-125"}`} ref={refs}>
-        <motion.div className={`overflow-hidden relative`}>
+        <motion.div className={`overflow-hidden relative p-3`}>
           <motion.div
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
@@ -83,7 +83,7 @@ function Carousal(props) {
               left: -totalImages * (100 - 3),
               right: 0,
             }}
-            className={`flex max-h-fit p-3 ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex max-h-fit ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
               <ImageCard src={img} key={index} desc={""}  animate={index === (currentIndex) ? 'floating' : ''} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
