@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 
 import "../../css/backgrounds.css";
 import Loader from "../../components/loaders/loader";
-import Arcade from "../../model_loader/arcade_inside";
+import Arcade from "../../model_loader/gallery_arcade";
 import JoyStick from "../../model_loader/controller";
 import Carousal from "../../components/items/gallery_carousal";
 
