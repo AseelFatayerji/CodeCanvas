@@ -56,6 +56,15 @@ function Carousal(props) {
     };
   }, [currentIndex, x]);
 
+  useEffect(() => {
+    const unsubscribe = x.onChange((latestX) => {
+      const index = Math.round(-latestX / (100 - 3));
+      setCurrentIndex(index);
+    });
+
+    return () => unsubscribe();
+  }, [x]);
+
   const handleImageClick = (index) => {
     setSelectedImageIndex(index);
     setShowImage(true);
@@ -76,18 +85,30 @@ function Carousal(props) {
               top: 0,
               bottom: 0,
             }}
-            className={`flex h-90 ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex h-fit ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <ImageCard key={index} src={img} desc={""} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
+              <ImageCard src={img} key={index} desc={""} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
+
             ))}
           </motion.div>
+          <div className="flex justify-center space-x-2 mt-5">
+            {imgs.map((_, index) => (
+              <div
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 
+                  ${index === currentIndex ? 'bg-gray-600 scale-110' : 'bg-white hover:bg-gray-400'}`}
+              ></div>
+            ))}
+          </div>
+
         </motion.div>
 
         {showImage && selectedImageIndex !== null && (
           <Image
             src={imgs[selectedImageIndex]}
-            desc={discription[totalImages-selectedImageIndex]} 
+            desc={discription[totalImages - selectedImageIndex]}
             showImage={showImage}
             setShowImage={setShowImage}
           />
