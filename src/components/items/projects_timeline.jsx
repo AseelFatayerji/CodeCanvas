@@ -12,12 +12,12 @@ function Timeline() {
                 <div className="overflow-hidden h-fit w-fit scale-54 mb-35">
                     <motion.ul drag="y"
                         dragConstraints={{
-                            top:(-total*(100)),
+                            top:(-total*(120)),
                             bottom: 0,
                         }}>
                         {prjs.map((project, index) => {
                             return <li key={index}>
-                                    <disc>{project.Disc}</disc>{project.Name}</li>
+                                    <discription>{project.Name}</discription>{project.Disc}</li>
                         })}
 
                     </motion.ul>
