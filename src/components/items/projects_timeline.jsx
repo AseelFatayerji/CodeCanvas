@@ -5,6 +5,7 @@ import { motion, useMotionValue } from 'framer-motion';
 
 function Timeline() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMouseDown, setIsMouseDown] = useState(false);
 
     const prjs = [{ "Disc": "Random discription text dasghdadfgashjkdgf hjd gfhjasdbgf", "Name": "Title" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }]
     const total = prjs.length;
@@ -17,6 +18,12 @@ function Timeline() {
 
     const prevProject = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + total) % total);
+    };
+    const handleMouseDown = () => {
+        setIsMouseDown(true);
+    };
+    const handleMouseUp = () => {
+        setIsMouseDown(false);
     };
 
     useEffect(() => {
@@ -42,7 +49,9 @@ function Timeline() {
         <Html>
             <div className="inset-0 fixed justify-center items-center flex flex-col font-bold z-10">
                 <div className="overflow-hidden h-fit w-fit scale-55 mb-40 text-white">
-                    <motion.ul className="time-container p-0 m-0 grid content-center list-none" drag="y"
+                    <motion.ul className={`time-container p-0 m-0 grid content-center list-none ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`} drag="y"
+                        onMouseDown={handleMouseDown}
+                        onMouseUp={handleMouseUp}
                         style={{ y }}
                         dragConstraints={{
                             top: (-total * (120)),
