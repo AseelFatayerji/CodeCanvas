@@ -57,12 +57,12 @@ function Carousal(props) {
   }, [currentIndex, x]);
 
   useEffect(() => {
-    const unsubscribe = x.onChange((latestX) => {
+    const unselect = x.on("change", (latestX) => {
       const index = Math.round(-latestX / (100 - 3));
       setCurrentIndex(index);
     });
 
-    return () => unsubscribe();
+    return () => unselect();
   }, [x]);
 
   const handleImageClick = (index) => {
@@ -86,7 +86,7 @@ function Carousal(props) {
             className={`flex max-h-fit ${isMouseDown ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             {imgs.map((img, index) => (
-              <ImageCard src={img} key={index} desc={""}  animate={index === (currentIndex) ? 'floating' : ''} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
+              <ImageCard src={img} key={index} desc={""} animate={index === (currentIndex) ? 'floating' : ''} setShowImage={setShowImage} onClick={() => handleImageClick(index)} />
             ))}
           </motion.div>
           <div className="flex justify-center space-x-2 mt-5">
