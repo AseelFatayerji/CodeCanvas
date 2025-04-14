@@ -10,6 +10,7 @@ function Carousal(props) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showImage, setShowImage] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
   const imgs = [];
   for (var i = 16; i >= 1; i--) {
@@ -28,7 +29,6 @@ function Carousal(props) {
 
   const x = useMotionValue(0);
 
-  const [isMouseDown, setIsMouseDown] = useState(false);
   const handleMouseDown = () => {
     setIsMouseDown(true);
   };
