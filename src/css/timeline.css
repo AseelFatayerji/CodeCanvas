@@ -1,75 +1,58 @@
-ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: grid;
-	grid-template-columns: repeat(3, 220px);
-	justify-content: center;
+.time-container {
+    grid-template-columns: repeat(3, 220px);
 }
-li {
-	grid-column: span 2;
-	text-align: center;
-	border-radius: 65px;
-	color: white;
-	font-weight: bold;
-	font-size: 35px;
-	line-height: 1.5em;
-	position: relative;
-	padding: 20px;
-	border: 20px solid #0000;
-	background: linear-gradient(rgb(26, 26, 26) 0 0) content-box,
-		linear-gradient(var(--c, #fcd000) 0 0) padding-box,
-		linear-gradient(var(--d, 90deg), #0000 75%, #eb3edc 0) border-box;
+
+.time-line {
+    background: linear-gradient(rgb(26, 26, 26) 0 0) content-box,
+        linear-gradient(var(--c, #fcd000) 0 0) padding-box,
+        linear-gradient(var(--d, 90deg), #0000 75%, #eb3edc 0) border-box;
 }
-li:nth-child(even) {
-	grid-column-end: -1;
-	--d: -90deg;
-	--c: #009cda;
+
+.time-line:nth-child(even) {
+    grid-column-end: -1;
+    --d: -90deg;
+    --c: #009cda;
 }
-li:not(:last-child) {
-	margin-bottom: -20px;
+
+.time-line:not(:last-child) {
+    margin-bottom: -20px;
 }
-li:before,
-li:after {
-	content: "";
-	display: block;
-	height: 0.6em;
+
+.time-line:before,
+.time-line:after {
+    content: "";
+    display: block;
+    height: 0.6em;
 }
 
 discription {
-	position: absolute;
-	font-size: 0.85em;
+    position: absolute;
+    font-size: 0.85em;
     color: black;
-	left: calc(100% + 50px);
-	top: 50%;
-	transform: translateY(-50%);
-	white-space: nowrap;
+    left: calc(100% + 50px);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
 }
+
 discription:before {
-	content: "";
-	position: absolute;
-	height: 10px;
-	top: 50%;
-	right: calc(100% + 5px);
-	width: 65px;
-	background: repeating-linear-gradient(-90deg, #fcd000 0 5px, #0000 0 10px) 50%/100%
-		5px no-repeat;
+    content: "";
+    position: absolute;
+    height: 10px;
+    top: 50%;
+    right: calc(100% + 5px);
+    width: 65px;
+    background: repeating-linear-gradient(-90deg, #fcd000 0 5px, #0000 0 10px) 50%/100% 5px no-repeat;
 }
 
-li:nth-child(even) discription {
-	left: auto;
-	color: #000;
-	right: calc(100% + 50px);
+.time-line:nth-child(even) discription {
+    left: auto;
+    color: #000;
+    right: calc(100% + 50px);
 }
 
-li:nth-child(even) discription:before {
-	right: auto;
-	left: calc(100% + 5px);
-	background: repeating-linear-gradient(90deg, #009cda 0 5px, #0000 0 10px) 50%/100%
-		5px no-repeat;
-}
-
-h1,
-p {
-	display: none;
+.time-line:nth-child(even) discription:before {
+    right: auto;
+    left: calc(100% + 5px);
+    background: repeating-linear-gradient(90deg, #009cda 0 5px, #0000 0 10px) 50%/100% 5px no-repeat;
 }
