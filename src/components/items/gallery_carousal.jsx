@@ -72,7 +72,7 @@ function Carousal(props) {
 
   return (
     <Html className="">
-      <div className={`fixed justify-center items-center ${props.screenSize ? "w-87 top-80 left-10" : "w-90 top-30 left-125"}`} ref={refs}>
+      <div className={`inset-0 fixed justify-self-center self-center flex flex-row ${props.screenSize ? "top-2 w-75 mr-3" : "w-95 bottom-40 mr-2"}`} ref={refs}>
         <motion.div className={`overflow-hidden relative p-3`}>
           <motion.div
             onMouseDown={handleMouseDown}

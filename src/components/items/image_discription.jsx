@@ -16,7 +16,7 @@ function Image({ src, desc, setShowImage }) {
 
     return (
         <div
-            className="fixed inset-0 z-10 bg-white/30 flex items-center justify-center"
+            className="fixed inset-0 z-10 bg-white/30 flex h-full w-full flex-col pl-10 items-center-safe justify-center"
             onClick={() => {
                 if (isZoomed) {
                     setIsZoomed(false);
@@ -26,7 +26,7 @@ function Image({ src, desc, setShowImage }) {
             }}
         >
             <div
-                className="relative border-3 mt-20 border-black shadow-[12px_12px_0px_#000000] overflow-hidden transition-all ease-in-out duration-300 transform -translate-x-6 -translate-y-6 bg-blue-900 w-fit h-fit p-2 rounded-2xl text-right"
+                className="border-3 mt-25 border-black shadow-[12px_12px_0px_#000000] overflow-hidden transition-all ease-in-out duration-300 transform -translate-x-6 -translate-y-6 bg-blue-900 w-fit h-fit p-2 rounded-2xl text-right"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div>
