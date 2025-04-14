@@ -27,7 +27,7 @@ function Timeline() {
     };
 
     useEffect(() => {
-        y.set(-currentIndex * (100 - 3));
+        y.set(-currentIndex * (110));
         const handleKeyDown = (event) => {
             switch (event.key) {
                 case "ArrowUp":
@@ -54,7 +54,7 @@ function Timeline() {
                         onMouseUp={handleMouseUp}
                         style={{ y }}
                         dragConstraints={{
-                            top: (-total * (120)),
+                            top: (-total * (110)),
                             bottom: 0,
                         }}>
                         {prjs.map((project, index) => {
