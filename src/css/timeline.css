@@ -4,8 +4,8 @@
 
 .time-line {
     background: linear-gradient(rgb(26, 26, 26) 0 0) content-box,
-        linear-gradient(var(--c, #fcd000) 0 0) padding-box,
-        linear-gradient(var(--d, 90deg), #0000 75%, #eb3edc 0) border-box;
+        linear-gradient(var(--c, #fce300) 0 0) padding-box,
+        linear-gradient(var(--d, 90deg), #0000 65%, #eb3edc 0) border-box;
 }
 
 .time-line:nth-child(even) {
@@ -35,15 +35,6 @@ discription {
     white-space: nowrap;
 }
 
-discription:before {
-    content: "";
-    position: absolute;
-    height: 10px;
-    top: 50%;
-    right: calc(100% + 5px);
-    width: 65px;
-    background: repeating-linear-gradient(-90deg, #fcd000 0 5px, #0000 0 10px) 50%/100% 5px no-repeat;
-}
 
 .time-line:nth-child(even) discription {
     left: auto;
@@ -51,8 +42,3 @@ discription:before {
     right: calc(100% + 50px);
 }
 
-.time-line:nth-child(even) discription:before {
-    right: auto;
-    left: calc(100% + 5px);
-    background: repeating-linear-gradient(90deg, #009cda 0 5px, #0000 0 10px) 50%/100% 5px no-repeat;
-}
