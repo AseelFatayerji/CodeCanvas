@@ -1,23 +1,56 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../css/timeline.css"
 import { Html } from '@react-three/drei';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue } from 'framer-motion';
 
 function Timeline() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     const prjs = [{ "Disc": "Random discription text dasghdadfgashjkdgf hjd gfhjasdbgf", "Name": "Title" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }]
     const total = prjs.length;
+
+    const y = useMotionValue(0);
+
+    const nextProject = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % total);
+    };
+
+    const prevProject = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + total) % total);
+    };
+
+    useEffect(() => {
+        y.set(-currentIndex * (100 - 3));
+        const handleKeyDown = (event) => {
+            switch (event.key) {
+                case "ArrowUp":
+                    prevProject();
+                    break;
+                case "ArrowDown":
+                    nextProject();
+                    break;
+                default:
+                    break;
+            }
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [currentIndex, y]);
     return (
         <Html>
             <div className="inset-0 fixed justify-center items-center flex flex-col font-bold z-10">
                 <div className="overflow-hidden h-fit w-fit scale-55 mb-40 text-white">
                     <motion.ul className="time-container p-0 m-0 grid content-center list-none" drag="y"
+                        style={{ y }}
                         dragConstraints={{
-                            top:(-total*(120)),
+                            top: (-total * (120)),
                             bottom: 0,
                         }}>
                         {prjs.map((project, index) => {
                             return <li key={index} className='time-line text-pretty relative h-fit p-4 rounded-[70px] grid col-span-2 text-center font-bold text-2xl border-[20px] border-solid border-transparent'>
-                                    <discription>{project.Name}</discription>{project.Disc}</li>
+                                <discription>{project.Name}</discription>{project.Disc}</li>
                         })}
 
                     </motion.ul>
