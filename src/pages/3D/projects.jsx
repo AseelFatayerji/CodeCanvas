@@ -34,7 +34,7 @@ function Projects() {
           <ambientLight position={[2, 2, 2]} intensity={2} />
           <JoyStick position={modelPose} scale={modelScale} />
           <Arcade position={modelPose} scale={modelScale} rotation={rotation} />
-          <Timeline />
+          <Timeline size={screenSize}/>
         </Suspense>
       </Canvas>
     </section>
