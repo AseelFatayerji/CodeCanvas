@@ -9,7 +9,7 @@ function Timeline() {
     return (
         <Html>
             <div className="inset-0 fixed justify-center items-center flex flex-col font-bold z-10">
-                <div className="overflow-hidden h-fit w-fit scale-54 mb-35 text-white">
+                <div className="overflow-hidden h-fit w-fit scale-55 mb-40 text-white">
                     <motion.ul className="time-container p-0 m-0 grid content-center list-none" drag="y"
                         dragConstraints={{
                             top:(-total*(120)),
