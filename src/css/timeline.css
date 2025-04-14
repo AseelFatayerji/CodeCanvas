@@ -22,7 +22,6 @@
 .time-line:after {
     content: "";
     display: block;
-    height: 0.6em;
 }
 
 discription {
@@ -42,3 +41,4 @@ discription {
     right: calc(100% + 50px);
 }
 
+  
