@@ -4,7 +4,7 @@ import { Html } from '@react-three/drei';
 import { motion } from 'framer-motion';
 
 function Timeline() {
-    const prjs = [{ "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }]
+    const prjs = [{ "Disc": "Random discription text dasghdadfgashjkdgf hjd gfhjasdbgf", "Name": "Title" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }, { "Disc": "name", "Name": "name" }]
     const total = prjs.length;
     return (
         <Html>
@@ -16,7 +16,7 @@ function Timeline() {
                             bottom: 0,
                         }}>
                         {prjs.map((project, index) => {
-                            return <li key={index} className='time-line relative h-fit rounded-full grid col-span-2 text-center font-bold text-4xl p-[20px] border-[20px] border-solid border-transparent'>
+                            return <li key={index} className='time-line text-pretty relative h-fit p-4 rounded-[70px] grid col-span-2 text-center font-bold text-2xl border-[20px] border-solid border-transparent'>
                                     <discription>{project.Name}</discription>{project.Disc}</li>
                         })}
 
