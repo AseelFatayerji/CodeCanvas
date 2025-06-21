@@ -1,3 +1,7 @@
+.pixel {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+}
 .card {
   width: fit-content;
   height: fit-content;
@@ -64,7 +68,6 @@
   0% {
     transform: rotate(0deg);
   }
-
 
   100% {
     transform: rotate(360deg);
