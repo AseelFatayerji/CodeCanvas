@@ -11,16 +11,15 @@ function Carousal(props) {
   const [showImage, setShowImage] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(1);
 
-  const imageWidth = 200; 
-  const gap = 16; 
+  const imageWidth = 200;
+  const gap = 16;
 
   const imgs = [];
-  for (var i = 16; i >= 1; i--) {
+  for (var i = 17; i >= 1; i--) {
     imgs.push("src/assets/gallery-images/image-" + i + ".png");
   }
-
   const discription = [
     "Gouache Paint",
     "Graphite Pencils",
@@ -51,7 +50,7 @@ function Carousal(props) {
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => Math.max(prev - 1, 1));
   };
 
   const handleMouseDown = () => setIsMouseDown(true);
@@ -63,16 +62,30 @@ function Carousal(props) {
   };
 
   useEffect(() => {
+    const measureAndCenter = () => {
+      if (containerRef.current) {
+        const width = containerRef.current.offsetWidth;
+        setContainerWidth(width);
+
+        const centerOffset = width / 2 - imageWidth / 2;
+        const newX = -currentIndex * (imageWidth + gap) + centerOffset;
+        x.set(newX);
+      }
+    };
+
+    measureAndCenter();
+
+    window.addEventListener("resize", measureAndCenter);
+    return () => window.removeEventListener("resize", measureAndCenter);
+  }, [currentIndex]);
+
+  useEffect(() => {
     if (containerRef.current) {
       setContainerWidth(containerRef.current.offsetWidth);
     }
   }, [props.screenSize]);
 
   useEffect(() => {
-    const centerOffset = containerWidth / 2 - (imageWidth / 2);
-    const newX = -currentIndex * (imageWidth + gap) + centerOffset;
-    x.set(newX);
-
     const handleKeyDown = (event) => {
       if (event.key === "ArrowLeft") prevImage();
       else if (event.key === "ArrowRight") nextImage();
@@ -83,14 +96,16 @@ function Carousal(props) {
   }, [currentIndex, containerWidth]);
 
   useEffect(() => {
-    const unsubscribe = x.on("change", (latestX) => {
-      const centerOffset = containerWidth / 2 - (imageWidth / 2);
+    const select = x.on("change", (latestX) => {
+      const centerOffset = containerWidth / 2 - imageWidth / 2;
       const index = Math.round((-latestX + centerOffset) / (imageWidth + gap));
-      if (index >= 0 && index < totalImages) {
+
+      if (index >= 1 && index < totalImages) {
         setCurrentIndex(index);
       }
     });
-    return () => unsubscribe();
+
+    return () => select();
   }, [x, containerWidth]);
 
   return (
@@ -107,7 +122,7 @@ function Carousal(props) {
             style={{ x }}
             drag="x"
             dragConstraints={{
-              left: -(trackWidth - containerWidth),
+              left: -(trackWidth - containerWidth + imageWidth + gap),
               right: 0,
             }}
             className={`flex gap-[${gap}px] max-h-fit ${
@@ -127,17 +142,20 @@ function Carousal(props) {
           </motion.div>
 
           <div className="flex justify-center space-x-2 mt-5">
-            {imgs.map((_, index) => (
-              <div
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-gray-600 scale-110"
-                    : "bg-white hover:bg-gray-400"
-                }`}
-              ></div>
-            ))}
+            {imgs.map((_, index) => {
+              if (index === 0) return null;
+              return (
+                <div
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                    index === currentIndex
+                      ? "bg-gray-600 scale-110"
+                      : "bg-white hover:bg-gray-400"
+                  }`}
+                ></div>
+              );
+            })}
           </div>
         </motion.div>
 

@@ -14,7 +14,7 @@ const ImageCard = ({ src, onClick, animate = "" }) => {
           <div className="content text-right relative">
             <img
               src={src}
-              className="max-w-md h-auto w-48 ms:w-20 rounded-lg cursor-pointer"
+              className="max-w-md h-auto w-48 ms:w-20 rounded-lg"
               onClick={onClick}
             />
               <FontAwesomeIcon
