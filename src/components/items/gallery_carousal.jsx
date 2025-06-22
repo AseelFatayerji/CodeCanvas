@@ -110,11 +110,7 @@ function Carousal(props) {
 
   return (
     <Html>
-      <div
-        className={`inset-0 fixed justify-self-center self-center flex flex-row ${
-          props.screenSize ? "top-2 w-75 mr-3" : "w-md bottom-44 mr-2"
-        }`}
-      >
+      <div className={` flex ${props.size ? "w-xs" : "w-md"}`}>
         <motion.div className="overflow-hidden relative p-3" ref={containerRef}>
           <motion.div
             onMouseDown={handleMouseDown}
@@ -141,22 +137,26 @@ function Carousal(props) {
             ))}
           </motion.div>
 
-          <div className="flex justify-center space-x-2 mt-5">
-            {imgs.map((_, index) => {
-              if (index === 0) return null;
-              return (
-                <div
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-                    index === currentIndex
-                      ? "bg-gray-600 scale-110"
-                      : "bg-white hover:bg-gray-400"
-                  }`}
-                ></div>
-              );
-            })}
-          </div>
+          {props.size ? (
+            <></>
+          ) : (
+            <div className="flex justify-center space-x-2 mt-5">
+              {imgs.map((_, index) => {
+                if (index === 0) return null;
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                      index === currentIndex
+                        ? "bg-gray-600 scale-110"
+                        : "bg-white hover:bg-gray-400"
+                    }`}
+                  ></div>
+                );
+              })}
+            </div>
+          )}
         </motion.div>
 
         {showImage && selectedImageIndex !== null && (
