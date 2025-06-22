@@ -31,18 +31,7 @@ function Globe(props) {
 
   return (
     <>
-      {hovered && !clicked && (
-        <Html>
-          <div
-            className="backdrop-blur-sm bg-white/30 fixed font-bold rounded-md right-50 w-15 h-min p-2 text-black text-center text-sm top-70"
-            onClick={handleClick}
-          >
-            Spin
-          </div>
-        </Html>
-      )}
-
-      <mesh
+      <group
         ref={ref}
         position={props.position}
         scale={props.scale}
@@ -51,8 +40,21 @@ function Globe(props) {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
+        {hovered && !clicked && (
+          <group position={[130, 130, 0]} scale={10}>
+            <Html transform center>
+              <div
+                className="backdrop-blur-sm bg-white/30 font-bold rounded-md px-2 py-1 text-black text-center text-sm"
+                onClick={handleClick}
+              >
+                Spin
+              </div>
+            </Html>
+          </group>
+        )}
+
         <primitive object={scene} />
-      </mesh>
+      </group>
     </>
   );
 }
