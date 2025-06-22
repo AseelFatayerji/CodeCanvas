@@ -23,7 +23,7 @@ function Clock(props) {
   let [hrs, min, sec, mer] = timeFormat();
   return (
     <div className="pt-3">
-      <div className={`flex justify-evenly gap-1`}>
+      <div className={`flex justify-evenly `}>
         <div className=" font-bold  p-1 rounded-lg border-2 font-mono text-yellow-300/50 tracking-wider">
           <span>{Math.trunc(hrs / 10)}</span>
         </div>
