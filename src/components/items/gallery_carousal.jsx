@@ -109,56 +109,61 @@ function Carousal(props) {
   }, [x, containerWidth]);
 
   return (
-    <Html>
-      <div className={` flex ${props.size ? "w-xs" : "w-md"}`}>
-        <motion.div className="overflow-hidden relative p-3" ref={containerRef}>
+    <>
+      <Html className="-z-50">
+        <div className={` flex ${props.size ? "w-xs" : "w-md"}`}>
           <motion.div
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            style={{ x }}
-            drag="x"
-            dragConstraints={{
-              left: -(trackWidth - containerWidth + imageWidth + gap),
-              right: 0,
-            }}
-            className={`flex gap-[${gap}px] max-h-fit ${
-              isMouseDown ? "cursor-grabbing" : "cursor-grab"
-            }`}
+            className="overflow-hidden relative p-3"
+            ref={containerRef}
           >
-            {imgs.map((img, index) => (
-              <ImageCard
-                src={img}
-                key={index}
-                desc={""}
-                animate={index === currentIndex ? "floating" : ""}
-                setShowImage={setShowImage}
-                onClick={() => handleImageClick(index)}
-              />
-            ))}
+            <motion.div
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              style={{ x }}
+              drag="x"
+              dragConstraints={{
+                left: -(trackWidth - containerWidth + imageWidth + gap),
+                right: 0,
+              }}
+              className={`flex gap-[${gap}px] max-h-fit ${
+                isMouseDown ? "cursor-grabbing" : "cursor-grab"
+              }`}
+            >
+              {imgs.map((img, index) => (
+                <ImageCard
+                  src={img}
+                  key={index}
+                  desc={""}
+                  animate={index === currentIndex ? "floating" : ""}
+                  setShowImage={setShowImage}
+                  onClick={() => handleImageClick(index)}
+                />
+              ))}
+            </motion.div>
+            {props.size ? (
+              <></>
+            ) : (
+              <div className="flex justify-center space-x-2 mt-5">
+                {imgs.map((_, index) => {
+                  if (index === 0) return null;
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                        index === currentIndex
+                          ? "bg-gray-600 scale-110"
+                          : "bg-white hover:bg-gray-400"
+                      }`}
+                    ></div>
+                  );
+                })}
+              </div>
+            )}
           </motion.div>
-
-          {props.size ? (
-            <></>
-          ) : (
-            <div className="flex justify-center space-x-2 mt-5">
-              {imgs.map((_, index) => {
-                if (index === 0) return null;
-                return (
-                  <div
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-                      index === currentIndex
-                        ? "bg-gray-600 scale-110"
-                        : "bg-white hover:bg-gray-400"
-                    }`}
-                  ></div>
-                );
-              })}
-            </div>
-          )}
-        </motion.div>
-
+        </div>
+      </Html>
+      <Html position={[40,-47,0]} center>
         {showImage && selectedImageIndex !== null && (
           <Image
             src={imgs[selectedImageIndex]}
@@ -167,8 +172,8 @@ function Carousal(props) {
             setShowImage={setShowImage}
           />
         )}
-      </div>
-    </Html>
+      </Html>
+    </>
   );
 }
 

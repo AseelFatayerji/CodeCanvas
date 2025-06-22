@@ -15,7 +15,7 @@ function Arcade(props) {
     >
       <primitive object={scene} />
       {props.size ? (
-        <group position={[-40, 192, 0]}>
+        <group position={[-40, 192, 0]} >
           <Carousal size={props.size}/>
         </group>
       ) : (
