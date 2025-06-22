@@ -1,8 +1,6 @@
-import { Html } from "@react-three/drei";
 import { useEffect, useState } from "react";
-import Clock from "../functional/clock";
 
-function AboutText(props) {
+function AboutText() {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
@@ -24,23 +22,22 @@ function AboutText(props) {
   }, []);
 
   return (
-    <Html>
-      <div className="inset-0 fixed text-white text-sm flex gap-1 self-center justify-self-center sm:w-90 sm:h-60 sm:p-4 md:w-l md:h-68 md:mt-5 lg:w-lg lg:max-h lg:px-5 lg:mb-72">
+    <>
+      <div className="text-white text-sm flex gap-1">
         <div>
           <img
             src="src/assets/backgrounds/character.png"
             className="rounded-lg max-w-md h-auto w-48"
           />
         </div>
-        <div className="font-bold w-full lg:px-5 lg:text-lg sm:text-s">
+        <div className="font-bold w-80 text-wrap px-5 text-lg">
           <p>
             {displayedText}
             <span className="blinking-cursor"></span>
           </p>
         </div>
       </div>
-      <Clock size={props.screenSize} />
-    </Html>
+    </>
   );
 }
 

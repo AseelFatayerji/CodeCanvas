@@ -5,7 +5,6 @@ import Loader from "../../components/loaders/loader";
 import Computer from "../../model_loader/pc_screen";
 import Globe from "../../model_loader/globe";
 import Lamp from "../../model_loader/lamp";
-import AboutText from "../../components/items/about_text";
 
 function About() {
   const screenSize = window.innerWidth < 760;
@@ -40,8 +39,8 @@ function About() {
             position={modelPose}
             scale={modelScale}
             rotation={rotation}
+            screenSize={screenSize}
           />
-          <AboutText screenSize={screenSize} />
         </Suspense>
       </Canvas>
     </section>
