@@ -14,7 +14,7 @@ function Arcade(props) {
       rotation={props.rotation}
     >
       <primitive object={scene} />
-      <group position={[0, 155, 0]} scale={5}>
+      <group position={[0, 157, 0]} scale={5}>
         <Timeline />
       </group>
     </group>
