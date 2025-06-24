@@ -14,19 +14,19 @@ function TimeCard({ index, title }) {
       <div className="flex gap-4 items-center">
         <div className="bg-gray-600 w-[70px] h-[80px] rounded-[10px]"></div>
         <div className="flex flex-col gap-2 text-left">
-          <p className="text-cyan-300 text-xl font-bold">
+          <p className="text-xl font-bold">
             Level {index + 1}: {title}
           </p>
           <div className="flex gap-3 mt-1 text-base">
             <a
               href="#"
-              className="rounded-lg border-2 border-yellow-400 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover:text-black transition"
+              className="rounded-lg border-2 border-yellow-300 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover: transition"
             >
               GitHub
             </a>
             <a
               href="#"
-              className="rounded-lg border-2 border-yellow-400 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover:text-black transition"
+              className="rounded-lg border-2 border-yellow-300 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover: transition"
             >
               View Demo
             </a>
