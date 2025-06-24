@@ -1,7 +1,7 @@
 function TimeCard({ index, title }) {
   return (
     <div
-      className="w-full rounded-[30px] p-6 bg-[#111] border-[1px]"
+      className="w-full rounded-[30px] p-6 bg-blue-950 border-[1px]"
       style={{
         borderColor: "var(--c)",
         boxShadow: `
@@ -12,7 +12,7 @@ function TimeCard({ index, title }) {
       }}
     >
       <div className="flex gap-4 items-center">
-        <div className="bg-[#1e1e2f] w-[70px] h-[80px] rounded-[10px] shadow-inner border border-[#333]"></div>
+        <div className="bg-gray-600 w-[70px] h-[80px] rounded-[10px]"></div>
         <div className="flex flex-col gap-2 text-left">
           <p className="text-cyan-300 text-xl font-bold">
             Level {index + 1}: {title}

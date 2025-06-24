@@ -5,6 +5,7 @@ a {
 a:hover {
   color: white;
 }
+
 .time-container {
   grid-template-columns: repeat(3, 220px);
 }

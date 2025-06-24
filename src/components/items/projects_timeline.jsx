@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import "../../css/timeline.css";
 import { Html } from "@react-three/drei";
 import { motion, useMotionValue } from "framer-motion";
-import TimeCard from "../items/time_line_card.jsx"; 
+import TimeCard from "../items/time_line_card.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGamepad } from "@fortawesome/free-solid-svg-icons";
 
 function Timeline() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -65,11 +67,14 @@ function Timeline() {
 
   return (
     <Html transform center>
-      <div
-        className="flex flex-col font-bold z-10 h-[60svh]"
-        ref={containerRef}
-      >
-        <div className="overflow-hidden text-white h-full">
+      <div className="font-bold h-[50svh]" ref={containerRef}>
+        <div className="text-center text-7xl text-yellow-300 ">
+          <FontAwesomeIcon icon={faGamepad} />
+        </div>
+        <div className="ml-80 -z-1 absolute w-fit text-6xl text-transparent rounded-[15px] border-15 border-yellow-300 border-r-0 border-t-0">
+          r
+        </div>
+        <div className="overflow-hidden text-white h-full pt-14">
           <motion.ul
             ref={listRef}
             className={`time-container w-fit p-0 m-0 grid content-center list-none ${
