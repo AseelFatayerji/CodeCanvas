@@ -67,10 +67,7 @@ function Timeline() {
 
   return (
     <Html transform center>
-      <div className="font-bold h-[54svh]" ref={containerRef}>
-        <div className="text-center text-7xl text-yellow-300 ">
-          <FontAwesomeIcon icon={faGamepad} />
-        </div>
+      <div className="font-bold h-[62svh]" ref={containerRef}>
         <div className="overflow-hidden text-white h-full">
           <motion.ul
             ref={listRef}
