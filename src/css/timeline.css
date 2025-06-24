@@ -11,12 +11,14 @@ a:hover {
 }
 
 .time-line {
-  background: linear-gradient(rgb(26, 26, 26) 0 0) content-box,
+  background: 
+    linear-gradient(rgb(26, 26, 26) 0 0) content-box,
     linear-gradient(var(--c, #eb3edc) 0 0) padding-box,
-    linear-gradient(var(--d, 90deg), #0000 65%, #fce300 0) border-box;
+    linear-gradient(var(--d, 90deg), transparent 60%, transparent 60%, #fce300 100%) border-box;
   border: 15px solid transparent;
   border-radius: 60px;
 }
+
 
 .time-line:nth-child(even) {
   grid-column-end: -1;

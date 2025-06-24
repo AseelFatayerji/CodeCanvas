@@ -71,10 +71,7 @@ function Timeline() {
         <div className="text-center text-7xl text-yellow-300 ">
           <FontAwesomeIcon icon={faGamepad} />
         </div>
-        <div className="ml-80 -z-1 absolute w-fit text-6xl text-transparent rounded-[15px] border-15 border-yellow-300 border-r-0 border-t-0">
-          r
-        </div>
-        <div className="overflow-hidden text-white h-full pt-14">
+        <div className="overflow-hidden text-white h-full">
           <motion.ul
             ref={listRef}
             className={`time-container w-fit p-0 m-0 grid content-center list-none ${
