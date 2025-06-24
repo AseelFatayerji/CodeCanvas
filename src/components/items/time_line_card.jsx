@@ -1,30 +1,40 @@
-function TimeCard({ disc, title }) {
-    return (
-        <>
-            <div className="w-full h-full text-center items-left overflow-hidden p-3">
-                <div className="max-h-fit bg-lime-400 rounded-t-3xl p-2 text-white flex flex-row justify-start gap-2">
-                    <div className="bg-gray-600 w-[60px] h-[70px] rounded-[10px] top-[10px] left-[10px]"></div>
-                    <div className="gap-1 flex flex-col">
-                        <p className="bg-slate-600 text-[20px] p-1 font-bold max-w-fit h-fit rounded-[5px] border border-gray-800 left-[70px]">
-                            {title}
-                        </p>
-                        <p className="bg-gray-600 text-[20px] p-1 font-bold max-w-fit h-fit rounded-[5px] border border-gray-800 left-[70px]">
-                            ID
-                        </p>
-                    </div>
-
-                </div>
-                <div className="bg-gray-800/50 w-full min-h">
-                    {disc}
-                </div>
-
-                <div className="mt-2 mx-[5px] border-t-2 border-graybg-gray-800/50 pt-1 flex space-x-4 text-white text-sm">
-                    <a href="#">Repository</a>
-                    <a href="#">View Demo</a>
-                </div>
-            </div>
-
-        </>);
+function TimeCard({ index, title }) {
+  return (
+    <div
+      className="w-full rounded-[30px] p-6 bg-[#111] border-[1px]"
+      style={{
+        borderColor: "var(--c)",
+        boxShadow: `
+          0 0 20px var(--c),
+          0 0 40px var(--c),
+          0 0 60px var(--c)
+        `,
+      }}
+    >
+      <div className="flex gap-4 items-center">
+        <div className="bg-[#1e1e2f] w-[70px] h-[80px] rounded-[10px] shadow-inner border border-[#333]"></div>
+        <div className="flex flex-col gap-2 text-left">
+          <p className="text-cyan-300 text-xl font-bold">
+            Level {index + 1}: {title}
+          </p>
+          <div className="flex gap-3 mt-1 text-base">
+            <a
+              href="#"
+              className="rounded-lg border-2 border-yellow-400 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover:text-black transition"
+            >
+              GitHub
+            </a>
+            <a
+              href="#"
+              className="rounded-lg border-2 border-yellow-400 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover:text-black transition"
+            >
+              View Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default TimeCard;
