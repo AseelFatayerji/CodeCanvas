@@ -1,8 +1,12 @@
-a {
+button {
+  background-color: transparent;
   text-decoration: none;
   color: yellow;
+  border: 2px solid yellow;
+  padding: 5px 10px;
 }
-a:hover {
+button:hover {
+  background-color: yellow;
   color: black;
 }
 
