@@ -1,19 +1,18 @@
-import { Html } from "@react-three/drei";
 import '../../css/loader.css';
 
 function PacMan() {
   return (
-    <Html>
-      <div class="loader-wrapper">
-        <div class="packman"></div>
-        <div class="dots">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
+    <>
+      <div className="loader-wrapper">
+        <div className="packman"></div>
+        <div className="dots">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
         </div>
       </div>
-    </Html>
+    </>
   );
 }
 

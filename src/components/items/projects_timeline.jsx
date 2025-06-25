@@ -84,7 +84,11 @@ function Timeline() {
     };
   }, [prjs]);
   if (loading) {
-    return <PacMan />;
+    return (
+      <Html position={[0, 1, 0]} scale={2} transform center>
+        <PacMan />
+      </Html>
+    );
   }
 
   return (
