@@ -1,4 +1,4 @@
-function TimeCard({ index, title }) {
+function TimeCard({ index, title, demo, link }) {
   return (
     <div
       className="w-full rounded-[30px] p-6 bg-blue-950 border-[1px]"
@@ -19,13 +19,13 @@ function TimeCard({ index, title }) {
           </p>
           <div className="flex gap-3 mt-1 text-base">
             <a
-              href="#"
+              href={link}
               className="rounded-lg border-2 border-yellow-300 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover: transition"
             >
               GitHub
             </a>
             <a
-              href="#"
+              href={demo}
               className="rounded-lg border-2 border-yellow-300 text-yellow-300 px-3 py-1 hover:bg-yellow-400 hover: transition"
             >
               View Demo

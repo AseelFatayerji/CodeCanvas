@@ -1,10 +1,9 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import "../../css/timeline.css";
 import { Html } from "@react-three/drei";
 import { motion, useMotionValue } from "framer-motion";
 import TimeCard from "../items/time_line_card.jsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGamepad } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 function Timeline() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,9 +14,8 @@ function Timeline() {
   const listRef = useRef(null);
   const y = useMotionValue(0);
 
-  const prjs = Array.from({ length: 11 }, (_, i) => ({
-    Name: `Project ${i + 1}`,
-  }));
+  const [prjs, setPrjs] = useState([]);
+  const username = "AseelFatayerji";
 
   const total = prjs.length;
 
@@ -31,6 +29,21 @@ function Timeline() {
 
   const handleMouseDown = () => setIsMouseDown(true);
   const handleMouseUp = () => setIsMouseDown(false);
+
+  useEffect(() => {
+    axios
+      .get(`https://api.github.com/users/${username}/repos`)
+      .then((res) => {
+        const projects = res.data.map((repo) => ({
+          name: repo.name.replace(/-/g, " "),
+          link: repo.html_url,
+          demo: "https://aseelfatayerji.github.io/" + repo.name
+        }));
+        setPrjs(projects);
+        console.log("Fetched repos:", res.data);
+      })
+      .catch((err) => console.error("Error fetching repos:", err));
+  }, []);
 
   useEffect(() => {
     y.set(-currentIndex * 180);
@@ -89,7 +102,7 @@ function Timeline() {
                   "--d": index % 2 === 0 ? "90deg" : "-90deg",
                 }}
               >
-                <TimeCard index={index} title={project.Name} />
+                <TimeCard index={index} title={project.name} demo={project.demo} link={project.link}/>
               </li>
             ))}
           </motion.ul>
