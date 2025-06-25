@@ -15,7 +15,7 @@ function TimeCard({ index, title, demo, link }) {
       }}
     >
       <div className="flex gap-4 items-center">
-        <div className="bg-gray-600 w-[70px] h-[80px] rounded-[10px] text-4xl">
+        <div className="w-[70px] h-[80px] rounded-[10px] border-3 border-white text-4xl">
           <div className="w-full h-full flex items-center justify-center text-white">
             <FontAwesomeIcon icon={faFolderOpen} />
           </div>
