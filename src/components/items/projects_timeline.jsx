@@ -4,6 +4,7 @@ import { Html } from "@react-three/drei";
 import { motion, useMotionValue } from "framer-motion";
 import TimeCard from "../items/time_line_card.jsx";
 import axios from "axios";
+import PacMan from "../loaders/pacman-loader.jsx";
 
 function Timeline() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,7 +15,9 @@ function Timeline() {
   const listRef = useRef(null);
   const y = useMotionValue(0);
 
+  const [loading, setLoading] = useState(true);
   const [prjs, setPrjs] = useState([]);
+
   const username = "AseelFatayerji";
 
   const total = prjs.length;
@@ -37,12 +40,15 @@ function Timeline() {
         const projects = res.data.map((repo) => ({
           name: repo.name.replace(/-/g, " "),
           link: repo.html_url,
-          demo: "https://aseelfatayerji.github.io/" + repo.name
+          demo: "https://aseelfatayerji.github.io/" + repo.name,
         }));
         setPrjs(projects);
         console.log("Fetched repos:", res.data);
       })
-      .catch((err) => console.error("Error fetching repos:", err));
+      .catch((err) => console.error("Error fetching repos:", err))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -77,6 +83,9 @@ function Timeline() {
       window.removeEventListener("resize", updateDragConstraints);
     };
   }, [prjs]);
+  if (loading) {
+    return <PacMan />;
+  }
 
   return (
     <Html transform center>
@@ -102,7 +111,12 @@ function Timeline() {
                   "--d": index % 2 === 0 ? "90deg" : "-90deg",
                 }}
               >
-                <TimeCard index={index} title={project.name} demo={project.demo} link={project.link}/>
+                <TimeCard
+                  index={index}
+                  title={project.name}
+                  demo={project.demo}
+                  link={project.link}
+                />
               </li>
             ))}
           </motion.ul>
