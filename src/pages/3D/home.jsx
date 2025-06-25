@@ -1,6 +1,6 @@
 import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useState, useRef, useEffect } from "react";
-import Loader from "../../components/loaders/loader";
+import Loader from "../../components/loaders/model-loader";
 
 import Model from "../../model_loader/street";
 import Sky from "../../model_loader/sky";

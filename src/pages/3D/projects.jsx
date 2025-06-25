@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
 import "../../css/backgrounds.css";
-import Loader from "../../components/loaders/loader";
+import Loader from "../../components/loaders/model-loader";
 import Arcade from "../../model_loader/project_arcade";
 import JoyStick from "../../model_loader/controller";
 

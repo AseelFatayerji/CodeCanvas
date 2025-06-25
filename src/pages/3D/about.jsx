@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
-import Loader from "../../components/loaders/loader";
+import Loader from "../../components/loaders/model-loader";
 import Computer from "../../model_loader/pc_screen";
 import Globe from "../../model_loader/globe";
 import Lamp from "../../model_loader/lamp";
