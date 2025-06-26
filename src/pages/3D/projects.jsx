@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import "../../css/backgrounds.css";
 import Loader from "../../components/loaders/model-loader";
 import Arcade from "../../model_loader/project_arcade";
-import JoyStick from "../../model_loader/controller";
+import JoyStick2 from "../../model_loader/controller2";
 
 function Projects() {
   const screenSize = window.innerWidth < 700;
@@ -31,7 +31,7 @@ function Projects() {
       >
         <Suspense fallback={<Loader />}>
           <ambientLight position={[2, 2, 2]} intensity={2} />
-          <JoyStick position={modelPose} scale={modelScale} />
+          <JoyStick2 position={modelPose} scale={modelScale} />
           <Arcade position={modelPose} scale={modelScale} rotation={rotation} />
         </Suspense>
       </Canvas>
