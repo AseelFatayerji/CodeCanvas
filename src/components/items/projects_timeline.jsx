@@ -93,7 +93,7 @@ function Timeline() {
 
   return (
     <Html transform center>
-      <div className="font-bold h-[62svh]" ref={containerRef}>
+      <div className="font-bold min-h-[50vh] h-[62svh] " ref={containerRef}>
         <div className="overflow-hidden text-white h-full">
           <motion.ul
             ref={listRef}

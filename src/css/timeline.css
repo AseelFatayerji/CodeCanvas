@@ -31,8 +31,6 @@ button:hover {
 .time-line:nth-child(even) {
   color: cyan;
   grid-column-end: -1;
-  --d: -90deg;
-  --c: #009cda;
 }
 .time-line:nth-child(odd) {
   color: magenta;
