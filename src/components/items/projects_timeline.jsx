@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import "../../css/timeline.css";
 import { Html } from "@react-three/drei";
 import { motion, useMotionValue } from "framer-motion";
@@ -20,15 +20,17 @@ function Timeline() {
 
   const username = "AseelFatayerji";
 
-  const total = prjs.length;
+  const nextProject = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prjs.length === 0 ? 0 : (prev + 1) % prjs.length
+    );
+  }, [prjs]);
 
-  const nextProject = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % total);
-  };
-
-  const prevProject = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + total) % total);
-  };
+  const prevProject = useCallback(() => {
+    setCurrentIndex((prev) =>
+      prjs.length === 0 ? 0 : (prev - 1 + prjs.length) % prjs.length
+    );
+  }, [prjs]);
 
   const handleMouseDown = () => setIsMouseDown(true);
   const handleMouseUp = () => setIsMouseDown(false);
@@ -43,7 +45,6 @@ function Timeline() {
           demo: "https://aseelfatayerji.github.io/" + repo.name,
         }));
         setPrjs(projects);
-        console.log("Fetched repos:", res.data);
       })
       .catch((err) => console.error("Error fetching repos:", err))
       .finally(() => {
@@ -57,12 +58,18 @@ function Timeline() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === "ArrowUp") prevProject();
-      if (event.key === "ArrowDown") nextProject();
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        prevProject();
+      }
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        nextProject();
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [nextProject, prevProject]);
 
   useEffect(() => {
     const updateDragConstraints = () => {
@@ -93,7 +100,7 @@ function Timeline() {
 
   return (
     <Html transform center>
-      <div className="font-bold min-h-[50vh] h-[62svh] " ref={containerRef}>
+      <div className="font-bold h-[62svh] " ref={containerRef}>
         <div className="overflow-hidden text-white h-full">
           <motion.ul
             ref={listRef}
