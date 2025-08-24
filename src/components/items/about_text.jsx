@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-function AboutText() {
+
+export default function AboutText() {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
@@ -41,4 +42,3 @@ function AboutText() {
   );
 }
 
-export default AboutText;
