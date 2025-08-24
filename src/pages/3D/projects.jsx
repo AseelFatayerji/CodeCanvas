@@ -6,7 +6,7 @@ import Loader from "../../components/loaders/model-loader";
 import Arcade from "../../model_loader/project_arcade";
 import JoyStick2 from "../../model_loader/controller2";
 
-function Projects() {
+export default function Projects3D() {
   const screenSize = window.innerWidth < 700;
   const adjustModel = () => {
     let screenScale = null;
@@ -38,5 +38,3 @@ function Projects() {
     </section>
   );
 }
-
-export default Projects;

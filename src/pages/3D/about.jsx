@@ -6,7 +6,7 @@ import Computer from "../../model_loader/pc_screen";
 import Globe from "../../model_loader/globe";
 import Lamp from "../../model_loader/lamp";
 
-function About() {
+export default function About3D() {
   const screenSize = window.innerWidth < 760;
   const adjustModel = () => {
     let screenScale = null;
@@ -47,4 +47,3 @@ function About() {
   );
 }
 
-export default About;

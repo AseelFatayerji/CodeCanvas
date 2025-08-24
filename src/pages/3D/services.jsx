@@ -1,5 +1,5 @@
 
-function Services() {
+export default function Services3D() {
   return (
     <header className="w-lvw h-lvh">
       Services
@@ -8,4 +8,3 @@ function Services() {
   );
 }
 
-export default Services;

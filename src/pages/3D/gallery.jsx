@@ -6,7 +6,7 @@ import Loader from "../../components/loaders/model-loader";
 import Arcade from "../../model_loader/gallery_arcade";
 import JoyStick from "../../model_loader/controller";
 
-function Gallery() {
+export default function Gallery3D() {
   const screenSize = window.innerWidth < 700;
   const adjustModel = () => {
     let screenScale = null;
@@ -44,4 +44,3 @@ function Gallery() {
   );
 }
 
-export default Gallery;
