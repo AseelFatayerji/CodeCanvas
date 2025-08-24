@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./css/App.css";
 import "./css/animation.css";
 import "./css/backgrounds.css";
-import { Home, About, Contact, Gallery, Projects, Services } from "./pages";
+import { About, About3D, Contact3D, Gallery3D, Projects3D, Services3D } from "./pages";
 import Navbar from "./components/navbar";
 
 function App() {
@@ -10,12 +10,12 @@ function App() {
     <main className="bg-slate">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Services" element={<Services />} />
-        <Route path="/Gallery" element={<Gallery />} />
-        <Route path="/Projects" element={<Projects />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/" element={<About />} />
+        <Route path="3D/About" element={<About3D />} />
+        <Route path="3D/Services" element={<Services3D />} />
+        <Route path="3D/Gallery" element={<Gallery3D />} />
+        <Route path="3D/Projects" element={<Projects3D />} />
+        <Route path="3D/Contact" element={<Contact3D />} />
       </Routes>
     </main>
   );
