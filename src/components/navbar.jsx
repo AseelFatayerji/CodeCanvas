@@ -10,7 +10,7 @@ function Navbar() {
           </NavLink>
         </div>
         <div className="flex gap-7 justify-even">
-          <NavLink to="/About" className="">
+          <NavLink to="/" className="">
             About
           </NavLink>
           <NavLink to="/Services" className="">
