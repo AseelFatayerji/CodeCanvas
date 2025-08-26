@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import "./css/App.css";
 import "./css/animation.css";
 import "./css/backgrounds.css";
+import "./css/shapes.css";
 import { Home, About3D, Contact3D, Gallery3D, Projects3D, Services3D } from "./pages";
 import Navbar from "./components/navbar";
 
