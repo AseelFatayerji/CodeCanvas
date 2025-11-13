@@ -1,40 +1,36 @@
 @import "tailwindcss";
 
-nav div a {
-    color: black;
+nav a {
+  color: #a1a1a1;
 }
 
-nav div a::after {
-    background: black;
-    border-radius: 3px;
-    color: black;
-    content: '';
-    display: block;
-    height: 3px;
-    width: 0px;
-    transition: width 300ms ease-in;
+nav a::after {
+  background: white;
+  border-radius: 3px;
+  color: white;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0px;
+  transition: width 300ms ease-in;
 }
 
-nav div a:hover {
-    color: black;
+nav a:hover {
+  color: white;
 }
 
-nav div a:hover::after {
-    width: 100%;
+nav a:hover::after {
+  width: 100%;
 }
 
-nav div a.active::after {
-    border-radius: 3px;
-    width: 100%;
+nav a.active::after {
+  color: white;
+  border-radius: 3px;
+  width: 100%;
 }
 
-nav div a.active {
-    color: black;
+nav a.active {
+  color: white;
 }
 
-.right-gallery {
-    background: linear-gradient(90deg, rgba(7, 51, 149, 0) 58%, rgba(137, 217, 198, 0.808) 100%);
-}
-.left-gallery {
-    background: linear-gradient(90deg, rgba(137, 217, 198, 0.7) 0%, rgba(9, 9, 121, 0) 38%);
-}
+

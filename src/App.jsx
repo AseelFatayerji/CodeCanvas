@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./css/App.css";
-import { Home} from "./pages";
+import { Hero} from "./pages";
 import Navbar from "./components/navbar";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <main className="bg-slate">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Hero />} />
       </Routes>
     </main>
   );
