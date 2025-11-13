@@ -1,11 +1,13 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 function ParallaxBg() {
   const { scrollYProgress } = useScroll();
-  const pY = useTransform(scrollYProgress, [0, 0.5], ["0%", "70%"]);
-  const p2X = useTransform(scrollYProgress, [0, 0.5], ["0%", "-20%"]);
-  const sY = useTransform(scrollYProgress, [0, 0.5], ["0%", "-30%"]);
-  const bY = useTransform(scrollYProgress, [0, 0.5], ["0%", "00%"]);
+
+  const spring = useSpring(scrollYProgress, { damping: 30 });
+  const pY = useTransform(spring, [0, 0.5], ["0%", "70%"]);
+  const p2X = useTransform(spring, [0, 0.5], ["0%", "-20%"]);
+  const sY = useTransform(spring, [0, 0.5], ["0%", "-30%"]);
+  const bY = useTransform(spring, [0, 0.5], ["0%", "00%"]);
 
   return (
     <section className="absolute inset-0 bg-black/40">
