@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function NavLinks() {
   return (
@@ -51,13 +52,18 @@ function Navbar() {
           </label>
         </div>
       </div>
-      <div className="absolute justify-end px-3 overflow-hidden text-center right-0 sm:hidden">
-        {isOpen && (
+      {isOpen && (
+        <motion.div
+          className="absolute justify-end px-3 overflow-hidden text-center right-0 sm:hidden"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0  }}
+          transition={{ duration: 1 }}
+        >
           <nav className="pb-5 w-fit flex flex-col gap-3  items-end ">
             <NavLinks />
-          </nav>
-        )}
-      </div>
+          </nav>{" "}
+        </motion.div>
+      )}
     </header>
   );
 }
