@@ -26,14 +26,14 @@ function NavLinks() {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="p-3  fixed w-full z-20 index-x-0">
-      <div className="flex items-center justify-between py-2 sm:py-0">
+    <header className="p-3  fixed w-screen z-20 index-x-0">
+      <div className="flex justify-between ">
         <div>
           <NavLink to="/" className="text-xl font-bold transition-colors">
             Portfolio.
           </NavLink>
         </div>
-        <div className="flex gap-7 justify-even">
+        <div className="flex justify-even">
           <nav className="hidden sm:flex gap-7 justify-even">
             <NavLinks margin={0} />
           </nav>

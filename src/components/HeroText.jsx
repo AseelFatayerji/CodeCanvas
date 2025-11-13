@@ -8,7 +8,7 @@ function HeroText() {
     visible: { opacity: 1, x: 0 },
   };
   return (
-    <div className="z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left sm:px-10 ">
+    <div className="z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left ">
       <div className="flex-col hidden md:flex text-neutral-300 font-medium">
         <motion.h1
           className="text-4xl"
