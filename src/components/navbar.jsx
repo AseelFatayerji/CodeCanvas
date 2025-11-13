@@ -61,7 +61,7 @@ function Navbar() {
         >
           <nav className="pb-5 w-fit flex flex-col gap-3  items-end ">
             <NavLinks />
-          </nav>{" "}
+          </nav>
         </motion.div>
       )}
     </header>
