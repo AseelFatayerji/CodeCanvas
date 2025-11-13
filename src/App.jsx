@@ -5,11 +5,10 @@ import Navbar from "./components/navbar";
 
 function App() {
   return (
-    <main className="bg-slate">
+    <main >
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Hero />} />
-      </Routes>
+      <Hero />
+      <section className="h-screen"></section>
     </main>
   );
 }
