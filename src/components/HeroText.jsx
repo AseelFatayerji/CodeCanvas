@@ -11,7 +11,7 @@ function HeroText() {
     <div className="z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left sm:px-10 ">
       <div className="flex-col hidden md:flex text-neutral-300 font-medium">
         <motion.h1
-          className="text-3xl"
+          className="text-4xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1 }}
@@ -20,7 +20,7 @@ function HeroText() {
         </motion.h1>
         <div className="flex flex-col items-start">
           <motion.p
-            className="text-5xl "
+            className="text-6xl "
             variants={variants}
             initial="hidden"
             animate="visible"
@@ -38,7 +38,7 @@ function HeroText() {
             <FlipWords words={words} />
           </motion.div>
           <motion.p
-            className="text-4xl "
+            className="text-5xl "
             variants={variants}
             initial="hidden"
             animate="visible"
