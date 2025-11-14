@@ -1,4 +1,4 @@
-import { FlipWords } from "./FlipWords";
+import { FlipWords } from "./interactive/FlipWords";
 import { motion } from "framer-motion";
 
 function HeroText() {

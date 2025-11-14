@@ -1,11 +1,11 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import HeroText from "../components/HeroText";
-import ParallaxBg from "../components/ParallaxBg";
 import Astronaut from "../model_loader/Astronaut";
 import Loader from "../components/loaders/model-loader";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { easing } from "maath";
+import ParallaxBg from "../components/parallax/ParallaxBg";
 
 function Hero() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
@@ -13,7 +13,7 @@ function Hero() {
   return (
     <div id="Hero" className="flex justify-center md:justify-start min-h-screen">
       <HeroText />
-      <ParallaxBg />
+     <ParallaxBg/>
       <figure className="absolute inset-0 w-full h-full m-0">
         <Canvas>
           <Suspense fallback={<Loader />}>
