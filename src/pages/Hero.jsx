@@ -1,10 +1,11 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import HeroText from "../components/HeroText";
 import ParallaxBg from "../components/ParallaxBg";
 import Astronaut from "../model_loader/Astronaut";
 import Loader from "../components/loaders/model-loader";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
+import { easing } from "maath";
 
 function Hero() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
@@ -17,14 +18,25 @@ function Hero() {
         <Canvas>
           <Suspense fallback={<Loader />}>
             <Astronaut
-              position={isMobile ? [0.2, -2.3, 0] : [2, -1, 0]}
-              scale={isMobile ? 1 : 2.7}
+              position={isMobile ? [0.2, -2.3, 0] : [1.5, 0, 0]}
+              scale={isMobile ? 1 : 1.5}
             />
+            <Rig />
           </Suspense>
         </Canvas>
       </figure>
     </div>
   );
+}
+function Rig() {
+  return useFrame((state, delta) => {
+    easing.damp3(
+      state.camera.position,
+      [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
+      0.5,
+      delta
+    );
+  });
 }
 
 export default Hero;
