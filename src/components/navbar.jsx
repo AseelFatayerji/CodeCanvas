@@ -1,23 +1,23 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { HashLink as NavLink } from "react-router-hash-link";
 
 function NavLinks() {
   return (
     <>
-      <NavLink to="/" className={`text-xl font-bold transition-colors `}>
+      <NavLink to="#Hero" className={`text-xl font-bold transition-colors `}>
         Home
       </NavLink>
-      <NavLink to="/About" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#About" className={`text-xl font-bold transition-colors`}>
         About
       </NavLink>
-      <NavLink to="/Services" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Services" className={`text-xl font-bold transition-colors`}>
         Services
       </NavLink>
-      <NavLink to="/Projects" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Projects" className={`text-xl font-bold transition-colors`}>
         Projects
       </NavLink>
-      <NavLink to="/Contact" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Contact" className={`text-xl font-bold transition-colors`}>
         Contact
       </NavLink>
     </>
@@ -26,10 +26,10 @@ function NavLinks() {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="p-3  fixed w-screen z-20 index-x-0">
+    <header className="py-3 px-8  fixed w-screen z-20 index-x-0">
       <div className="flex justify-between ">
         <div>
-          <NavLink to="/" className="text-xl font-bold transition-colors">
+          <NavLink to="#Hero" className="text-xl font-bold transition-colors">
             Portfolio.
           </NavLink>
         </div>

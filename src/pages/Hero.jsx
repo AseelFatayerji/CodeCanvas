@@ -11,14 +11,14 @@ function Hero() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
 
   return (
-    <div className="flex justify-center md:justify-start min-h-screen">
+    <div id="Hero" className="flex justify-center md:justify-start min-h-screen">
       <HeroText />
       <ParallaxBg />
       <figure className="absolute inset-0 w-full h-full m-0">
         <Canvas>
           <Suspense fallback={<Loader />}>
             <Astronaut
-              position={isMobile ? [0.2, -2.3, 0] : [1.5, 0, 0]}
+              position={isMobile ? [0.2, -1 , 0] : [1.5, 0, 0]}
               scale={isMobile ? 1 : 1.5}
             />
             <Rig />

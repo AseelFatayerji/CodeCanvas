@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-nav a {
+ a {
   color: #a1a1a1;
 }
 
-nav a::after {
+ a::after {
   background: white;
   border-radius: 3px;
   color: white;
@@ -15,22 +15,45 @@ nav a::after {
   transition: width 300ms ease-in;
 }
 
-nav a:hover {
+ a:hover {
   color: white;
 }
 
-nav a:hover::after {
+ a:hover::after {
   width: 100%;
 }
 
-nav a.active::after {
+ a.active::after {
   color: white;
   border-radius: 3px;
   width: 100%;
 }
 
-nav a.active {
+ a.active {
   color: white;
 }
+.grid-1{
+  @apply row-span-2 md:col-span-3 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-2{
+  @apply row-span-1 md:col-span-3 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-3{
+  @apply row-span-1 md:col-span-3 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-4{
+  @apply row-span-1 md:col-span-2 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-5{
+  @apply row-span-1 md:col-span-4 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-default-color {
+  @apply p-6 bg-linear-to-b from-[#282b4b] to-indigo-950 rounded-2xl;
+}
 
-
+.grid-special-color {
+  @apply p-6 bg-linear-to-b from-[#5c33cc] to-[#7a57db] rounded-2xl;
+}
+.grid-black-color {
+  @apply p-6 bg-linear-to-tl from-[#3a3a3a] via-[#242424] to-[#3a3a3a] rounded-2xl;
+}
