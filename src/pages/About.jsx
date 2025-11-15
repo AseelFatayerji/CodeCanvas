@@ -15,6 +15,9 @@ import Astronaut from "../model_loader/Astronaut2";
 import Loader from "../components/loaders/model-loader";
 import { useMediaQuery } from "react-responsive";
 import { easing } from "maath";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import CopyBtn from "../components/CopyBtn";
 
 function Rig() {
   return useFrame((state, delta) => {
@@ -30,6 +33,7 @@ function Rig() {
 function About() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const gridContainer = useRef();
+
   return (
     <section
       id="About"
@@ -55,7 +59,9 @@ function About() {
             ref={gridContainer}
             className="flex items-center justify-center h-full w-full"
           >
-            <p className="flex items-end text-5xl text-gray-500 select-none">CODE IS ART</p>
+            <p className="flex items-end text-5xl text-gray-500 select-none">
+              CODE IS ART
+            </p>
             <Card
               style={{ rotate: "75deg", top: "30%", left: "20%" }}
               text="MAINTAIN"
@@ -164,10 +170,16 @@ function About() {
             </p>
           </div>
         </div>
-        <div className="flex items-end grid-special-color grid-4">Stacks</div>
-        <div className="flex items-end grid-default-color grid-5">
-          CV Download
+        <div className="relative grid-special-color grid-4 h-40 flex items-center justify-center">
+          <div className="absolute top-4 right-4">
+            <CopyBtn />
+          </div>
+          <p className="text-center text-lg select-none">
+            Do you want to start a project together?
+          </p>
         </div>
+
+        <div className="flex items-end grid-default-color grid-5">Stacks</div>
       </div>
     </section>
   );
