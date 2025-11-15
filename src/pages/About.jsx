@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 import Card from "../components/interactive/Card";
 import {
   faCss,
@@ -10,8 +10,25 @@ import {
   faNodeJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
+import { Canvas, useFrame } from "@react-three/fiber";
+import Astronaut from "../model_loader/Astronaut2";
+import Loader from "../components/loaders/model-loader";
+import { useMediaQuery } from "react-responsive";
+import { easing } from "maath";
+
+function Rig() {
+  return useFrame((state, delta) => {
+    easing.damp3(
+      state.camera.position,
+      [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
+      0.5,
+      delta
+    );
+  });
+}
 
 function About() {
+  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const gridContainer = useRef();
   return (
     <section
@@ -20,7 +37,19 @@ function About() {
     >
       <h2 className="text-center text-4xl ">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[15rem] md:px-36 px-10">
-        <div className="flex grid-1">Model</div>
+        <div className="flex grid-1">
+          <figure className="absolute inset-0 w-full h-full m-0 ">
+            <Canvas>
+              <Suspense fallback={<Loader />}>
+                <Astronaut
+                  position={isMobile ? [0.2, -1, 0] : [-0.5, 1, 0]}
+                  scale={isMobile ? 1 : 2}
+                />
+                <Rig />
+              </Suspense>
+            </Canvas>
+          </figure>
+        </div>
         <div className="grid-default-color grid-2">
           <div
             ref={gridContainer}
