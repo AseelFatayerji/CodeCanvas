@@ -2,7 +2,7 @@ import { FlipWords } from "./interactive/FlipWords";
 import { motion } from "framer-motion";
 
 function HeroText() {
-  const words = ["Secure", "Inovative", "Unique", "Scalable"];
+  const words = ["Secure", "Innovative", "Unique", "Scalable"];
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
