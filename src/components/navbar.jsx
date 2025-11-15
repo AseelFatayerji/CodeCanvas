@@ -26,7 +26,7 @@ function NavLinks() {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="py-3 px-8  fixed w-screen z-20 index-x-0">
+    <header className="py-3 px-8  fixed w-screen z-20 index-x-0 select-none">
       <div className="flex justify-between ">
         <div>
           <NavLink to="#Hero" className="text-xl font-bold transition-colors">

@@ -35,7 +35,7 @@ function About() {
       id="About"
       className="w-full h-fit text-center inset-0 -z-50 border2 pt-16"
     >
-      <h2 className="text-center text-4xl ">About Me</h2>
+      <h2 className="text-center text-4xl select-none">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[15rem] md:px-36 px-10">
         <div className="flex grid-1">
           <figure className="absolute inset-0 w-full h-full m-0 ">
@@ -55,7 +55,7 @@ function About() {
             ref={gridContainer}
             className="flex items-center justify-center h-full w-full"
           >
-            <p className="flex items-end text-5xl text-gray-500">CODE IS ART</p>
+            <p className="flex items-end text-5xl text-gray-500 select-none">CODE IS ART</p>
             <Card
               style={{ rotate: "75deg", top: "30%", left: "20%" }}
               text="MAINTAIN"
@@ -155,7 +155,7 @@ function About() {
         </div>
         <div className="flex items-end grid-black-color grid-3">
           {/* <img src="" className="absolute " /> */}
-          <div className="z-10 text-left items-start">
+          <div className="z-10 text-left items-start select-none">
             <p className="text-md">Hi I'm Aseel Fatayerji</p>
             <p className="text-xs text-neutral-400 text-pretty">
               Over the last 5 years, I've developed my coding skills in
