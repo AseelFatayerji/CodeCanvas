@@ -1,15 +1,16 @@
 import { Loader } from "@react-three/drei";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { Suspense } from "react";
 import Astronaut from "../model_loader/Astronaut3";
 import { easing } from "maath";
 import { useMediaQuery } from "react-responsive";
 
 function Rig() {
+  const { camera, mouse } = useThree();
   return useFrame((state, delta) => {
     easing.damp3(
-      state.camera.position,
-      [state.mouse.x / 10, 1 + state.mouse.y / 10, 3],
+      camera.position,
+      [mouse.x / 10, 1 + mouse.y / 10, 3],
       0.5,
       delta
     );
@@ -37,15 +38,16 @@ function Services() {
           <div className="flex items-end grid-default-color">Service</div>
         </div>
         <div className="flex-1">
-          <Canvas>
+          {/* <Canvas>
             <Suspense fallback={<Loader />}>
               <Astronaut
                 position={isMobile ? [0.2, -1, 0] : [1.5, 0, 0]}
                 scale={isMobile ? 1 : 1.5}
               />
               <Rig />
+              {typeof window !== "undefined" && <Rig />}
             </Suspense>
-          </Canvas>
+          </Canvas> */}
         </div>
       </div>
     </section>

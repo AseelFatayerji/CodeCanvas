@@ -15,9 +15,8 @@ import Astronaut from "../model_loader/Astronaut2";
 import Loader from "../components/loaders/model-loader";
 import { useMediaQuery } from "react-responsive";
 import { easing } from "maath";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import CopyBtn from "../components/CopyBtn";
+import Stack from "../components/Stack";
 
 function Rig() {
   return useFrame((state, delta) => {
@@ -179,7 +178,18 @@ function About() {
           </p>
         </div>
 
-        <div className="flex items-end grid-default-color grid-5">Stacks</div>
+        <div className=" grid-default-color grid-5">
+          <div className="z-10 w-[50%] text-left text-pretty">
+            <p className="text-2xl">Tech Stacks</p>
+            <p className="text-md text-gray-400">
+              I specialize in a variety of tools and frameworks that allow me to
+              build robust and responsive applications.
+            </p>
+          </div>
+          <div className="absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] md:scale-125">
+            <Stack />
+          </div>
+        </div>
       </div>
     </section>
   );
