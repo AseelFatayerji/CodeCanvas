@@ -8,7 +8,7 @@ function Card(prop) {
       drag
       dragConstraints={prop.ref}
       dragElastic={1}
-      className={`absolute text-5xl cursor-grab `}
+      className={`absolute text-5xl cursor-grab active:cursor-grabbing`}
       style={prop.style}
     >
       <FontAwesomeIcon icon={prop.img} />
@@ -19,7 +19,7 @@ function Card(prop) {
       drag
       dragConstraints={prop.ref}
       dragElastic={1}
-      className="absolute px-1 py-4 text-xl text-center rounded-full ring-gray-700 font-extralight bg-[#282b4b] w-48 h-fit cursor-grab "
+      className="absolute px-1 py-4 text-xl text-center rounded-full ring-gray-700 font-extralight bg-[#282b4b] w-48 h-fit cursor-grab active:cursor-grabbing"
       style={prop.style}
     >
       {prop.text}
