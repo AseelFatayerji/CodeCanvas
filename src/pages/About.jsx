@@ -1,13 +1,128 @@
-import React from "react";
+import React, { useRef } from "react";
+import Card from "../components/interactive/Card";
+import {
+  faCss,
+  faCss3,
+  faCss3Alt,
+  faFigma,
+  faGithub,
+  faJava,
+  faNodeJs,
+  faReact,
+} from "@fortawesome/free-brands-svg-icons";
 
 function About() {
+  const gridContainer = useRef();
   return (
-    <section id="About" className="w-full h-screen text-center">
-      <h2 className="text-center text-4xl pt-5">About Me</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[15rem] py-10 md:px-36 px-10">
-        <div className="flex items-end grid-default-color grid-1">Model</div>
-        <div className="flex items-end grid-default-color grid-2">
-          CODE IS ART
+    <section
+      id="About"
+      className="w-full h-fit text-center inset-0 -z-50 border2 pt-16"
+    >
+      <h2 className="text-center text-4xl ">About Me</h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[15rem] md:px-36 px-10">
+        <div className="flex grid-1">Model</div>
+        <div className="grid-default-color grid-2">
+          <div
+            ref={gridContainer}
+            className="flex items-center justify-center h-full w-full"
+          >
+            <p className="flex items-end text-5xl text-gray-500">CODE IS ART</p>
+            <Card
+              style={{ rotate: "75deg", top: "30%", left: "20%" }}
+              text="MAINTAIN"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "-30deg", top: "60%", left: "45%" }}
+              text="SOLID"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "90deg", bottom: "30%", left: "70%" }}
+              text="DESIGN PRINCIPLES"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "-45deg", top: "55%", left: "0%" }}
+              text="UI/UX"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "20deg", top: "10%", left: "80%" }}
+              text="UPHOLD"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "25deg", top: "40%", right: "20%" }}
+              text="BEST"
+              ref={gridContainer}
+            />
+            <Card
+              style={{ rotate: "55deg", bottom: "30%", left: "20%" }}
+              text="CODING PRACTICIES"
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                color: "#2965f1",
+                rotate: "30deg",
+                top: "70%",
+                left: "70%",
+              }}
+              img={faCss}
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                colo: "#fffff",
+                rotate: "-45deg",
+                top: "70%",
+                left: "25%",
+              }}
+              img={faGithub}
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                color: "#3C873A",
+                rotate: "-45deg",
+                top: "8%",
+                left: "10%",
+              }}
+              img={faNodeJs}
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                color: "#61DBFB",
+                rotate: "20deg",
+                top: "80%",
+                left: "10%",
+              }}
+              img={faReact}
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                color: "#ED8B00",
+                rotate: "20deg",
+                top: "30%",
+                right: "10%",
+              }}
+              img={faJava}
+              ref={gridContainer}
+            />
+            <Card
+              style={{
+                color: "#a259ff",
+                rotate: "80deg",
+                top: "20%",
+                right: "70%",
+              }}
+              img={faFigma}
+              ref={gridContainer}
+            />
+          </div>
         </div>
         <div className="flex items-end grid-black-color grid-3">
           {/* <img src="" className="absolute " /> */}
@@ -19,7 +134,7 @@ function About() {
               and responsive web and software applications
             </p>
           </div>
-        </div>  
+        </div>
         <div className="flex items-end grid-special-color grid-4">Stacks</div>
         <div className="flex items-end grid-default-color grid-5">
           CV Download

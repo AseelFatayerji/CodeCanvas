@@ -7,7 +7,7 @@ import Projects from "./pages/Projects";
 
 function App() {
   return (
-    <main>
+    <main > 
       <Navbar />
       <Hero />
       <About />
