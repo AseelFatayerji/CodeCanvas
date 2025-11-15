@@ -12,7 +12,7 @@ function CopyBtn() {
     setTimeout(() => setCopied(false), 2000);
   };
   return (
-    <div class="relative flex justify-center group">
+    <div className="relative flex justify-center group">
       <button onClick={handleCopy}>
         <FontAwesomeIcon
           icon={copied ? Full : Empty}
@@ -21,9 +21,9 @@ function CopyBtn() {
       </button>
 
       {copied ? (
-        <div class="absolute top-full mb-3 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <div class="w-2 h-2 bg-gray-900 rotate-45 -mb-1"></div>
-          <div class="px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg shadow-lg">
+        <div className="absolute top-full mb-3 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+          <div className="w-2 h-2 bg-gray-900 rotate-45 -mb-1"></div>
+          <div className="px-3 py-1.5 bg-gray-900 text-white text-xs rounded-lg shadow-lg">
             Copied
           </div>
         </div>
