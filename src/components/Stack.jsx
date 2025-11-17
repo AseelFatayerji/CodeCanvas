@@ -14,12 +14,11 @@ import {
   faPython,
   faReact,
   faShopify,
-  faWordpress,
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 
 function Stack() {
-  const skills = [
+  const first_ring = [
     { icon: faNodeJs, color: "#3C873A" },
     { icon: faDatabase, color: "#f0db4f" },
     { icon: faReact, color: "#61DBFB" },
@@ -32,33 +31,43 @@ function Stack() {
     { icon: faNpm, color: "#cb3837" },
     { icon: faPython, color: "#FFE873" },
     { icon: faShopify, color: "#95BF47" },
-    { icon: faBootstrap, color: "#8312FA" },
     { icon: faAndroid, color: "#A4C639" },
+  ];
+  const second_ring = [
+    { img: "src/assets/icons/blender.png" },
+    { img: "src/assets/icons/illustrator.png" },
+    { img: "src/assets/icons/photoshop.png" },
+    { img: "src/assets/icons/figma.png" },
+    { img: "src/assets/icons/canva.png" },
+    { img: "src/assets/icons/blockbench.png" },
+    { icon: faBootstrap, color: "#8312FA" },
   ];
   return (
     <div className="relative flex h-60 w-full flex-col items-center justify-center">
       <OrbitingCircles iconSize={40}>
-        {skills.map((item, index) => (
+        {first_ring.map((item, index) => (
           <Icons key={index} src={item.icon} color={item.color} />
         ))}
       </OrbitingCircles>
-      <OrbitingCircles iconSize={25} radius={100} reverse speed={4}>
-        {skills.reverse().map((item, index) => (
-          <Icons key={index} src={item.icon} color={item.color} />
-        ))}
+      <OrbitingCircles iconSize={20} radius={100} reverse speed={3}>
+        {second_ring.map((item, index) =>
+          item.img ? (
+            <img key={index} src={item.img} alt="" className="scale-200" />
+          ) : (
+            <Icons key={index} src={item.icon} color={item.color} />
+          )
+        )}
       </OrbitingCircles>
     </div>
   );
 }
 
 const Icons = ({ src, color }) => (
-  (
-    <FontAwesomeIcon
-      icon={src}
-      style={{ color: color }}
-      className="rounded-sm hover:scale-110 duration-200 text-4xl"
-    />
-  )
+  <FontAwesomeIcon
+    icon={src}
+    style={{ color: color }}
+    className="rounded-sm hover:scale-110 duration-200 text-4xl"
+  />
 );
 
 export default Stack;
