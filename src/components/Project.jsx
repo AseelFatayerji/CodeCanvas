@@ -8,16 +8,13 @@ import {
   faPython,
   faSwift,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faArrowRight,
-  faC,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faC } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ProjectDetails from "./interactive/ProjectDetails";
 
-const Project = ({ index, repo, title, demo, disc, link }) => {
+const Project = ({ index, repo, title, demo, disc, link, setPreview }) => {
   const [stacks, setStacks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hidden, setHidden] = useState(false);
@@ -59,33 +56,45 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
   }, []);
   return (
     <>
-      <div className="flex-wrap items-center justify-between py-10 space-y-14 sm:flex sm:space-y-0">
+      <div
+        className="flex-wrap items-end justify-between py-5 space-y-14 sm:flex sm:space-y-0"
+        onMouseOver={() => {
+          setPreview("src/assets/backgrounds/test-preview.png");
+        }}
+        onMouseLeave={() => {
+          setPreview(null);
+        }}
+      >
         <div>
           <p className="text-2xl text-left">{title}</p>
           <div className="flex gap-5 mt-2 text-[#d6995c] text-4xl">
-            {stacks.map((stack, index) => (
+            {stacks.map(
+              (stack, index) => (
                 console.log(stack),
-              <span key={index} className="items-center justify-center">
-                {getIcon(stack).img ? (
-                  <img
-                    key={index}
-                    src={getIcon(stack).img}
-                    alt=""
-                    className="h-10 w-10"
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    icon={getIcon(stack).icon}
-                    alt={stack}
-                    style={{ color: getIcon(stack).color }}
-                  />
-                )}
-              </span>
-            ))}
+                (
+                  <span key={index} className="items-center justify-center">
+                    {getIcon(stack).img ? (
+                      <img
+                        key={index}
+                        src={getIcon(stack).img}
+                        alt=""
+                        className="h-10 w-10"
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={getIcon(stack).icon}
+                        alt={stack}
+                        style={{ color: getIcon(stack).color }}
+                      />
+                    )}
+                  </span>
+                )
+              )
+            )}
           </div>
         </div>
         <button
-          className="flex items-center gap-1 cursor-pointer hover-animation"
+          className="flex gap-1 cursor-pointer hover-animation"
           onClick={() => setHidden(true)}
         >
           Read More
