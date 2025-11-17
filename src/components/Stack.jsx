@@ -40,6 +40,7 @@ function Stack() {
     { img: "src/assets/icons/figma.png" },
     { img: "src/assets/icons/canva.png" },
     { img: "src/assets/icons/blockbench.png" },
+    { img: "src/assets/icons/MongoDB.png" },
     { icon: faBootstrap, color: "#8312FA" },
   ];
   return (
