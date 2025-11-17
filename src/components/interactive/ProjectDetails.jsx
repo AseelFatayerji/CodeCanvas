@@ -4,7 +4,8 @@ import {
   faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+
+import { motion } from "framer-motion";
 
 const ProjectDetails = ({
   index,
@@ -23,7 +24,11 @@ const ProjectDetails = ({
   };
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full overflow-hidden backdrop-blur-sm">
-      <div className="relative max-w-2xl border border-white/10 shadow-sm rounded-2xl bg-linear-to-l from-[#06091f] to-[#161a31]">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="relative max-w-2xl border border-white/10 shadow-sm rounded-2xl bg-linear-to-l from-[#06091f] to-[#161a31]"
+      >
         <button
           className="absolute px-2 py-1 rounded-sm top-5 right-5 bg-[#06091f] hover:bg-gray-500 cursor-pointer"
           onClick={closePreview}
@@ -66,7 +71,7 @@ const ProjectDetails = ({
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
