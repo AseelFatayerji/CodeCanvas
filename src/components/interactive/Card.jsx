@@ -19,7 +19,7 @@ function Card(prop) {
       drag
       dragConstraints={prop.ref}
       dragElastic={1}
-      className="absolute px-1 py-4 text-xl text-center rounded-full ring-gray-700 font-extralight bg-[#282b4b] w-48 h-fit cursor-grab active:cursor-grabbing"
+      className="absolute px-1 py-4 text-xl text-center rounded-full ring-gray-700 font-extralight bg-[#323661] w-48 h-fit cursor-grab active:cursor-grabbing"
       style={prop.style}
     >
       {prop.text}
