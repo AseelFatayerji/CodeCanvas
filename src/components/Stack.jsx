@@ -20,7 +20,6 @@ import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 function Stack() {
   const first_ring = [
     { icon: faNodeJs, color: "#3C873A" },
-    { icon: faDatabase, color: "#f0db4f" },
     { icon: faReact, color: "#61DBFB" },
     { icon: faPhp, color: "#8892be" },
     { icon: faCss3, color: "#2965f1" },
@@ -32,6 +31,8 @@ function Stack() {
     { icon: faPython, color: "#FFE873" },
     { icon: faShopify, color: "#95BF47" },
     { icon: faAndroid, color: "#A4C639" },
+    { img: "src/assets/icons/mysql.png" },
+    { img: "src/assets/icons/microsoftsql.png" },
   ];
   const second_ring = [
     { img: "src/assets/icons/blender.png" },
@@ -46,9 +47,13 @@ function Stack() {
   return (
     <div className="relative flex h-60 w-full flex-col items-center justify-center">
       <OrbitingCircles iconSize={40}>
-        {first_ring.map((item, index) => (
-          <Icons key={index} src={item.icon} color={item.color} />
-        ))}
+        {first_ring.map((item, index) =>
+          item.img ? (
+            <img key={index} src={item.img} alt="" className="scale-100" />
+          ) : (
+            <Icons key={index} src={item.icon} color={item.color} />
+          )
+        )}
       </OrbitingCircles>
       <OrbitingCircles iconSize={20} radius={100} reverse speed={3}>
         {second_ring.map((item, index) =>
