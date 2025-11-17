@@ -4,6 +4,7 @@ import {
   faAndroid,
   faBootstrap,
   faCss3,
+  faDartLang,
   faGithub,
   faHtml5,
   faJava,
@@ -31,6 +32,7 @@ function Stack() {
     { icon: faPython, color: "#FFE873" },
     { icon: faShopify, color: "#95BF47" },
     { icon: faAndroid, color: "#A4C639" },
+    { icon: faDartLang, color: "#5420dd" },
     { img: "src/assets/icons/mysql.png" },
     { img: "src/assets/icons/microsoftsql.png" },
   ];

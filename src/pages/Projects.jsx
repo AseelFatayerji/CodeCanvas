@@ -21,9 +21,9 @@ function Projects() {
           name: repo.name.replace(/-/g, " "),
           repo: repo.name,
           link: repo.html_url,
+          disc: repo.description,
           demo: "https://aseelfatayerji.github.io/" + repo.name,
         }));
-        console.log(projects);
         setPrjs(projects);
       })
       .catch((err) => console.error("Error fetching repos:", err))
@@ -52,6 +52,7 @@ function Projects() {
               title={project.name}
               demo={project.demo}
               link={project.link}
+              disc={project.disc}
             />
           ))}
         </div>
