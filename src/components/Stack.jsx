@@ -42,7 +42,7 @@ function Stack() {
           <Icons key={index} src={item.icon} color={item.color} />
         ))}
       </OrbitingCircles>
-      <OrbitingCircles iconSize={25} radius={100} reverse speed={2}>
+      <OrbitingCircles iconSize={25} radius={100} reverse speed={4}>
         {skills.reverse().map((item, index) => (
           <Icons key={index} src={item.icon} color={item.color} />
         ))}

@@ -34,21 +34,21 @@ a.active {
 }
 .space {
   background-image: url("../assets/backgrounds/space.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   border: transparent;
 }
 .border {
   background-image: url("../assets/backgrounds/border-2.png");
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   border: transparent;
 }
 .border2 {
   background-image: url("../assets/backgrounds/border-3.png");
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   border: transparent;
@@ -69,14 +69,14 @@ a.active {
   @apply row-span-1 md:col-span-4 h-60 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
 }
 .grid-default-color {
-  @apply p-6 bg-linear-to-b from-[#282b4b] to-indigo-950 rounded-2xl;
+  @apply p-6 bg-linear-to-b from-[#191b30] to-indigo-950 rounded-2xl;
 }
 
 .grid-special-color {
   @apply p-6 bg-linear-to-b from-[#5c33cc] to-[#7a57db] rounded-2xl;
 }
 .grid-black-color {
-  @apply p-6 bg-linear-to-tl from-[#3a3a3a] via-[#242424] to-[#3a3a3a] rounded-2xl;
+  @apply px-6 bg-[#242424] rounded-2xl;
 }
 
 @theme inline {

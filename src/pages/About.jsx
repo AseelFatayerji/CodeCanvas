@@ -36,22 +36,21 @@ function About() {
   return (
     <section
       id="About"
-      className="w-full h-fit text-center inset-0 -z-50 border2 pt-16"
+      className="w-full h-fit text-center inset-0 -z-50 border2 pt-8"
     >
-      <h2 className="text-center text-4xl select-none">About Me</h2>
+      <h2 className="text-center text-4xl select-none py-8">About Me</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[15rem] md:px-36 px-10">
-        <div className="flex grid-1">
-          <figure className="absolute inset-0 w-full h-full m-0 ">
-            <Canvas>
-              <Suspense fallback={<Loader />}>
-                <Astronaut
-                  position={isMobile ? [0.2, -1, 0] : [-0.5, 1, 0]}
-                  scale={isMobile ? 1 : 2}
-                />
-                <Rig />
-              </Suspense>
-            </Canvas>
-          </figure>
+        <div className="flex grid-1 ">
+          {!isMobile && (
+            <figure className="absolute inset-0 w-full h-full m-0">
+              <Canvas>
+                <Suspense fallback={<Loader />}>
+                  <Astronaut position={[-0.5, 1, 0]} scale={2} />
+                  <Rig />
+                </Suspense>
+              </Canvas>
+            </figure>
+          )}
         </div>
         <div className="grid-default-color grid-2">
           <div
@@ -148,7 +147,7 @@ function About() {
             />
             <Card
               style={{
-                color: "#a259ff",
+                color: "#ff3737",
                 rotate: "80deg",
                 top: "20%",
                 right: "70%",
@@ -159,10 +158,9 @@ function About() {
           </div>
         </div>
         <div className="flex items-end grid-black-color grid-3">
-          {/* <img src="" className="absolute " /> */}
-          <div className="z-10 text-left items-start select-none">
-            <p className="text-md">Hi I'm Aseel Fatayerji</p>
-            <p className="text-xs text-neutral-400 text-pretty">
+          <div className="z-10 text-left rain items-start select-none">
+            <p className="text-xl pt-6">Hi I'm Aseel Fatayerji</p>
+            <p className="text-xs text-neutral-200 text-pretty">
               Over the last 5 years, I've developed my coding skills in
               frontend, backend, design and security to deliver secure, dynamic
               and responsive web and software applications
@@ -181,7 +179,7 @@ function About() {
         <div className=" grid-default-color grid-5">
           <div className="z-10 w-[50%] text-left text-pretty">
             <p className="text-2xl">Tech Stacks</p>
-            <p className="text-md text-gray-400">
+            <p className="text-md text-gray-400 sm:text-xs">
               I specialize in a variety of tools and frameworks that allow me to
               build robust and responsive applications.
             </p>
