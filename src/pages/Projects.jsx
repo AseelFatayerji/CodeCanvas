@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
 import Project from "../components/Project";
-import ParallaxP from "../components/parallax/ParrallaxProject";
 
 function Projects() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
@@ -21,9 +20,7 @@ function Projects() {
   useEffect(() => {
     axios
       .get(`https://api.github.com/users/${username}/repos`, {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_git_token}`,
-        },
+        
       })
       .then((res) => {
         setPrjs((prev) => {

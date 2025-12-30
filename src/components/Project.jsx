@@ -42,9 +42,6 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
   useEffect(() => {
     axios
       .get(`https://api.github.com/repos/${username}/${repo}/languages`, {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_git_token}`,
-        },
       })
       .then((res) => {
         setStacks(Object.keys(res.data));
