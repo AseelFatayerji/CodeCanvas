@@ -74,22 +74,24 @@ function App() {
     return () => ctx.revert();
   }, []);
 
-  const sections = [Hero, About, Services, Projects, Contact];
+  const sections = [
+    { id: "Hero", Component: Hero },
+    { id: "About", Component: About },
+    { id: "Services", Component: Services },
+    { id: "Projects", Component: Projects },
+    { id: "Contact", Component: Contact },
+  ];
 
   return (
     <main>
       <Navbar />
       <GlobalModel sectionCount={sections.length} />
       <div className="scene">
-        {sections.map(
-          (Component, i) => (
-            (
-              <section key={i} className="panel">
-                <Component />
-              </section>
-            )
-          )
-        )}
+        {sections.map(({ id, Component }, i) => (
+          <section key={i} id={id} className="panel">
+            <Component />
+          </section>
+        ))}
       </div>
     </main>
   );

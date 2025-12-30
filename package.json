@@ -1,14 +1,16 @@
 {
   "name": "potfolio",
   "private": true,
-  "homepage": "https://CodeCanvas.dev",
+  "homepage": "https://aseelfatayerji.github.io/CodeCanvas/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@analytics/google-analytics": "^1.1.0",
