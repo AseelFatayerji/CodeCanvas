@@ -21,9 +21,7 @@ function Projects() {
   useEffect(() => {
     axios
       .get(`https://api.github.com/users/${username}/repos`, {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_git_token}`,
-        },
+       
       })
       .then((res) => {
         setPrjs((prev) => {
