@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Modern+Antiqua&family=Sora:wght@100..800&display=swap');
+
+:root {
+  font-family: "Gugi", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5;
+  color-scheme: light dark;
+  background-image: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
