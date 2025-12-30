@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+body {
+  background-color: #00062b;
+}
+nav a {
+  color: #e0e0e0;
+}
+
+nav a::after {
+  background: white;
+  border-radius: 3px;
+  color: white;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0px;
+  transition: width 300ms ease-in;
+}
+
+nav a:hover {
+  color: white;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active::after {
+  color: white;
+  border-radius: 3px;
+  width: 100%;
+}
+
+nav a.active {
+  color: white;
+}
+.scene {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid-1 {
+  @apply row-span-2 md:col-span-3 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-2 {
+  @apply row-span-1 md:col-span-3 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-3 {
+  @apply row-span-1 md:col-span-3 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-4 {
+  @apply row-span-1 md:col-span-2 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-5 {
+  @apply row-span-1 md:col-span-4 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
+}
+.grid-default-color {
+  @apply md:p-6 p-3 bg-linear-to-b from-[#191b30] to-indigo-950 rounded-2xl outline-neutral-500 outline-3;
+}
+
+.grid-special-color {
+  @apply md:p-6 p-3 bg-linear-to-b from-[#5c33cc] to-[#7a57db] rounded-2xl outline-neutral-500 outline-3;
+}
+.grid-black-color {
+  @apply px-6 bg-[#242424] rounded-2xl outline-neutral-500 outline-3;
+}
+
+@theme inline {
+  --animate-orbit: orbit calc(var(--duration) * 1s) linear infinite;
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(calc(var(--angle) * 1deg))
+        translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+    100% {
+      transform: rotate(calc(var(--angle) * 1deg + 360deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
+}

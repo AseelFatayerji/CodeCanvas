@@ -1,0 +1,180 @@
+import { Html } from "@react-three/drei";
+import { motion, useMotionValue } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import ImageCard from "./image-card";
+import Image from "./image_discription";
+import "../../css/carousal.css";
+
+function Carousal(props) {
+  const containerRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showImage, setShowImage] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(1);
+
+  const imageWidth = 200;
+  const gap = 16;
+
+  const imgs = [];
+  for (var i = 17; i >= 1; i--) {
+    imgs.push("src/assets/gallery-images/image-" + i + ".png");
+  }
+  const discription = [
+    "Gouache Paint",
+    "Graphite Pencils",
+    "Ink",
+    "Graphite Pencils",
+    "Graphite Pencils",
+    "Mixed Media (Gouache Paint with Gold Leaf)",
+    "Mixed Media (Gouache Paint with Colored Pencils)",
+    "Graphite Pencil",
+    "Alchole Markers",
+    "Gouache Paint",
+    "Gouache Paint",
+    "Gouache Paint",
+    "Gouache Paint",
+    "Graphite Pencil",
+    "Graphite Pencil",
+    "Digital Art",
+    "Digital Art",
+  ];
+
+  const totalImages = imgs.length;
+  const trackWidth = totalImages * (imageWidth + gap);
+
+  const x = useMotionValue(0);
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => Math.min(prev + 1, totalImages - 1));
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleMouseDown = () => setIsMouseDown(true);
+  const handleMouseUp = () => setIsMouseDown(false);
+
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
+    setShowImage(true);
+  };
+
+  useEffect(() => {
+    const measureAndCenter = () => {
+      if (containerRef.current) {
+        const width = containerRef.current.offsetWidth;
+        setContainerWidth(width);
+
+        const centerOffset = width / 2 - imageWidth / 2;
+        const newX = -currentIndex * (imageWidth + gap) + centerOffset;
+        x.set(newX);
+      }
+    };
+
+    measureAndCenter();
+
+    window.addEventListener("resize", measureAndCenter);
+    return () => window.removeEventListener("resize", measureAndCenter);
+  }, [currentIndex]);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth);
+    }
+  }, [props.screenSize]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowLeft") prevImage();
+      else if (event.key === "ArrowRight") nextImage();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentIndex, containerWidth]);
+
+  useEffect(() => {
+    const select = x.on("change", (latestX) => {
+      const centerOffset = containerWidth / 2 - imageWidth / 2;
+      const index = Math.round((-latestX + centerOffset) / (imageWidth + gap));
+
+      if (index >= 1 && index < totalImages) {
+        setCurrentIndex(index);
+      }
+    });
+
+    return () => select();
+  }, [x, containerWidth]);
+
+  return (
+    <>
+      <Html className="-z-50">
+        <div className={` flex ${props.size ? "w-xs" : "w-md"}`}>
+          <motion.div
+            className="overflow-hidden relative p-3"
+            ref={containerRef}
+          >
+            <motion.div
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              style={{ x }}
+              drag="x"
+              dragConstraints={{
+                left: -(trackWidth - containerWidth + imageWidth + gap),
+                right: 0,
+              }}
+              className={`flex gap-[${gap}px] max-h-fit ${
+                isMouseDown ? "cursor-grabbing" : "cursor-grab"
+              }`}
+            >
+              {imgs.map((img, index) => (
+                <ImageCard
+                  src={img}
+                  key={index}
+                  desc={""}
+                  animate={index === currentIndex ? "floating" : ""}
+                  setShowImage={setShowImage}
+                  onClick={() => handleImageClick(index)}
+                />
+              ))}
+            </motion.div>
+            {props.size ? (
+              <></>
+            ) : (
+              <div className="flex justify-center space-x-2 mt-5">
+                {imgs.map((_, index) => {
+                  if (index === 0) return null;
+                  return (
+                    <div
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+                        index === currentIndex
+                          ? "bg-gray-600 scale-110"
+                          : "bg-white hover:bg-gray-400"
+                      }`}
+                    ></div>
+                  );
+                })}
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </Html>
+      <Html position={[40,-47,0]} center>
+        {showImage && selectedImageIndex !== null && (
+          <Image
+            src={imgs[selectedImageIndex]}
+            desc={discription[totalImages - selectedImageIndex]}
+            showImage={showImage}
+            setShowImage={setShowImage}
+          />
+        )}
+      </Html>
+    </>
+  );
+}
+
+export default Carousal;
