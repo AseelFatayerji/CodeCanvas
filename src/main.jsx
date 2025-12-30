@@ -5,7 +5,7 @@ import './css/index.css'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <Router>
+  <Router basename="/CodeCanvas">
     <App />
   </Router>,
 )
