@@ -10,10 +10,8 @@ import {
 import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
-
 import CopyBtn from "../components/CopyBtn";
 import Stack from "../components/Stack";
-import ParallaxA from "../components/parallax/ParrallaxAbout";
 import Card from "../components/interactive/Card";
 
 function About() {
