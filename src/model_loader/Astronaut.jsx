@@ -28,7 +28,7 @@ function Astronaut({ position, rotation, scale, animation }) {
       rotation={rotation}
       scale={scale}
     >
-      <group position={[0, -0.5, 0]}>
+      <group position={[0, -0.5, 0.2]}>
         <primitive object={clone} />
       </group>
     </group>
