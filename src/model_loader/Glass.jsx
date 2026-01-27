@@ -39,7 +39,7 @@ function Glass({ position, rotation, scale, animation }) {
       rotation={rotation}
       scale={scale}
     >
-      <group position={[0, position[1], 0]}>
+      <group position={[0, -0.5, 0]}>
         <primitive object={clone} />
       </group>
     </group>
