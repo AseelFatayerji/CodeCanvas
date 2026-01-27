@@ -55,11 +55,11 @@ function Contact() {
           className={
             isMobile
               ? "h-fit justify-self-center p-5 space-y-5"
-              : "flex w-[80%] h-fit gap-10  justify-self-center p-8"
+              : "flex w-full h-fit gap-10  justify-center p-4"
           }
         >
           <form
-            className="row-span-2 w-full h-full flex-col space-y-5 py-10 grid-default-color grow"
+            className="row-span-2 w-fit justify-center h-full flex-col space-y-5 py-5 grid-default-color"
             onSubmit={onSubmit}
           >
             <div className="space-y-5 ">
@@ -88,7 +88,7 @@ function Contact() {
                 </fieldset>
               </div>
             </div>
-            <div className="justify-self-center md:scale-100 scale-75">
+            <div className="flex justify-center md:scale-100 scale-75">
               <button
                 type="submit"
                 className="send bg-[#5c33cc] text-white py-4 px-5 gap-2 flex items-center rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-95 outline-none"

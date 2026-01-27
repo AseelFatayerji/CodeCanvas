@@ -29,7 +29,7 @@ function Socials() {
         <FontAwesomeIcon icon={faLinkedin} className="text-5xl px-2 ml-1" />
 
         <span className=" text-white overflow-hidden text-center w-fit ml-1 p-0 hover:visible">
-          in/aseel-f
+          aseel-f
         </span>
       </button>
       <a href={CV} download="Aseel Fatayerji CV" target="_blank">
