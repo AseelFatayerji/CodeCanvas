@@ -44,7 +44,7 @@ function Projects() {
     <section
       ref={sectionRef}
       id="Projects"
-      className="w-full min-h-screen text-center inset-0 relative"
+      className="w-full min-h-screen text-center inset-0 relative bg-black/30"
     >
       <motion.div
         initial={{ x: "100%" }}

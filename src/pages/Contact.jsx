@@ -2,25 +2,16 @@ import React, { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 import Model from "../components/Computer";
 import Socials from "../components/interactive/Socials";
-import ParallaxC from "../components/parallax/ParrallaxContact";
 import Popup from "../components/Popup";
 
 function Contact() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const [result, setResult] = useState("");
   const sectionRef = useRef(null);
-
-  const isInView = useInView(sectionRef, { once: false });
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -44,7 +35,7 @@ function Contact() {
     <section
       ref={sectionRef}
       id="Contact"
-      className="w-full min-h-screen inset-0 relative pb-10 "
+      className="w-full min-h-screen inset-0 relative pb-10 bg-black/30"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -52,7 +43,9 @@ function Contact() {
         transition={{ duration, ease }}
         className="relative z-10"
       >
-        <h2 className="text-center text-3xl md:text-5xl pt-22 pb-6 select-none">Contact</h2>
+        <h2 className="text-center text-3xl md:text-5xl pt-22 pb-6 select-none">
+          Contact
+        </h2>
         {result == "" ? (
           <></>
         ) : (

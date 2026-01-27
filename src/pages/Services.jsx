@@ -1,12 +1,5 @@
 import { useMediaQuery } from "react-responsive";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import ParallaxS from "../components/parallax/ParrallaxService";
+import { motion, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCubes,
@@ -56,7 +49,7 @@ function Services() {
     <section
       ref={sectionRef}
       id="Services"
-      className="w-full min-h-screen text-center inset-0 relative"
+      className="w-full min-h-screen text-center inset-0 relative bg-black/30"
     >
       <motion.div
         initial={{ x: "-100%" }}
@@ -64,7 +57,9 @@ function Services() {
         transition={{ duration, ease }}
         className="relative z-10"
       >
-        <h2 className="text-center text-3xl md:text-5xl pt-16 select-none">Services</h2>
+        <h2 className="text-center text-3xl md:text-5xl pt-16 select-none">
+          Services
+        </h2>
         <div className="flex md:justify-evenly w-full gap-10 md:px-10 px-5 md:py-10 py-5 select-none">
           <div className="w-[50%] space-y-5">
             {services.map((items) => {

@@ -78,7 +78,7 @@ function App() {
 
   return (
     <main>
-      {modelReady && <Navbar />}
+      <Navbar />
       <GlobalModel sectionCount={sections.length}  onReady={() => setModelReady(true)} />
       <div className="scene">
         {sections.map((Component, i) => (
