@@ -1,14 +1,22 @@
 import { useMediaQuery } from "react-responsive";
-import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimation,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 import { FlipWords } from "./interactive/FlipWords";
 import TypeWriter from "./interactive/TypeWriter";
 
-function HeroText() {
+function HeroText({ modelReady }) {
   const sectionRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const words = ["Secure", "Innovative", "Unique", "Scalable"];
+  const controlsDesktop = useAnimation();
+  const controlsMobile = useAnimation();
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
@@ -20,6 +28,14 @@ function HeroText() {
 
   const spring = useSpring(scrollYProgress, { damping: 30 });
   const pX = useTransform(spring, [0.5, 1], ["0%", "-200%"]);
+
+  useEffect(() => {
+    if (modelReady) {
+      controlsDesktop.start("visible");
+      controlsMobile.start("visible");
+    }
+  }, [modelReady, controlsDesktop, controlsMobile]);
+
   return (
     <div
       ref={sectionRef}

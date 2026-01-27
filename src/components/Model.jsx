@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { easing } from "maath";
 import { useMediaQuery } from "react-responsive";
 
@@ -24,33 +24,48 @@ function Rig() {
   });
 }
 
+function ModelContent({ isMobile, props, onReady }) {
+  useEffect(() => {
+    onReady?.(); 
+  }, []);
+
+  return (
+    <>
+      <ambientLight intensity={2.5} />
+      <Astronaut
+        position={isMobile ? props.poseM : props.poseD}
+        scale={props.scale}
+        animation={props.animation < 4 ? props.animation : 0}
+        rotation={props.rotation}
+      />
+      <Glass
+        position={isMobile ? props.poseM : props.poseD}
+        scale={props.scale}
+        animation={props.animation < 4 ? props.animation : 0}
+        rotation={props.rotation}
+      />
+      <Rig />
+    </>
+  );
+}
+
 function Model(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const parallax = [ParallaxBg, ParallaxA, ParallaxS, ParallaxP, ParallaxC];
   const CurrentBg = parallax[props.animation];
-  
+
   return (
     <div className="relative w-full h-screen">
       <div className="absolute inset-0 pointer-events-none -z-10">
         {CurrentBg && <CurrentBg />}
       </div>
       <figure className="absolute inset-0 m-0 z-10">
-        <Canvas className="w-full h-full pointer-events-none camera={{ position: [0, 1, 5] }}">
+        <Canvas
+          className="w-full h-full pointer-events-none"
+          camera={{ position: [0, 1, 5] }}
+        >
           <Suspense fallback={<Loader />}>
-            <ambientLight intensity={2.5} />
-            <Astronaut
-              position={isMobile ? props.poseM : props.poseD}
-              scale={props.scale}
-              animation={props.animation < 4 ? props.animation : 0}
-              rotation={props.rotation}
-            />
-            <Glass
-              position={isMobile ? props.poseM : props.poseD}
-              scale={props.scale}
-              animation={props.animation < 4 ? props.animation : 0}
-              rotation={props.rotation}
-            />
-            <Rig />
+            <ModelContent isMobile={isMobile} props={props} onReady={props.onReady} />
           </Suspense>
         </Canvas>
       </figure>

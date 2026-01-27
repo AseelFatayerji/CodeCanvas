@@ -1,11 +1,12 @@
 import HeroText from "../components/HeroText";
-function Hero() {
+
+function Hero({ modelReady }) {
   return (
     <div
       id="Hero"
       className="flex justify-center md:justify-start min-h-screen relative"
     >
-      <HeroText />
+      <HeroText modelReady={modelReady} />
     </div>
   );
 }

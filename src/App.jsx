@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import "./css/App.css";
 import "./css/animated.css";
@@ -13,6 +13,8 @@ import GlobalModel from "./components/GlobalModel";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [modelReady, setModelReady] = useState(false);
+  const sections = [Hero, About, Services, Projects, Contact];
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".panel");
@@ -74,22 +76,16 @@ function App() {
     return () => ctx.revert();
   }, []);
 
-  const sections = [Hero, About, Services, Projects, Contact];
-
   return (
     <main>
-      <Navbar />
-      <GlobalModel sectionCount={sections.length} />
+      {modelReady && <Navbar />}
+      <GlobalModel sectionCount={sections.length}  onReady={() => setModelReady(true)} />
       <div className="scene">
-        {sections.map(
-          (Component, i) => (
-            (
-              <section key={i} className="panel">
-                <Component />
-              </section>
-            )
-          )
-        )}
+        {sections.map((Component, i) => (
+          <section key={i} className="panel">
+            <Component modelReady={modelReady}/>
+          </section>
+        ))}
       </div>
     </main>
   );
