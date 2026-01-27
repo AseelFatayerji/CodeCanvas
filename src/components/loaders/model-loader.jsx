@@ -8,29 +8,29 @@ function Loader() {
       <div className="w-screen h-screen bg-gray-900 z-50 flex items-center justify-center">
         {/* <!-- From Uiverse.io by egehan_1415 -->  */}
         <div
-          class="ui-loader term scale-200"
+          className="ui-loader term scale-200"
           role="status"
           aria-label="Loading"
         >
-          <div class="term-bar">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <div class="term-title">build.portfolio</div>
+          <div className="term-bar">
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <span className="dot"></span>
+            <div className="term-title">build.portfolio</div>
           </div>
 
-          <div class="term-body">
-            <div class="line">
+          <div className="term-body">
+            <div className="line">
               <b>$</b> npm run build
             </div>
-            <div class="line muted">› compiling modules…</div>
-            <div class="line">
-              <span class="tag ok">✓</span> assets optimized
+            <div className="line muted">› compiling modules…</div>
+            <div className="line">
+              <span className="tag ok">✓</span> assets optimized
             </div>
             <div className="line muted">
               › loading assets… {Math.floor(progress)}%
             </div>
-            <div class="progress">
+            <div className="progress">
              <span
                 className="fill"
                 style={{ width: `${progress}%` }}
