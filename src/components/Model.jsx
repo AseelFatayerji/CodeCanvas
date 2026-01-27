@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useRef } from "react";
 import { easing } from "maath";
 import { useMediaQuery } from "react-responsive";
 
@@ -25,29 +25,38 @@ function Rig() {
 }
 
 function ModelContent({ isMobile, props, onReady }) {
-  useEffect(() => {
-    onReady?.(); 
-  }, []);
+  const readyCalled = useRef(false);
+
+  useFrame(() => {
+    if (!readyCalled.current) {
+      readyCalled.current = true;
+      onReady?.();
+    }
+  });
 
   return (
     <>
       <ambientLight intensity={2.5} />
+
       <Astronaut
         position={isMobile ? props.poseM : props.poseD}
         scale={props.scale}
         animation={props.animation < 4 ? props.animation : 0}
         rotation={props.rotation}
       />
+
       <Glass
         position={isMobile ? props.poseM : props.poseD}
         scale={props.scale}
         animation={props.animation < 4 ? props.animation : 0}
         rotation={props.rotation}
       />
+
       <Rig />
     </>
   );
 }
+
 
 function Model(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });

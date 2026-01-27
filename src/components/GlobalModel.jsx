@@ -7,7 +7,7 @@ import {
 import { useMediaQuery } from "react-responsive";
 import Model from "./Model";
 
-export default function GlobalModel({ sectionCount }) {
+export default function GlobalModel({ sectionCount, onReady }) {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const { scrollYProgress } = useScroll();
   const spring = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
@@ -70,7 +70,7 @@ export default function GlobalModel({ sectionCount }) {
 
   return (
     <motion.div className="fixed inset-0 pointer-events-none z-0">
-      <Model {...modelProps} scale={1.7}/>
+      <Model {...modelProps} scale={1.7} onReady={onReady}/>
     </motion.div>
   );
 }
