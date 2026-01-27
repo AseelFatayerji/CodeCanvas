@@ -1,12 +1,17 @@
-import { Html } from "@react-three/drei";
+import { Html, useProgress } from "@react-three/drei";
 import "../../css/loader.css";
 
 function Loader() {
+  const { progress } = useProgress();
   return (
     <Html center>
       <div className="w-screen h-screen bg-gray-900 z-50 flex items-center justify-center">
         {/* <!-- From Uiverse.io by egehan_1415 -->  */}
-        <div class="ui-loader term scale-200" role="status" aria-label="Loading">
+        <div
+          class="ui-loader term scale-200"
+          role="status"
+          aria-label="Loading"
+        >
           <div class="term-bar">
             <span class="dot"></span>
             <span class="dot"></span>
@@ -22,14 +27,15 @@ function Loader() {
             <div class="line">
               <span class="tag ok">✓</span> assets optimized
             </div>
-            <div class="line">
-              <span class="tag run">●</span> generating bundles
-              <span class="cursor" aria-hidden="true"></span>
+            <div className="line muted">
+              › loading assets… {Math.floor(progress)}%
             </div>
-
             <div class="progress">
-              <span class="fill"></span>
-              <span class="glint" aria-hidden="true"></span>
+             <span
+                className="fill"
+                style={{ width: `${progress}%` }}
+              />
+              <span className="glint" aria-hidden="true"></span>
             </div>
           </div>
         </div>
