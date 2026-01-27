@@ -34,7 +34,7 @@ function HeroText() {
           className="text-4xl "
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.2, delay: 1 }}
         >
           Hi, I'm Aseel
         </motion.h1>
