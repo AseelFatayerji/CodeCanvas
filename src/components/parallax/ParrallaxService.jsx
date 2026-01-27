@@ -17,7 +17,7 @@ function ParallaxS() {
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/space-2.jpg)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space-2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -30,7 +30,7 @@ function ParallaxS() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/planets-6.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-6.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -43,7 +43,7 @@ function ParallaxS() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/planets-5.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-5.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -56,7 +56,7 @@ function ParallaxS() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/border.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",

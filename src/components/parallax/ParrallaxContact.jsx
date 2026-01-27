@@ -17,7 +17,7 @@ function ParallaxC() {
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/space-3.jpg)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space-3.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -30,7 +30,7 @@ function ParallaxC() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/border-4.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border-4.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",

@@ -17,7 +17,7 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/space-2.jpg)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space-2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -30,7 +30,7 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/planets-7.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-7.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -43,7 +43,7 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/border-3.png)",
+          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
