@@ -30,14 +30,14 @@ export default function GlobalModel({ sectionCount, onReady }) {
     [1, -0.3, 0],
     [-2, -0.2, -0.5],
     [2.2, -0.7, 0],
-    [-0.5, -0.5, 0],
+    [-1, -0.7, 0],
     [-12, -0.5, 0],
   ];
   const rotationMap = [
     [-Math.PI / 2 + 0.2, 1.5, 1.2],
     [0.2, 0.5, 0],
     [0.2, 0.5, 0],
-    [0.1, 0.3, 0],
+    [0.1, 1, 0],
     [0.1, 0.3, 0],
   ];
   const animationMap = [0, 1, 2, 3, 4];

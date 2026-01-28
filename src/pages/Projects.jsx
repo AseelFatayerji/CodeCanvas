@@ -20,7 +20,7 @@ function Projects() {
 
   useEffect(() => {
     axios
-      .get(`https://api.github.com/users/${username}/repos`, {
+      .get(`https://api.github.com/users/${username}/repos?type=public`, {
        
       })
       .then((res) => {
