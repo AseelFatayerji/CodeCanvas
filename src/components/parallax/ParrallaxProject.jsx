@@ -1,4 +1,4 @@
-import { motion, useInView, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -13,7 +13,7 @@ function ParallaxP() {
     offset: ["start end", "end start"],
   });
 
-  const pX = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
   const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;
@@ -59,9 +59,10 @@ function ParallaxP() {
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
+          scale: isMobile ? b : undefined,
         }}
-        initial={{ scale: 4 }}
-        animate={{ scale: isInView ? 1 : 4 }}
+        initial={!isMobile ? { scale: 4 } : false}
+        animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
         transition={{ duration, ease }}
       />
     </section>

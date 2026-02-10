@@ -1,4 +1,4 @@
-import { motion, useInView, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
 
@@ -13,8 +13,8 @@ function ParallaxS() {
     offset: ["start end", "end start"],
   });
 
-  const pX = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const pY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const pY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;

@@ -13,9 +13,9 @@ function ParallaxBg() {
     offset: ["start end", "end start"],
   });
 
-  const pX = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const pY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const shipY = useTransform(scrollYProgress, [0, 1], [-80, 80]);
+  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const pY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const shipY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
   const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;
