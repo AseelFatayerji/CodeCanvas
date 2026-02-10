@@ -35,7 +35,7 @@ function Contact({ isMobile }) {
     <section
       ref={sectionRef}
       id="Contact"
-      className="w-full md:min-h-screen h-fit inset-0 relative pb-10 bg-black/30"
+      className="w-full md:min-h-screen h-fit inset-0 relative p-10 bg-black/30"
     >
       {isMobile && <ParallaxC isMobile={isMobile} />}
       <motion.div

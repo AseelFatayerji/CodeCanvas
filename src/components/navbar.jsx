@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HashLink as NavLink } from "react-router-hash-link";
-import { useMediaQuery } from "react-responsive";
 
 function NavLinks() {
   return (
@@ -24,7 +23,8 @@ function NavLinks() {
     </>
   );
 }
-function Navbar({isMobile}) {
+4;
+function Navbar({ isMobile }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 bg-white/20 backdrop-blur-xs rounded-b-xl select-none">
@@ -40,19 +40,21 @@ function Navbar({isMobile}) {
               <NavLinks margin={0} />
             </nav>
           )}
-          <label>
-            <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden sm:not-[hidden]:">
-              <input
-                className="hidden peer"
-                type="checkbox"
-                checked={isOpen}
-                onChange={() => setIsOpen(!isOpen)}
-              />
-              <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
-              <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
-              <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-45"></div>
-            </div>
-          </label>
+          {isMobile && (
+            <label>
+              <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden sm:not-[hidden]:">
+                <input
+                  className="hidden peer"
+                  type="checkbox"
+                  checked={isOpen}
+                  onChange={() => setIsOpen(!isOpen)}
+                />
+                <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-45"></div>
+              </div>
+            </label>
+          )}
         </div>
       </div>
       {isOpen && (

@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [modelReady, setModelReady] = useState(false);
   const sections = [Hero, About, Services, Projects, Contact];
-  const isMobile = useMediaQuery({ query: "(max-width: 820px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
   useLayoutEffect(() => {
     if (isMobile) {
       setModelReady(true);
