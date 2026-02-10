@@ -14,7 +14,7 @@ function ParallaxC({ isMobile }) {
       ref={sectionRef}
       className={`
     pointer-events-none overflow-hidden
-    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+    ${isMobile ? "absolute inset-0 -z-1" : "relative inset-0 h-screen -z-50"}
   `}
     >
       {/* Space background */}

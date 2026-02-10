@@ -9,9 +9,9 @@ function ParallaxBg({ isMobile }) {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
-  const pY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const shipY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const pX = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
+  const pY = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
+  const shipY = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
   const duration = 0.2;
   const ease = "easeInOut";
 
@@ -20,7 +20,7 @@ function ParallaxBg({ isMobile }) {
       ref={sectionRef}
       className={`
     pointer-events-none overflow-hidden
-    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+    ${isMobile ? "absolute inset-0  -z-1" : "relative inset-0 h-screen -z-50"}
   `}
     >
       {/* Space background */}

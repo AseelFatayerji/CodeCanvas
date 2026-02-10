@@ -13,8 +13,8 @@ function ParallaxA() {
     offset: ["start end", "end start"],
   });
 
-  const pX = useTransform(scrollYProgress, [0, 0.5, 1], ["-20%", "0%", "20%"]);
-  const pY = useTransform(scrollYProgress, [0, 0.5, 1], ["20%", "0%", "-20%"]);
+  const pX = useTransform(scrollYProgress, [0, 0.5, 1], ["-50%", "0%", "50%"]);
+  const pY = useTransform(scrollYProgress, [0, 0.5, 1], ["50%", "0%", "-50%"]);
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -24,7 +24,7 @@ function ParallaxA() {
       ref={sectionRef}
       className={`
     pointer-events-none overflow-hidden
-    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+    ${isMobile ? "absolute inset-0  -z-1" : "relative inset-0 h-screen -z-50"}
   `}
     >
       {/* Space background */}

@@ -24,8 +24,7 @@ function NavLinks() {
     </>
   );
 }
-function Navbar() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Navbar({isMobile}) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 bg-white/20 backdrop-blur-xs rounded-b-xl select-none">

@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [modelReady, setModelReady] = useState(false);
   const sections = [Hero, About, Services, Projects, Contact];
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 820px)" });
   useLayoutEffect(() => {
     if (isMobile) {
       setModelReady(true);
@@ -87,7 +87,7 @@ function App() {
 
   return (
     <main>
-      <Navbar />
+      <Navbar isMobile={isMobile}/>
       <GlobalModel
         sectionCount={sections.length}
         isMobile={isMobile}
