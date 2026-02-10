@@ -9,10 +9,10 @@ function ParallaxBg({ isMobile }) {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const pY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-  const shipY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-  const duration = 1.2;
+  const pX = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const pY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const shipY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const duration = 0.2;
   const ease = "easeInOut";
 
   return (
@@ -35,7 +35,7 @@ function ParallaxBg({ isMobile }) {
         }}
         initial={!isMobile ? { opacity: 0 } : false}
         animate={!isMobile ? { opacity: isInView ? 1 : 0 } : false}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.1, ease: "easeInOut" }}
       />
 
       {/* Planets layer 1 */}
