@@ -14,7 +14,6 @@ function ParallaxP() {
   });
 
   const pX = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
-  const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -59,7 +58,6 @@ function ParallaxP() {
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
-          scale: isMobile ? b : undefined,
         }}
         initial={!isMobile ? { scale: 4 } : false}
         animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
