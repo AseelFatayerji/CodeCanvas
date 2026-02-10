@@ -28,7 +28,9 @@ function Navbar() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="py-3 px-8  bg-white/20 backdrop-blur-xs rounded-b-xl fixed w-full z-20 index-x-0 select-none">
+    <header
+      className={`"py-3 px-8  bg-white/20 backdrop-blur-xs rounded-b-xl  w-full z-20 index-x-0 select-none  " ${isMobile ? "py-2 sticky" : "fixed"}`}
+    >
       <div className="flex justify-between ">
         <nav>
           <NavLink to="#Hero" className="text-xl font-bold transition-colors">

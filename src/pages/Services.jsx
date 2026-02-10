@@ -60,8 +60,8 @@ function Services() {
         <h2 className="text-center text-3xl md:text-5xl pt-16 select-none">
           Services
         </h2>
-        <div className="flex md:justify-evenly w-full gap-10 md:px-10 px-5 md:py-10 py-5 select-none">
-          <div className="w-[50%] space-y-5">
+        <div className="flex w-full gap-10 px-5 py-5 md:justify-evenly md:px-10 md:py-10 ">
+          <div className="md:w-[50%] space-y-5 w-[40%]">
             {services.map((items) => {
               return (
                 <div className="card flex-1 grow ml-10" key={items.name}>

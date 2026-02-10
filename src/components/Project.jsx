@@ -41,7 +41,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
   };
   useEffect(() => {
     axios
-      .get(`https://api.github.com/repos/${username}/${repo}?type=public/languages`, {})
+      .get(`https://api.github.com/repos/${username}/${repo}/languages`, {})
       .then((res) => {
         setStacks(Object.keys(res.data));
       })

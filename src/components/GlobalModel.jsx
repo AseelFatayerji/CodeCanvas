@@ -8,7 +8,6 @@ import { useMediaQuery } from "react-responsive";
 import Model from "./Model";
 
 export default function GlobalModel({ sectionCount, onReady }) {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const { scrollYProgress } = useScroll();
   const spring = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
 
@@ -65,8 +64,6 @@ export default function GlobalModel({ sectionCount, onReady }) {
 
     return () => unsubscribe();
   }, [spring, sectionCount]);
-
-  if (isMobile) return null;
 
   return (
     <motion.div className="fixed inset-0 pointer-events-none z-0">

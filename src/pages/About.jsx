@@ -80,7 +80,7 @@ function About() {
         color: "#ff3737",
       },
     ],
-    []
+    [],
   );
   return (
     <section
@@ -94,13 +94,15 @@ function About() {
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration, ease }}
       >
-        <h2 className="text-center text-3xl md:text-5xl select-none py-8">About Me</h2>
+        <h2 className="text-center text-3xl md:text-5xl select-none py-8">
+          About Me
+        </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[12rem] md:px-36 px-5 ">
           <div className={`flex grid-1 ${isMobile ? "hidden" : ""}`}></div>
           <div className="grid-default-color grid-2 ">
             <div
               ref={gridContainer}
-              className="flex items-center  select-none justify-center h-full w-full"
+              className="relative flex items-center justify-center h-full w-full overflow-hidden"
             >
               <p
                 className={`flex items-end text-gray-500 ${
@@ -109,23 +111,23 @@ function About() {
               >
                 CODE IS ART
               </p>
-              {cards.map((card, idx) => (
-                <Card
-                  key={idx}
-                  text={card.text}
-                  img={card.img}
-                  style={{
-                    rotate: card.rotate,
-                    top: card.top,
-                    bottom: card.bottom,
-                    left: card.left,
-                    right: card.right,
-                    color: card.color,
-                    scale: isMobile ? 0.8 : 1,
-                    position: "absolute",
-                  }}
-                />
-              ))}
+                {cards.map((card, idx) => (
+                  <Card
+                    key={idx}
+                    text={card.text}
+                    img={card.img}
+                    style={{
+                      rotate: card.rotate,
+                      top: card.top,
+                      bottom: card.bottom,
+                      left: card.left,
+                      right: card.right,
+                      color: card.color,
+                      scale: isMobile ? 0.8 : 1,
+                      position: "absolute",
+                    }}
+                  />
+                ))}
             </div>
           </div>
           <div className="flex items-end grid-black-color grid-3">
@@ -157,11 +159,7 @@ function About() {
                 to build robust and responsive applications.
               </p>
             </div>
-            <div
-              className={`absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] ${
-                isMobile ? "scale-80" : "scale-125"
-              }`}
-            >
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 scale-125">
               <Stack />
             </div>
           </div>

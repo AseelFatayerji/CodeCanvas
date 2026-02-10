@@ -27,7 +27,20 @@ function HeroText({ modelReady }) {
   });
 
   const spring = useSpring(scrollYProgress, { damping: 30 });
-  const pX = useTransform(spring, [0.5, 1], ["0%", "-200%"]);
+  const pX = !isMobile
+    ? useTransform(
+        spring,
+        [0.5, 1],
+        [window.innerWidth * 0.35, -window.innerWidth * 2],
+      )
+    : 0;
+  const pY = isMobile
+    ? useTransform(
+        spring,
+        [0.5, 1],
+        [window.innerWidth * 0.35, -window.innerWidth * 2],
+      )
+    : 0;
 
   useEffect(() => {
     if (modelReady) {
@@ -43,7 +56,7 @@ function HeroText({ modelReady }) {
     >
       <motion.div
         className=" flex-col hidden md:flex text-neutral-100 font-medium"
-        style={{ x: pX }}
+        style={{ x: pX, y: pY }}
         viewport={{ once: true }}
       >
         <motion.h1
@@ -86,7 +99,7 @@ function HeroText({ modelReady }) {
       </motion.div>
       <div className="flex flex-col items-center text-center space-y-6 md:hidden">
         <motion.h2
-          className={isMobile ? "text-2xl" : "text-3xl"}
+          className="text-3xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1 }}
@@ -94,6 +107,15 @@ function HeroText({ modelReady }) {
           Hi, I'm Aseel
         </motion.h2>
         <div className={`flex flex-col ${isMobile ? "text-center" : ""}`}>
+          <motion.p
+            className="md:text-4xl w-max text-2xl"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1.2 }}
+          >
+            A Software Developer <br /> Dedicated to
+          </motion.p>
           <motion.p
             className={isMobile ? "text-4xl" : "text-6xl"}
             variants={variants}

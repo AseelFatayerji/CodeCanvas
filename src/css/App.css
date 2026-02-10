@@ -92,3 +92,15 @@ nav a.active {
     }
   }
 }
+
+@media (max-width: 853px)  {
+ .scene {
+  height: auto;
+}
+
+.panel {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+}

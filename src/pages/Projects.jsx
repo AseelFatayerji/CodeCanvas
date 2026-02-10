@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
 import Project from "../components/Project";
-import ParallaxP from "../components/parallax/ParrallaxProject";
 
 function Projects() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });

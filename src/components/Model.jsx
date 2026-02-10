@@ -24,7 +24,8 @@ function Rig() {
   });
 }
 
-function ModelContent({ isMobile, props, onReady }) {
+function ModelContent({ props, onReady }) {
+  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const readyCalled = useRef(false);
 
   useFrame(() => {
@@ -68,7 +69,7 @@ function Model(props) {
       <div className="absolute inset-0 pointer-events-none -z-10">
         {CurrentBg && <CurrentBg />}
       </div>
-      <figure className="absolute inset-0 m-0 z-10">
+      {!isMobile && <figure className="absolute inset-0 m-0 z-10">
         <Canvas
           className="w-full h-full pointer-events-none"
           camera={{ position: [0, 1, 5] }}
@@ -77,7 +78,7 @@ function Model(props) {
             <ModelContent isMobile={isMobile} props={props} onReady={props.onReady} />
           </Suspense>
         </Canvas>
-      </figure>
+      </figure>}
     </div>
   );
 }
