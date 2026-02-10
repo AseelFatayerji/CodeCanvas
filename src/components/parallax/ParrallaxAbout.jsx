@@ -1,9 +1,21 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useTransform } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 function ParallaxA() {
   const sectionRef = useRef(null);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isInView = useInView(sectionRef, { once: false });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const pX = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const pY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
+  const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -17,12 +29,13 @@ function ParallaxA() {
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space.jpg)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/space.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
+        initial={!isMobile ? { opacity: 0 } : false}
+        animate={!isMobile ? { opacity: isInView ? 1 : 0 } : false}
         transition={{ duration: 1 }}
       />
 
@@ -30,12 +43,14 @@ function ParallaxA() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-4.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-4.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
+          x: isMobile ? pX : undefined,
         }}
-        initial={{ x: "100%" }}
-        animate={{ x: isInView ? "0%" : "100%" }}
+        initial={!isMobile ? { x: "100%" } : false}
+        animate={!isMobile ? { x: isInView ? "0%" : "100%" } : false}
         transition={{ duration, ease }}
       />
 
@@ -43,12 +58,14 @@ function ParallaxA() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-3.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-3.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
+          x: isMobile ? pY : undefined,
         }}
-        initial={{ x: "-100%" }}
-        animate={{ x: isInView ? "0%" : "-100%" }}
+        initial={!isMobile ? { x: "-100%" } : false}
+        animate={!isMobile ? { x: isInView ? "0%" : "-100%" } : false}
         transition={{ duration, ease }}
       />
 
@@ -56,13 +73,15 @@ function ParallaxA() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
+          scale: isMobile ? b : undefined,
         }}
-        initial={{ scale: 4 }}
-        animate={{ scale: isInView ? 1 : 4 }}
+        initial={!isMobile ? { scale: 4 } : false}
+        animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
         transition={{ duration, ease }}
       />
     </section>

@@ -1,9 +1,19 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 function ParallaxC() {
   const sectionRef = useRef(null);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isInView = useInView(sectionRef, { once: false });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const b = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -17,7 +27,8 @@ function ParallaxC() {
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space-3.jpg)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/space-3.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -30,13 +41,15 @@ function ParallaxC() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border-4.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/border-4.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
+          scale: isMobile ? b : undefined,
         }}
-        initial={{ scale: 4 }}
-        animate={{ scale: isInView ? 1 : 4 }}
+        initial={!isMobile ? { scale: 4 } : false}
+        animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
         transition={{ duration, ease }}
       />
     </section>
