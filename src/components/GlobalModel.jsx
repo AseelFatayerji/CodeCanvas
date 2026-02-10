@@ -65,6 +65,8 @@ export default function GlobalModel({ sectionCount, onReady }) {
     return () => unsubscribe();
   }, [spring, sectionCount]);
 
+  if (isMobile) return null;
+
   return (
     <motion.div className="fixed inset-0 pointer-events-none z-0">
       <Model {...modelProps} scale={1.7} onReady={onReady}/>
