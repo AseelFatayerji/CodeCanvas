@@ -86,7 +86,7 @@ function About() {
     <section
       ref={sectionRef}
       id="About"
-      className="w-full min-h-screen text-center inset-0 pt-8 relative bg-black/30"
+      className="w-full min-h-screen text-center inset-0 relative bg-black/30 md:pt-8 pt-22"
     >
       <motion.div
         className="relative z-10"

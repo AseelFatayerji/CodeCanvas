@@ -106,15 +106,15 @@ function HeroText({ modelReady }) {
         >
           Hi, I'm Aseel
         </motion.h2>
-        <div className={`flex flex-col ${isMobile ? "text-center" : ""}`}>
+        <div className={`flex flex-col text-center`}>
           <motion.p
-            className="md:text-4xl w-max text-2xl"
+            className="text-2xl"
             variants={variants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            A Software Developer <br /> Dedicated to
+            A Software Dev<br /> Dedicated to
           </motion.p>
           <motion.p
             className={isMobile ? "text-4xl" : "text-6xl"}

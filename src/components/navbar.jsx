@@ -28,9 +28,7 @@ function Navbar() {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header
-      className={`"py-3 px-8  bg-white/20 backdrop-blur-xs rounded-b-xl  w-full z-20 index-x-0 select-none  " ${isMobile ? "py-2 sticky" : "fixed"}`}
-    >
+    <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 bg-white/20 backdrop-blur-xs rounded-b-xl select-none">
       <div className="flex justify-between ">
         <nav>
           <NavLink to="#Hero" className="text-xl font-bold transition-colors">
@@ -65,7 +63,7 @@ function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <nav className="pb-5 w-fit flex flex-col gap-3  items-end ">
+          <nav className="py-5  w-fit flex flex-col gap-3  items-end ">
             <NavLinks />
           </nav>
         </motion.div>
