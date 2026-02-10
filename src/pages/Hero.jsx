@@ -1,13 +1,15 @@
 import HeroText from "../components/HeroText";
+import ParallaxBg from "../components/parallax/ParallaxBg";
 
-function Hero({ modelReady }) {
+function Hero({ modelReady, isMobile }) {
   return (
     <div
       id="Hero"
-      className="flex justify-center md:justify-start min-h-screen relative bg-black/30"
+      className="relative flex justify-center md:justify-start bg-black/30"
     >
       {modelReady && (
         <div className="relative overflow-hidden">
+          {isMobile && <ParallaxBg isMobile={isMobile} />}
           <HeroText modelReady={modelReady} />
         </div>
       )}

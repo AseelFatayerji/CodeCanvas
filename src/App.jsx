@@ -90,12 +90,13 @@ function App() {
       <Navbar />
       <GlobalModel
         sectionCount={sections.length}
+        isMobile={isMobile}
         onReady={() => setModelReady(true)}
       />
       <div className="scene">
         {sections.map((Component, i) => (
           <section key={i} className="panel">
-            <Component modelReady={modelReady} />
+            <Component modelReady={modelReady} isMobile={isMobile} />
           </section>
         ))}
       </div>

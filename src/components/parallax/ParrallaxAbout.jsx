@@ -22,7 +22,10 @@ function ParallaxA() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div

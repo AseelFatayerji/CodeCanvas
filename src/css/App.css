@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 
 body {
@@ -99,7 +100,7 @@ nav a.active {
 }
 
 .panel {
-  min-height: 100vh;
+  min-height: auto;
   position: relative;
   overflow: hidden;
 }

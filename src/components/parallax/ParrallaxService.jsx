@@ -1,11 +1,9 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
 
-function ParallaxS() {
+function ParallaxS({ isMobile }) {
   const sectionRef = useRef(null);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isInView = useInView(sectionRef, { once: false });
 
   const { scrollYProgress } = useScroll({
@@ -22,7 +20,10 @@ function ParallaxS() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div

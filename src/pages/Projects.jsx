@@ -1,12 +1,11 @@
 import axios from "axios";
 import { memo, useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
 import Project from "../components/Project";
+import ParallaxP from "../components/parallax/ParrallaxProject";
 
-function Projects() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Projects({isMobile}) {
   const [prjs, setPrjs] = useState([]);
   const sectionRef = useRef(null);
 
@@ -43,8 +42,9 @@ function Projects() {
     <section
       ref={sectionRef}
       id="Projects"
-      className="w-full min-h-screen text-center inset-0 relative bg-black/30 md:pt-0 pt-22"
-    >
+      className="w-full md:min-h-screen h-fit text-center inset-0 relative bg-black/30 md:pt-0 pt-22"
+    > 
+    {isMobile && <ParallaxP isMobile={isMobile} />}
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: isInView ? "0%" : "100%" }}

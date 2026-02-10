@@ -7,17 +7,16 @@ import {
   faNodeJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
 import CopyBtn from "../components/CopyBtn";
 import Stack from "../components/Stack";
 import Card from "../components/interactive/Card";
+import ParallaxA from "../components/parallax/ParrallaxAbout";
 
-function About() {
+function About({ isMobile }) {
   const gridContainer = useRef();
   const sectionRef = useRef(null);
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
 
   const isInView = useInView(sectionRef, { once: false });
 
@@ -86,8 +85,9 @@ function About() {
     <section
       ref={sectionRef}
       id="About"
-      className="w-full min-h-screen text-center inset-0 relative bg-black/30 md:pt-8 pt-22"
+      className="w-full text-center inset-0 relative bg-black/30 md:pt-8 py-16"
     >
+      {isMobile && <ParallaxA isMobile={isMobile} />}
       <motion.div
         className="relative z-10"
         initial={{ opacity: 0 }}
@@ -111,23 +111,23 @@ function About() {
               >
                 CODE IS ART
               </p>
-                {cards.map((card, idx) => (
-                  <Card
-                    key={idx}
-                    text={card.text}
-                    img={card.img}
-                    style={{
-                      rotate: card.rotate,
-                      top: card.top,
-                      bottom: card.bottom,
-                      left: card.left,
-                      right: card.right,
-                      color: card.color,
-                      scale: isMobile ? 0.8 : 1,
-                      position: "absolute",
-                    }}
-                  />
-                ))}
+              {cards.map((card, idx) => (
+                <Card
+                  key={idx}
+                  text={card.text}
+                  img={card.img}
+                  style={{
+                    rotate: card.rotate,
+                    top: card.top,
+                    bottom: card.bottom,
+                    left: card.left,
+                    right: card.right,
+                    color: card.color,
+                    scale: isMobile ? 0.8 : 1,
+                    position: "absolute",
+                  }}
+                />
+              ))}
             </div>
           </div>
           <div className="flex items-end grid-black-color grid-3">

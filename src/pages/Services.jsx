@@ -1,4 +1,3 @@
-import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,9 +8,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faUikit } from "@fortawesome/free-brands-svg-icons";
 import { useRef } from "react";
+import ParallaxS from "../components/parallax/ParrallaxService";
 
-function Services() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Services({ isMobile }) {
   const sectionRef = useRef(null);
 
   const isInView = useInView(sectionRef, { once: false });
@@ -49,8 +48,9 @@ function Services() {
     <section
       ref={sectionRef}
       id="Services"
-      className="w-full min-h-screen text-center inset-0 relative bg-black/30 md:pt-0 pt-4"
+      className="w-full md:min-h-screen h-fit text-center inset-0 relative bg-black/30 md:pt-0 pt-4"
     >
+      {isMobile && <ParallaxS isMobile={isMobile} />}
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: isInView ? "0%" : "-100%" }}

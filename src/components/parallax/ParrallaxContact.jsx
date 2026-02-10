@@ -1,17 +1,10 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
 
-function ParallaxC() {
+function ParallaxC({ isMobile }) {
   const sectionRef = useRef(null);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isInView = useInView(sectionRef, { once: false });
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -19,7 +12,10 @@ function ParallaxC() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div

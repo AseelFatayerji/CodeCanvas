@@ -52,7 +52,7 @@ function HeroText({ modelReady }) {
   return (
     <div
       ref={sectionRef}
-      className="relative px-10 z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left select-none"
+      className="relative px-10 py-4 z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left select-none"
     >
       <motion.div
         className=" flex-col hidden md:flex text-neutral-100 font-medium"
@@ -114,7 +114,8 @@ function HeroText({ modelReady }) {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            A Software Dev<br /> Dedicated to
+            A Software Dev
+            <br /> Dedicated to
           </motion.p>
           <motion.p
             className={isMobile ? "text-4xl" : "text-6xl"}
@@ -126,18 +127,16 @@ function HeroText({ modelReady }) {
             Building
           </motion.p>
           <motion.div
-            className={` text-center overflow-hidden ${
-              isMobile ? "text-6xl" : "text-7xl pl-4"
-            }`}
+            className={` text-center overflow-hidden w-screen text-6xl`}
             variants={variants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.4 }}
           >
-            <TypeWriter data={words} />
+            <TypeWriter data={words} />.
           </motion.div>
           <motion.p
-            className={isMobile ? "text-3xl" : "text-4xl"}
+            className={"text-3xl"}
             variants={variants}
             initial="hidden"
             animate="visible"

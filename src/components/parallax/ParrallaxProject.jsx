@@ -1,11 +1,9 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { useMediaQuery } from "react-responsive";
 
-function ParallaxP() {
+function ParallaxP({isMobile}) {
   const sectionRef = useRef(null);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const isInView = useInView(sectionRef, { once: false });
 
   const { scrollYProgress } = useScroll({
@@ -21,13 +19,17 @@ function ParallaxP() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0 z-0" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/space-2.jpg)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/space-2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -40,7 +42,8 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-7.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-7.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           x: isMobile ? pX : undefined,
@@ -54,7 +57,8 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",

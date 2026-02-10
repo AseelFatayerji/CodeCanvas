@@ -2,14 +2,14 @@ import React, { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 import Model from "../components/Computer";
 import Socials from "../components/interactive/Socials";
 import Popup from "../components/Popup";
+import ParallaxC from "../components/parallax/ParrallaxContact";
 
-function Contact() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Contact({ isMobile }) {
   const [result, setResult] = useState("");
   const sectionRef = useRef(null);
 
@@ -35,8 +35,9 @@ function Contact() {
     <section
       ref={sectionRef}
       id="Contact"
-      className="w-full min-h-screen inset-0 relative pb-10 bg-black/30"
+      className="w-full md:min-h-screen h-fit inset-0 relative pb-10 bg-black/30"
     >
+      {isMobile && <ParallaxC isMobile={isMobile} />}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
