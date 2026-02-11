@@ -20,14 +20,19 @@ function App() {
   useLayoutEffect(() => {
     if (isMobile) {
       setModelReady(true);
+
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+
+      gsap.set(".scene", {
+        clearProps: "transform,perspective",
+      });
       gsap.set(".panel", {
-        clearProps: "all",
+        clearProps: "transform,z,opacity",
         opacity: 1,
         display: "block",
         pointerEvents: "auto",
       });
 
-      ScrollTrigger.getAll().forEach((st) => st.kill());
       return;
     }
 
@@ -87,7 +92,7 @@ function App() {
 
   return (
     <main>
-      <Navbar isMobile={isMobile}/>
+      <Navbar isMobile={isMobile} />
       <GlobalModel
         sectionCount={sections.length}
         isMobile={isMobile}

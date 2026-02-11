@@ -5,6 +5,7 @@ import {
   faDatabase,
   faLaptopCode,
   faMobileScreenButton,
+  faUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUikit } from "@fortawesome/free-brands-svg-icons";
 import { useRef } from "react";
@@ -65,6 +66,7 @@ function Services({ isMobile }) {
             {services.map((items) => {
               return (
                 <div className="card flex-1 grow ml-10" key={items.name}>
+                  <FontAwesomeIcon icon={faUpRightFromSquare} className="absolute top-2 right-2 text-lg" />
                   <FontAwesomeIcon icon={items.icon} />
                   <div className="card_content py-5 px-4">
                     <p className="m-0 md:text-2xl text-xl text-gray-300 font-bold">
