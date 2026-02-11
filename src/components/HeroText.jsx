@@ -31,7 +31,7 @@ function HeroText({ modelReady }) {
     ? useTransform(
         spring,
         [0.5, 1],
-        [window.innerWidth * 0.35, -window.innerWidth * 2],
+        [window.innerWidth * 0.25, -window.innerWidth * 2],
       )
     : 0;
   const pY = isMobile

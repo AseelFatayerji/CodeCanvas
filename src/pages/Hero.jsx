@@ -5,7 +5,7 @@ function Hero({ modelReady, isMobile }) {
   return (
     <div
       id="Hero"
-      className="relative flex justify-center md:justify-start bg-black/30"
+      className="relative flex justify-center md:min-h-screen md:justify-start bg-black/30"
     >
       {modelReady && (
         <div className="relative overflow-hidden">
