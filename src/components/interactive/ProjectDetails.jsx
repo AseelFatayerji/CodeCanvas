@@ -6,7 +6,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 const ProjectDetails = ({
   index,
   repo,

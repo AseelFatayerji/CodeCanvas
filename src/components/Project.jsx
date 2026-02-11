@@ -55,7 +55,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
       <div className="flex-wrap items-end justify-between px-3 py-5 space-y-14 sm:flex sm:space-y-0">
         <div>
           <p className="text-2xl text-left">{title}</p>
-          <div className="flex gap-5 mt-2 text-[#d6995c] text-4xl">
+          <div className="flex gap-4 mt-2 text-[#d6995c] text-4xl">
             {stacks.map((stack, index) => (
               <span key={index} className="items-center justify-center">
                 {getIcon(stack).img ? (
@@ -77,7 +77,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
           </div>
         </div>
         <button
-          className="flex gap-1 cursor-pointer items-center hover-animation "
+          className="flex gap-1 cursor-pointer items-center hover-animation mr-4"
           onClick={() => setHidden(true)}
         >
           Read More
