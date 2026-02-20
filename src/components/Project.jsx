@@ -30,10 +30,10 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
     { name: "Python", icon: faPython, color: "#FFE873" },
     { name: "Dart", icon: faDartLang, color: "#5420dd" },
     { name: "C", icon: faC, color: "#2965f1" },
-    { name: "C++", img: "src/assets/icons/cpp.png" },
-    { name: "CMake", img: "src/assets/icons/CMake.png" },
-    { name: "Kotlin", img: "src/assets/icons/Kotlin.png" },
-    { name: "Objective-C", img: "src/assets/icons/Objective-C.png" },
+    { name: "C++", img: "https://ik.imagekit.io/sas2seqly/portfolio/cpp.png" },
+    { name: "CMake", img: "https://ik.imagekit.io/sas2seqly/portfolio/CMake.png" },
+    { name: "Kotlin", img: "https://ik.imagekit.io/sas2seqly/portfolio/Kotlin.png" },
+    { name: "Objective-C", img: "https://ik.imagekit.io/sas2seqly/portfolio/Objective-C.png" },
   ];
   const getIcon = (stack) => {
     const temp = icons.find((item) => item.name === stack);
