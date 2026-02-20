@@ -59,7 +59,7 @@ function Stack() {
       <OrbitingCircles iconSize={20} radius={100} reverse speed={3}>
         {second_ring.map((item, index) =>
           item.img ? (
-            <img key={index} src={item.img} alt="" className="scale-200" />
+            <img key={index} src={item.img} alt="" className="scale-160" />
           ) : (
             <Icons key={index} src={item.icon} color={item.color} />
           )

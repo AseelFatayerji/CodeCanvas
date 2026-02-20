@@ -159,7 +159,7 @@ function About({ isMobile }) {
                 to build robust and responsive applications.
               </p>
             </div>
-            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 scale-125">
+            <div className="absolute inset-y-0 right-10 -translate-x-1/2 scale-125">
               <Stack />
             </div>
           </div>
