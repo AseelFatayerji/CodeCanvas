@@ -32,17 +32,17 @@ function Stack() {
     { icon: faShopify, color: "#95BF47" },
     { icon: faAndroid, color: "#A4C639" },
     { icon: faDartLang, color: "#5420dd" },
-    { img: "src/assets/icons/mysql.png" },
-    { img: "src/assets/icons/microsoftsql.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/mysql.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/microsoftsql.png" },
   ];
   const second_ring = [
-    { img: "src/assets/icons/blender.png" },
-    { img: "src/assets/icons/illustrator.png" },
-    { img: "src/assets/icons/photoshop.png" },
-    { img: "src/assets/icons/figma.png" },
-    { img: "src/assets/icons/canva.png" },
-    { img: "src/assets/icons/blockbench.png" },
-    { img: "src/assets/icons/MongoDB.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/blender.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/illustrator.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/photoshop.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/figma.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/canva.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/blockbench.png" },
+    { img: "https://ik.imagekit.io/sas2seqly/portfolio/MongoDB.png" },
     { icon: faBootstrap, color: "#8312FA" },
   ];
   return (

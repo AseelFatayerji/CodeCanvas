@@ -23,12 +23,6 @@ function Card(prop) {
       dragElastic={1}
       className={`absolute text-5xl cursor-grab active:cursor-grabbing`}
       style={prop.style}
-      // animate={wait ? prop.style : {}}
-      // transition={{
-      //   type: "spring",
-      //   stiffness: 150,
-      //   damping: 20,
-      // }}
     >
       <FontAwesomeIcon icon={prop.img} />
     </motion.div>
