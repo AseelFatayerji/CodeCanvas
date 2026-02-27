@@ -49,7 +49,7 @@ const ProjectDetails = ({
           <h5 className="mb-2 text-2xl font-bold">{title}</h5>
           <p className="mb-3 font-normal text-neutral-400">{disc}</p>
           <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center gap-1 text-4xl">
+            <div className="flex items-center gap-1 text-2xl md:text-4xl">
               {stacks.map((stack, index) => {
                 const iconObj = getIcon(stack);
                 return iconObj.img ? (
@@ -57,7 +57,7 @@ const ProjectDetails = ({
                     key={index}
                     src={iconObj.img}
                     alt={stack}
-                    className="h-12 w-12"
+                    className="h-6 w-6 md:h-12 md:w-12"
                   />
                 ) : (
                   <FontAwesomeIcon

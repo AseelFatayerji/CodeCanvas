@@ -55,7 +55,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
       <div className="flex-wrap items-end justify-between px-3 py-5 space-y-14 sm:flex sm:space-y-0">
         <div>
           <p className="text-2xl text-left">{title}</p>
-          <div className="flex gap-4 mt-2 text-[#d6995c] text-4xl">
+          <div className="flex gap-1 mt-2 text-[#d6995c] shrink-0 text-3xl md:text-4xl md:gap-1">
             {stacks.map((stack, index) => (
               <span key={index} className="items-center justify-center">
                 {getIcon(stack).img ? (
@@ -63,7 +63,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
                     key={index}
                     src={getIcon(stack).img}
                     alt=""
-                    className="h-10 w-10"
+                    className="h-7.5 w-7.5 md:h-12 md:w-12 shrink-0"
                   />
                 ) : (
                   <FontAwesomeIcon
