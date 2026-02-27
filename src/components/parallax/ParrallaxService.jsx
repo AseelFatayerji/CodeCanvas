@@ -11,8 +11,8 @@ function ParallaxS({ isMobile }) {
     offset: ["start end", "end start"],
   });
 
-  const pX = useTransform(scrollYProgress, [0, 0.5, 1], ["50%", "-20%", "50%"]);
-  const pY = useTransform(scrollYProgress, [0, 0.5, 1], ["-50%", "2 -z-10%", "-50%"]);
+  const pX = useTransform(scrollYProgress, [0, 0.5, 1], ["50%", "0%", "50%"]);
+  const pY = useTransform(scrollYProgress, [0, 0.5, 1], ["-50%", "0%", "-50%"]);
 
   const duration = 1.2;
   const ease = "easeInOut";
