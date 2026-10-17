@@ -5,8 +5,8 @@
 // import Contact from "./3D/Contact";
 
 import Hero2D from "./2D/Hero-2";
-// import Services2 from "./2D/Services";
-// import Projects2 from "./2D/Projects";
+import Services2D from "./2D/Services-2";
+import Projects2D from "./2D/Projects-2";
 // import Contact2 from "./2D/Contact";
 
-export { Hero2D };
+export { Hero2D, Services2D, Projects2D };

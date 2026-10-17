@@ -1,8 +1,7 @@
-
 @import "tailwindcss";
 
 body {
-  background-color: #08080D;
+  background-color: #08080d;
 }
 nav a {
   color: #e0e0e0;
@@ -94,14 +93,14 @@ nav a.active {
   }
 }
 
-@media (max-width: 853px)  {
- .scene {
-  height: auto;
-}
+@media (max-width: 853px) {
+  .scene {
+    height: auto;
+  }
 
-.panel {
-  min-height: auto;
-  position: relative;
-  overflow: hidden;
-}
+  .panel {
+    min-height: auto;
+    position: relative;
+    overflow: hidden;
+  }
 }
