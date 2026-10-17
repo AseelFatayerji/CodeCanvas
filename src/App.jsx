@@ -18,6 +18,7 @@ function App() {
  
   return (
     <main>
+      
       <Navbar isMobile={isMobile} />
       {/* <div className="scene">
         {sections.map((Component, i) => (

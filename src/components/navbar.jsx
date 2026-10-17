@@ -7,16 +7,16 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 function NavLinks() {
   return (
     <>
-      <NavLink to="#Hero" className={`text-xl font-bold transition-colors `}>
+      <NavLink to="#Hero" className={`text-lg font-bold transition-colors `}>
         Home
       </NavLink>
-      <NavLink to="#Services" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Services" className={`text-lg font-bold transition-colors`}>
         Services
       </NavLink>
-      <NavLink to="#Projects" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Projects" className={`text-lg font-bold transition-colors`}>
         Projects
       </NavLink>
-      <NavLink to="#Contact" className={`text-xl font-bold transition-colors`}>
+      <NavLink to="#Contact" className={`text-lg font-bold transition-colors`}>
         Contact
       </NavLink>
     </>
@@ -29,7 +29,7 @@ function Navbar({ isMobile }) {
     <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 select-none border-b-2 border-b-white/20 ">
       <div className="flex justify-between ">
         <nav>
-          <NavLink to="#Hero" className="text-xl font-bold transition-colors">
+          <NavLink to="#Hero" className="text-lg font-bold transition-colors">
             Portfolio.
           </NavLink>
         </nav>
