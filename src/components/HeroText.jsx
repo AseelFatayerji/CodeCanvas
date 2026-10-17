@@ -1,14 +1,22 @@
 import { useMediaQuery } from "react-responsive";
-import { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
+import {
+  motion,
+  useAnimation,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 
 import { FlipWords } from "./interactive/FlipWords";
 import TypeWriter from "./interactive/TypeWriter";
 
-function HeroText() {
+function HeroText({ modelReady }) {
   const sectionRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
   const words = ["Secure", "Innovative", "Unique", "Scalable"];
+  const controlsDesktop = useAnimation();
+  const controlsMobile = useAnimation();
   const variants = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0 },
@@ -19,15 +27,36 @@ function HeroText() {
   });
 
   const spring = useSpring(scrollYProgress, { damping: 30 });
-  const pX = useTransform(spring, [0.5, 1], ["0%", "-200%"]);
+  const pX = !isMobile
+    ? useTransform(
+        spring,
+        [0.5, 1],
+        [window.innerWidth * 0.25, -window.innerWidth * 2],
+      )
+    : 0;
+  const pY = isMobile
+    ? useTransform(
+        spring,
+        [0.5, 1],
+        [window.innerWidth * 0.35, -window.innerWidth * 2],
+      )
+    : 0;
+
+  useEffect(() => {
+    if (modelReady) {
+      controlsDesktop.start("visible");
+      controlsMobile.start("visible");
+    }
+  }, [modelReady, controlsDesktop, controlsMobile]);
+
   return (
     <div
       ref={sectionRef}
-      className="relative px-10 z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left select-none"
+      className="relative px-10 py-4 z-10 mt-20 text-center md:mt-40 rounded-3xl bg-clip-text md:text-left select-none"
     >
       <motion.div
         className=" flex-col hidden md:flex text-neutral-100 font-medium"
-        style={{ x: pX }}
+        style={{ x: pX, y: pY }}
         viewport={{ once: true }}
       >
         <motion.h1
@@ -70,14 +99,24 @@ function HeroText() {
       </motion.div>
       <div className="flex flex-col items-center text-center space-y-6 md:hidden">
         <motion.h2
-          className={isMobile ? "text-2xl" : "text-3xl"}
+          className="text-3xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1 }}
         >
           Hi, I'm Aseel
         </motion.h2>
-        <div className={`flex flex-col ${isMobile ? "text-center" : ""}`}>
+        <div className={`flex flex-col text-center`}>
+          <motion.p
+            className="text-2xl"
+            variants={variants}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: 1.2 }}
+          >
+            A Software Dev
+            <br /> Dedicated to
+          </motion.p>
           <motion.p
             className={isMobile ? "text-4xl" : "text-6xl"}
             variants={variants}
@@ -88,18 +127,16 @@ function HeroText() {
             Building
           </motion.p>
           <motion.div
-            className={` text-center overflow-hidden ${
-              isMobile ? "text-6xl" : "text-7xl pl-4"
-            }`}
+            className={` text-center overflow-hidden w-screen text-6xl`}
             variants={variants}
             initial="hidden"
             animate="visible"
             transition={{ delay: 1.4 }}
           >
-            <TypeWriter data={words} />
+            <TypeWriter data={words} />.
           </motion.div>
           <motion.p
-            className={isMobile ? "text-3xl" : "text-4xl"}
+            className={"text-3xl"}
             variants={variants}
             initial="hidden"
             animate="visible"

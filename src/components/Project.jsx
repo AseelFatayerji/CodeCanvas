@@ -30,10 +30,10 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
     { name: "Python", icon: faPython, color: "#FFE873" },
     { name: "Dart", icon: faDartLang, color: "#5420dd" },
     { name: "C", icon: faC, color: "#2965f1" },
-    { name: "C++", img: "src/assets/icons/cpp.png" },
-    { name: "CMake", img: "src/assets/icons/CMake.png" },
-    { name: "Kotlin", img: "src/assets/icons/Kotlin.png" },
-    { name: "Objective-C", img: "src/assets/icons/Objective-C.png" },
+    { name: "C++", img: "https://ik.imagekit.io/sas2seqly/portfolio/cpp.png" },
+    { name: "CMake", img: "https://ik.imagekit.io/sas2seqly/portfolio/CMake.png" },
+    { name: "Kotlin", img: "https://ik.imagekit.io/sas2seqly/portfolio/Kotlin.png" },
+    { name: "Objective-C", img: "https://ik.imagekit.io/sas2seqly/portfolio/Objective-C.png" },
   ];
   const getIcon = (stack) => {
     const temp = icons.find((item) => item.name === stack);
@@ -55,7 +55,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
       <div className="flex-wrap items-end justify-between px-3 py-5 space-y-14 sm:flex sm:space-y-0">
         <div>
           <p className="text-2xl text-left">{title}</p>
-          <div className="flex gap-5 mt-2 text-[#d6995c] text-4xl">
+          <div className="flex gap-1 mt-2 text-[#d6995c] shrink-0 text-3xl md:text-4xl md:gap-1">
             {stacks.map((stack, index) => (
               <span key={index} className="items-center justify-center">
                 {getIcon(stack).img ? (
@@ -63,7 +63,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
                     key={index}
                     src={getIcon(stack).img}
                     alt=""
-                    className="h-10 w-10"
+                    className="h-7.5 w-7.5 md:h-12 md:w-12 shrink-0"
                   />
                 ) : (
                   <FontAwesomeIcon
@@ -77,7 +77,7 @@ const Project = ({ index, repo, title, demo, disc, link }) => {
           </div>
         </div>
         <button
-          className="flex gap-1 cursor-pointer items-center hover-animation "
+          className="flex gap-1 cursor-pointer items-center hover-animation mr-4"
           onClick={() => setHidden(true)}
         >
           Read More

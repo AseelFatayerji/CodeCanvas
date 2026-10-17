@@ -2,25 +2,16 @@ import React, { useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
+import { motion } from "framer-motion";
 
 import Model from "../components/Computer";
 import Socials from "../components/interactive/Socials";
-import ParallaxC from "../components/parallax/ParrallaxContact";
 import Popup from "../components/Popup";
+import ParallaxC from "../components/parallax/ParrallaxContact";
 
-function Contact() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Contact({ isMobile }) {
   const [result, setResult] = useState("");
   const sectionRef = useRef(null);
-
-  const isInView = useInView(sectionRef, { once: false });
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -44,15 +35,18 @@ function Contact() {
     <section
       ref={sectionRef}
       id="Contact"
-      className="w-full min-h-screen inset-0 relative pb-10 "
+      className="w-full md:min-h-screen h-fit inset-0 relative p-10 bg-black/30"
     >
+      {isMobile && <ParallaxC isMobile={isMobile} />}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration, ease }}
         className="relative z-10"
       >
-        <h2 className="text-center text-3xl md:text-5xl pt-22 pb-6 select-none">Contact</h2>
+        <h2 className="text-center text-3xl md:text-5xl pt-22 pb-6 select-none">
+          Contact
+        </h2>
         {result == "" ? (
           <></>
         ) : (
@@ -62,11 +56,11 @@ function Contact() {
           className={
             isMobile
               ? "h-fit justify-self-center p-5 space-y-5"
-              : "flex w-[80%] h-fit gap-10  justify-self-center p-8"
+              : "flex w-full h-fit gap-10  justify-center p-4"
           }
         >
           <form
-            className="row-span-2 w-full h-full flex-col space-y-5 py-10 grid-default-color grow"
+            className="row-span-2 w-fit justify-center h-full flex-col space-y-5 py-5 grid-default-color"
             onSubmit={onSubmit}
           >
             <div className="space-y-5 ">
@@ -95,7 +89,7 @@ function Contact() {
                 </fieldset>
               </div>
             </div>
-            <div className="justify-self-center md:scale-100 scale-75">
+            <div className="flex justify-center md:scale-100 scale-75">
               <button
                 type="submit"
                 className="send bg-[#5c33cc] text-white py-4 px-5 gap-2 flex items-center rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-95 outline-none"

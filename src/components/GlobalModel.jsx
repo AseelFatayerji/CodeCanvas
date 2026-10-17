@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useSpring, 
-} from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Model from "./Model";
 
-export default function GlobalModel({ sectionCount }) {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+export default function GlobalModel({ sectionCount, onReady, isMobile }) {
   const { scrollYProgress } = useScroll();
   const spring = useSpring(scrollYProgress, { damping: 30, stiffness: 100 });
 
@@ -30,14 +24,14 @@ export default function GlobalModel({ sectionCount }) {
     [1, -0.3, 0],
     [-2, -0.2, -0.5],
     [2.2, -0.7, 0],
-    [-0.5, -0.5, 0],
+    [-1, -0.7, 0],
     [-12, -0.5, 0],
   ];
   const rotationMap = [
     [-Math.PI / 2 + 0.2, 1.5, 1.2],
     [0.2, 0.5, 0],
     [0.2, 0.5, 0],
-    [0.1, 0.3, 0],
+    [0.1, 1, 0],
     [0.1, 0.3, 0],
   ];
   const animationMap = [0, 1, 2, 3, 4];
@@ -59,7 +53,7 @@ export default function GlobalModel({ sectionCount }) {
         poseM: lerp(poseMMap[current], poseMMap[next], t),
         poseD: lerp(poseDMap[current], poseDMap[next], t),
         rotation: lerp(rotationMap[current], rotationMap[next], t),
-        animation: t < 0.5 ? animationMap[current] : animationMap[next]
+        animation: t < 0.5 ? animationMap[current] : animationMap[next],
       });
     });
 
@@ -70,7 +64,7 @@ export default function GlobalModel({ sectionCount }) {
 
   return (
     <motion.div className="fixed inset-0 pointer-events-none z-0">
-      <Model {...modelProps} scale={1.7}/>
+      <Model {...modelProps} scale={1.7} onReady={onReady} />
     </motion.div>
   );
 }

@@ -7,17 +7,16 @@ import {
   faNodeJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
-import { useMediaQuery } from "react-responsive";
 import { motion, useInView } from "framer-motion";
 
 import CopyBtn from "../components/CopyBtn";
 import Stack from "../components/Stack";
 import Card from "../components/interactive/Card";
+import ParallaxA from "../components/parallax/ParrallaxAbout";
 
-function About() {
+function About({ isMobile }) {
   const gridContainer = useRef();
   const sectionRef = useRef(null);
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
 
   const isInView = useInView(sectionRef, { once: false });
 
@@ -80,27 +79,30 @@ function About() {
         color: "#ff3737",
       },
     ],
-    []
+    [],
   );
   return (
     <section
       ref={sectionRef}
       id="About"
-      className="w-full min-h-screen text-center inset-0 pt-8 relative"
+      className="w-full text-center inset-0 relative bg-black/30 md:pt-8 py-16"
     >
+      {isMobile && <ParallaxA isMobile={isMobile} />}
       <motion.div
         className="relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration, ease }}
       >
-        <h2 className="text-center text-3xl md:text-5xl select-none py-8">About Me</h2>
+        <h2 className="text-center text-3xl md:text-5xl select-none py-8">
+          About Me
+        </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[12rem] md:px-36 px-5 ">
           <div className={`flex grid-1 ${isMobile ? "hidden" : ""}`}></div>
           <div className="grid-default-color grid-2 ">
             <div
               ref={gridContainer}
-              className="flex items-center  select-none justify-center h-full w-full"
+              className="relative flex items-center justify-center h-full w-full overflow-hidden"
             >
               <p
                 className={`flex items-end text-gray-500 ${
@@ -157,11 +159,7 @@ function About() {
                 to build robust and responsive applications.
               </p>
             </div>
-            <div
-              className={`absolute inset-y-0 md:inset-y-9 w-full h-full start-[50%] ${
-                isMobile ? "scale-80" : "scale-125"
-              }`}
-            >
+            <div className="absolute inset-y-0 right-10 -translate-x-1/2 md:scale-125 scale-80">
               <Stack />
             </div>
           </div>

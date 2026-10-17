@@ -1,24 +1,17 @@
-import { useMediaQuery } from "react-responsive";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import ParallaxS from "../components/parallax/ParrallaxService";
+import { motion, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCubes,
   faDatabase,
   faLaptopCode,
   faMobileScreenButton,
+  faUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUikit } from "@fortawesome/free-brands-svg-icons";
 import { useRef } from "react";
+import ParallaxS from "../components/parallax/ParrallaxService";
 
-function Services() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+function Services({ isMobile }) {
   const sectionRef = useRef(null);
 
   const isInView = useInView(sectionRef, { once: false });
@@ -56,20 +49,24 @@ function Services() {
     <section
       ref={sectionRef}
       id="Services"
-      className="w-full min-h-screen text-center inset-0 relative"
+      className="w-full md:min-h-screen h-fit text-center inset-0 relative bg-black/30 md:pt-0 pt-4"
     >
+      {isMobile && <ParallaxS isMobile={isMobile} />}
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: isInView ? "0%" : "-100%" }}
         transition={{ duration, ease }}
         className="relative z-10"
       >
-        <h2 className="text-center text-3xl md:text-5xl pt-16 select-none">Services</h2>
-        <div className="flex md:justify-evenly w-full gap-10 md:px-10 px-5 md:py-10 py-5 select-none">
-          <div className="w-[50%] space-y-5">
+        <h2 className="text-center text-3xl md:text-5xl pt-16 select-none">
+          Services
+        </h2>
+        <div className="flex w-full gap-10 px-5 py-5 md:justify-evenly md:px-10 md:py-10 ">
+          <div className="md:w-[50%] space-y-5 w-[40%]">
             {services.map((items) => {
               return (
                 <div className="card flex-1 grow ml-10" key={items.name}>
+                  <FontAwesomeIcon icon={faUpRightFromSquare} className="absolute top-2 right-2 text-lg" />
                   <FontAwesomeIcon icon={items.icon} />
                   <div className="card_content py-5 px-4">
                     <p className="m-0 md:text-2xl text-xl text-gray-300 font-bold">

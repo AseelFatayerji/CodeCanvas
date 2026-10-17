@@ -1,8 +1,9 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-function ParallaxC() {
+function ParallaxC({ isMobile }) {
   const sectionRef = useRef(null);
+
   const isInView = useInView(sectionRef, { once: false });
 
   const duration = 1.2;
@@ -11,13 +12,17 @@ function ParallaxC() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0 -z-1" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/space-3.jpg)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/space-3.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
@@ -30,13 +35,14 @@ function ParallaxC() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/border-4.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/border-4.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
         }}
-        initial={{ scale: 4 }}
-        animate={{ scale: isInView ? 1 : 4 }}
+        initial={!isMobile ? { scale: 4 } : false}
+        animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
         transition={{ duration, ease }}
       />
     </section>

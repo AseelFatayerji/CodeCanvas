@@ -1,9 +1,17 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-function ParallaxP() {
+function ParallaxP({isMobile}) {
   const sectionRef = useRef(null);
+
   const isInView = useInView(sectionRef, { once: false });
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+ const pX = useTransform(scrollYProgress, [0, 0.5, 1], ["-20%", "0%", "20%"]);
 
   const duration = 1.2;
   const ease = "easeInOut";
@@ -11,18 +19,22 @@ function ParallaxP() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full pointer-events-none overflow-hidden -z-50"
+      className={`
+    pointer-events-none overflow-hidden
+    ${isMobile ? "absolute inset-0  -z-1" : "relative inset-0 h-screen -z-50"}
+  `}
     >
       {/* Space background */}
       <motion.div
         className="absolute inset-0 -z-50"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/space-2.jpg)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/space-2.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
+        initial={!isMobile ? { opacity: 0 } : false}
+        animate={!isMobile ? { opacity: isInView ? 1 : 0 } : false}
         transition={{ duration: 1 }}
       />
 
@@ -30,12 +42,14 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/planets-7.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/planets-7.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
+          x: isMobile ? pX : undefined,
         }}
-        initial={{ x: "-100%" }}
-        animate={{ x: isInView ? "0%" : "-100%" }}
+        initial={!isMobile ? { x: "100%" } : false}
+        animate={!isMobile ? { x: isInView ? "0%" : "100%" } : false}
         transition={{ duration, ease }}
       />
 
@@ -43,13 +57,14 @@ function ParallaxP() {
       <motion.div
         className="absolute inset-0 -z-40"
         style={{
-          backgroundImage: "url(src/assets/backgrounds/border-3.png)",
+          backgroundImage:
+            "url(https://ik.imagekit.io/sas2seqly/portfolio/border-3.png)",
           backgroundSize: "cover",
           backgroundPosition: "bottom",
           backgroundRepeat: "no-repeat",
         }}
-        initial={{ scale: 4 }}
-        animate={{ scale: isInView ? 1 : 4 }}
+        initial={!isMobile ? { scale: 4 } : false}
+        animate={!isMobile ? { scale: isInView ? 1 : 4 } : false}
         transition={{ duration, ease }}
       />
     </section>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HashLink as NavLink } from "react-router-hash-link";
-import { useMediaQuery } from "react-responsive";
 
 function NavLinks() {
   return (
@@ -24,11 +23,11 @@ function NavLinks() {
     </>
   );
 }
-function Navbar() {
-  const isMobile = useMediaQuery({ query: "(max-width: 853px)" });
+4;
+function Navbar({ isMobile }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="py-3 px-8  bg-white/20 backdrop-blur-xs rounded-b-xl fixed w-full z-20 index-x-0 select-none">
+    <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 bg-white/20 backdrop-blur-xs rounded-b-xl select-none">
       <div className="flex justify-between ">
         <nav>
           <NavLink to="#Hero" className="text-xl font-bold transition-colors">
@@ -41,19 +40,21 @@ function Navbar() {
               <NavLinks margin={0} />
             </nav>
           )}
-          <label>
-            <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden sm:not-[hidden]:">
-              <input
-                className="hidden peer"
-                type="checkbox"
-                checked={isOpen}
-                onChange={() => setIsOpen(!isOpen)}
-              />
-              <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
-              <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
-              <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-45"></div>
-            </div>
-          </label>
+          {isMobile && (
+            <label>
+              <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden sm:not-[hidden]:">
+                <input
+                  className="hidden peer"
+                  type="checkbox"
+                  checked={isOpen}
+                  onChange={() => setIsOpen(!isOpen)}
+                />
+                <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-45"></div>
+              </div>
+            </label>
+          )}
         </div>
       </div>
       {isOpen && (
@@ -63,7 +64,7 @@ function Navbar() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <nav className="pb-5 w-fit flex flex-col gap-3  items-end ">
+          <nav className="py-5  w-fit flex flex-col gap-3  items-end ">
             <NavLinks />
           </nav>
         </motion.div>

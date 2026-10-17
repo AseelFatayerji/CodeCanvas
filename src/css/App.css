@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 
 body {
@@ -91,4 +92,16 @@ nav a.active {
         rotate(calc((var(--angle) * -1deg) - 360deg));
     }
   }
+}
+
+@media (max-width: 853px)  {
+ .scene {
+  height: auto;
+}
+
+.panel {
+  min-height: auto;
+  position: relative;
+  overflow: hidden;
+}
 }
