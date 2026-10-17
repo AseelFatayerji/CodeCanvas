@@ -1,15 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { HashLink as NavLink } from "react-router-hash-link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 function NavLinks() {
   return (
     <>
       <NavLink to="#Hero" className={`text-xl font-bold transition-colors `}>
         Home
-      </NavLink>
-      <NavLink to="#About" className={`text-xl font-bold transition-colors`}>
-        About
       </NavLink>
       <NavLink to="#Services" className={`text-xl font-bold transition-colors`}>
         Services
@@ -27,7 +26,7 @@ function NavLinks() {
 function Navbar({ isMobile }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 bg-white/20 backdrop-blur-xs rounded-b-xl select-none">
+    <header className="fixed top-0 left-0 w-full z-50 py-3 md:px-8 px-4 select-none border-b-2 border-b-white/20 ">
       <div className="flex justify-between ">
         <nav>
           <NavLink to="#Hero" className="text-xl font-bold transition-colors">
@@ -51,11 +50,17 @@ function Navbar({ isMobile }) {
                 />
                 <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
                 <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
-                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left -translate-y-[0.45rem] peer-checked:rotate-45"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left translate-y-[-0.45rem] peer-checked:rotate-45"></div>
               </div>
             </label>
           )}
         </div>
+        <NavLink
+          to="https://github.com/AseelFatayerji"
+          className="text-xl font-bold"
+        >
+          <FontAwesomeIcon icon={faGithub} className="text-4xl" />
+        </NavLink>
       </div>
       {isOpen && (
         <motion.div
