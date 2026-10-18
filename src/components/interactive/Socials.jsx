@@ -9,7 +9,7 @@ function Socials() {
       <button
         className="flex cursor-pointer select-none p-2 rounded-xl w-18 bg-[#323661] text-white justify-center items-center md:scale-100 scale-75  hover:w-60 hover:rounded-lg ease-in duration-300"
         onClick={() =>
-          window.open("hhttps://github.com/AseelFatayerji", "_blank")
+          window.open("https://github.com/AseelFatayerji", "_blank")
         }
       >
         <FontAwesomeIcon icon={faGithub} className="text-5xl px-2 ml-1" />
