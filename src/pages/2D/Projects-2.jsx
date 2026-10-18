@@ -38,8 +38,8 @@ function Projects2D({ isMobile }) {
   }, []);
 
   return (
-    <section id="Projects" className="bg-pink-400">
-      <h2 className=" font-bold text-center text-3xl select-none sm:px-10 md:text-8xl md:pt-10 md:pl-20 lg:px-15">
+    <section id="Projects" className="bg-pink-400 py-5">
+      <h2 className=" font-bold text-center text-3xl select-none sm:px-10 md:text-8xl md:py-5 md:pl-20 lg:px-15">
         SELECTED WORK
       </h2>
       <div className="w-full justify-center px-10">
