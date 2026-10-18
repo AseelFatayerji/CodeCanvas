@@ -61,7 +61,7 @@ function Hero2D({ isMobile }) {
           <h1 className="hero-line">A SOFTWARE DEV</h1>
         </div>
         <div className="flex">
-          <div className="text-lg -rotate-4 w-fit  flex flex-col items-center justify-center sedgwick-ave-regular">
+          <div className="anim-bounce text-lg -rotate-4 w-fit  flex flex-col items-center justify-center sedgwick-ave-regular">
             <h3 className="bg-purple-400 p-3 rounded-xl -mb-1 w-fit text-center">
               I design beautiful & functional web apps
             </h3>
