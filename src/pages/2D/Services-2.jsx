@@ -57,7 +57,7 @@ function Services2D({ isMobile }) {
             <div className="m-4 p-4 justify-center text-center">
               <FontAwesomeIcon icon={service.icon} className={`text-5xl mb-4 ${service.color}`} />
               <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-              <p className="text-gray-600 text-pretty text-sm">
+              <p className="text-neutral-500 text-pretty text-sm">
                 {service.disc}
               </p>
             </div>
