@@ -1,3 +1,5 @@
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
 import {
   faEarthAsia,
   faGlobe,
@@ -6,28 +8,57 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DotShape from "../../components/shapes/DotShape";
 import HeroIMage from "../../components/HeroImage";
+import Decor from "../../components/shapes/Decor";
 
 function Hero2D({ isMobile }) {
+  const root = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".hero-line", {
+        x: -200,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.25,
+      });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div id="Hero" className="pl-10 pt-33 flex h-screen w-screen border-b-2 border-slate-700">
+    <div
+      id="Hero"
+      ref={root}
+      className="pl-10 pt-33 flex h-screen w-screen border-b-2 border-slate-700"
+    >
       <div className="justify-center flex flex-col ">
         <div className="flex text-7xl font-bold text-pink-400 sedgwick-ave-regular ">
-          <h2>HELLO, WORLD!</h2>
-          <DotShape
-            className="absolute w-56 h-40 rounded-[4rem] -rotate-5 ml-[33%] -mt-20"
-            dot="#FB64B6"
-            gap="16px"
-          />
+          <h2 className="hero-line">HELLO, WORLD!</h2>
+          <Decor
+            className="absolute -rotate-5 ml-[33%] -mt-20"
+            loop="bob"
+            delay={0.7}
+            duration="5s"
+          >
+            <DotShape
+              className="w-56 h-40 rounded-[4rem]"
+              dot="#FB64B6"
+              gap="16px"
+            />
+          </Decor>
         </div>
         <div className="text-2xl md:text-4xl py-5 font-bold text-white">
           <div className="flex flex-row gap-8 ">
-            <h1> I'M ASEEL</h1>
-            <FontAwesomeIcon
-              icon={faHashtag}
-              className=" text-blue-300 rotate-20 text-[8rem]"
-            />
+            <h1 className="hero-line"> I'M ASEEL</h1>
+            <Decor className="rotate-20" loop="bob" delay={0.9} distance="12px">
+              <FontAwesomeIcon
+                icon={faHashtag}
+                className="text-blue-300 text-[8rem]"
+              />
+            </Decor>
           </div>
-          <h1>A SOFTWARE DEV</h1>
+          <h1 className="hero-line">A SOFTWARE DEV</h1>
         </div>
         <div className="flex">
           <div className="text-lg -rotate-4 w-fit  flex flex-col items-center justify-center sedgwick-ave-regular">
@@ -38,7 +69,7 @@ function Hero2D({ isMobile }) {
               that provide seamless UI/UX.
             </h3>
           </div>
-          <div className="flex items-center ml-6 mt-18 gap-2 text-white">
+          <div className="flex items-center ml-6 mt-18 gap-2 text-white anim-bob">
             <FontAwesomeIcon icon={faEarthAsia} className="text-4xl" />
             <div className="text-xs">
               <h4>Based in Lebanon </h4>
