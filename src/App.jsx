@@ -11,7 +11,9 @@ import Navbar from "./components/navbar";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
+
 import Decor from "./components/shapes/Decor";
+import TechStacks from "./components/TechStacks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,6 +83,7 @@ function App() {
 
       <Hero2D isMobile={isMobile} />
       <Services2D isMobile={isMobile} />
+      <TechStacks />
       <div className="relative" ref={badgeWrap}>
         <svg
           ref={badge}

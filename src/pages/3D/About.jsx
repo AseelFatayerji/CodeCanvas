@@ -97,7 +97,7 @@ function About({ isMobile }) {
         <h2 className="text-center text-3xl md:text-5xl select-none py-8">
           About Me
         </h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-[12rem] md:px-36 px-5 ">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-6 md:auto-rows-48 md:px-36 px-5 ">
           <div className={`flex grid-1 ${isMobile ? "hidden" : ""}`}></div>
           <div className="grid-default-color grid-2 ">
             <div
