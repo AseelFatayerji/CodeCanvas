@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DotShape from "../../components/shapes/DotShape";
 import HeroIMage from "../../components/HeroImage";
 import Decor from "../../components/shapes/Decor";
+import BouncyView from "../../components/interactive/BouncyText";
 
 function Hero2D({ isMobile }) {
   const root = useRef(null);
@@ -34,7 +35,9 @@ function Hero2D({ isMobile }) {
     >
       <div className="justify-center flex flex-col ">
         <div className="flex text-7xl font-bold text-pink-400 sedgwick-ave-regular ">
-          <h2 className="hero-line">HELLO, WORLD!</h2>
+          <h2 className="hero-line">
+            <BouncyView text="HELLO, WORLD!" />
+          </h2>
           <Decor
             className="absolute -rotate-5 ml-[33%] -mt-20"
             loop="bob"
