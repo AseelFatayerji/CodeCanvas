@@ -7,9 +7,15 @@ import {
   faMobileScreenButton,
 } from "@fortawesome/free-solid-svg-icons";
 import { faUikit } from "@fortawesome/free-brands-svg-icons";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Services2D({ isMobile }) {
+  const root = useRef(null);
+
   const services = [
     {
       name: "Websites",
@@ -42,20 +48,61 @@ function Services2D({ isMobile }) {
       color: "text-[#2F6BFF]",
     },
   ];
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top 70%",
+          once: true,
+        },
+      });
+
+      tl.from(".service-title", {
+        x: -200,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.25,
+      }).from(
+        ".service-item",
+        {
+          y: 80,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.2,
+        },
+        "-=0.2",
+      );
+    }, root);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div
       id="Services"
+      ref={root}
       className="w-screen p-10 flex justify-evenly select-none "
     >
       <div>
-        <h2 className="text-center text-5xl md:text-9xl select-none">WHAT</h2>
-        <h2 className="text-center text-5xl md:text-9xl select-none">I DO</h2>
+        <h2 className="service-title text-center text-5xl md:text-9xl select-none">
+          WHAT
+        </h2>
+        <h2 className="service-title text-center text-5xl md:text-9xl select-none">
+          I DO
+        </h2>
       </div>
       <div className="flex">
         {services.map((service) => (
-          <div className="w-[20%]" key={service.name}>
+          <div className="service-item w-[20%]" key={service.name}>
             <div className="m-4 p-4 justify-center text-center">
-              <FontAwesomeIcon icon={service.icon} className={`text-5xl mb-4 ${service.color}`} />
+              <FontAwesomeIcon
+                icon={service.icon}
+                className={`text-5xl mb-4 ${service.color}`}
+              />
               <h3 className="text-xl font-bold mb-2">{service.name}</h3>
               <p className="text-neutral-500 text-pretty text-sm">
                 {service.disc}

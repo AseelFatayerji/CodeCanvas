@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,10 +11,69 @@ import Navbar from "./components/navbar";
 import { useMediaQuery } from "react-responsive";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
+import Decor from "./components/shapes/Decor";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
   const year = new Date().getFullYear();
+  const badgeWrap = useRef(null);
+  const badge = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: badgeWrap.current,
+            start: "top 85%",
+            once: true,
+          },
+        })
+        .fromTo(
+          badge.current,
+          {
+            scale: 2.6,
+            rotation: 28,
+            opacity: 0,
+            transformOrigin: "50% 50%",
+            filter: "drop-shadow(0px 40px 24px rgba(0,0,0,0.35))",
+          },
+          {
+            scale: 1,
+            rotation: 7,
+            opacity: 1,
+            duration: 0.2,
+            ease: "power4.in",
+            filter: "drop-shadow(2px 3px 0px rgba(0,0,0,0.6))",
+          },
+        )
+        .to(badge.current, {
+          scaleX: 1.14,
+          scaleY: 0.86,
+          duration: 0.07,
+          ease: "power1.out",
+        })
+        .to(badge.current, {
+          scaleX: 1,
+          scaleY: 1,
+          duration: 0.7,
+          ease: "elastic.out(1.1, 0.35)",
+        })
+        .to(
+          badge.current,
+          {
+            rotation: 0,
+            duration: 0.9,
+            ease: "elastic.out(1, 0.3)",
+          },
+          "<",
+        );
+    }, badgeWrap);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <main className="overflow-x-clip">
@@ -21,8 +81,9 @@ function App() {
 
       <Hero2D isMobile={isMobile} />
       <Services2D isMobile={isMobile} />
-      <div className="relative">
+      <div className="relative" ref={badgeWrap}>
         <svg
+          ref={badge}
           viewBox="0 0 150 150"
           xmlns="http://www.w3.org/2000/svg"
           overflow="visible"
@@ -55,11 +116,20 @@ function App() {
             HUMAN
           </text>
         </svg>
-        <FontAwesomeIcon
-          icon={faAsterisk}
-          className="absolute -rotate-10 -right-10 bottom-5 z-20 text-9xl text-blue-300"
-        />
+
+        <Decor
+          className="absolute -rotate-10 -right-10 bottom-5 z-20"
+          loop="bounce"
+          delay={1}
+          duration="5s"
+        >
+          <FontAwesomeIcon
+            icon={faAsterisk}
+            className=" text-9xl text-blue-300"
+          />
+        </Decor>
       </div>
+
       <Projects2D isMobile={isMobile} />
       <Contact2D isMobile={isMobile} />
       <Banner isMobile={isMobile} />
