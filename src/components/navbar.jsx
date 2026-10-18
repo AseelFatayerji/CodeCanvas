@@ -55,12 +55,12 @@ function Navbar({ isMobile }) {
             </label>
           )}
         </div>
-        <NavLink
+        <a
           to="https://github.com/AseelFatayerji"
-          className="text-xl font-bold"
+          className="text-xl font-bold hover:cursor-pointer"
         >
           <FontAwesomeIcon icon={faGithub} className="text-4xl" />
-        </NavLink>
+        </a>
       </div>
       {isOpen && (
         <motion.div

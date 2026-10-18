@@ -102,6 +102,7 @@ function Contact2D({ isMobile }) {
                   type="email"
                   className="w-full h-full outline-none text-lg bg-transparent placeholder:text-slate-700"
                   placeholder="Enter your email"
+                  label="Email"
                   required
                 />
               </fieldset>
@@ -111,6 +112,7 @@ function Contact2D({ isMobile }) {
                   name="message"
                   placeholder="Project Discription"
                   className="w-full h-max outline-none text-lg bg-transparent placeholder:text-slate-700"
+                  label="Description"
                   required
                 />
               </fieldset>
