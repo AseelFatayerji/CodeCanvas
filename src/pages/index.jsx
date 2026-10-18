@@ -7,6 +7,7 @@
 import Hero2D from "./2D/Hero-2";
 import Services2D from "./2D/Services-2";
 import Projects2D from "./2D/Projects-2";
-// import Contact2 from "./2D/Contact";
+import Contact2D from "./2D/Contact-2";
+import Banner from "./2D/Banner";
 
-export { Hero2D, Services2D, Projects2D };
+export { Hero2D, Services2D, Projects2D, Contact2D, Banner };

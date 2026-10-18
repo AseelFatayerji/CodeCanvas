@@ -21,7 +21,7 @@ function Services2D({ isMobile }) {
       name: "UI/UX",
       icon: faUikit,
       disc: "Simple, user-centered interfaces.",
-      color: "text-lime-300",
+      color: "text-[#C7FF2F]",
     },
     {
       name: "Apps",

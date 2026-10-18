@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./css/App.css";
 import "./css/animated.css";
 
-import { Hero2D, Services2D, Projects2D } from "./pages";
+import { Hero2D, Services2D, Projects2D, Contact2D, Banner } from "./pages";
 import Navbar from "./components/navbar";
 
 import { useMediaQuery } from "react-responsive";
@@ -13,6 +13,7 @@ import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const isMobile = useMediaQuery({ query: "(max-width: 810px)" });
+  const year = new Date().getFullYear();
 
   return (
     <main className="overflow-x-clip">
@@ -60,8 +61,14 @@ function App() {
         />
       </div>
       <Projects2D isMobile={isMobile} />
+      <Contact2D isMobile={isMobile} />
+      <Banner isMobile={isMobile} />
+      <footer className="w-full h-20 bg-black/30 flex items-center justify-center">
+        <p className="text-gray-400 text-sm">
+          &copy; {year} Aseel Fatayerji. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }
-
 export default App;
