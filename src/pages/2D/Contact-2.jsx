@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import CV from "../../assets/Aseel Fatayerji - CV.pdf";
@@ -26,6 +27,38 @@ const SOCIALS = [
   },
 ];
 
+const container = {
+  hidden: { x: -160, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delayChildren: 0.6,
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const wipe = {
+  hidden: { opacity: 0, clipPath: "inset(-30% 100% -30% -10%)" },
+  visible: {
+    opacity: 1,
+    clipPath: "inset(-30% -10% -30% -10%)",
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const rise = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 function Contact2D({ isMobile }) {
   const [result, setResult] = useState("");
 
@@ -46,24 +79,40 @@ function Contact2D({ isMobile }) {
 
   return (
     <section id="Contact" className="w-full h-fit">
-      <div className="relative z-10 flex flex-col md:flex-row ">
+      <motion.div
+        className="relative z-10 flex flex-col md:flex-row "
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         <div className=" md:w-full">
           <div className="flex gap-2  px-10 pt-16 md:pl-16">
             <div className="select-none w-[80%]">
-              <h2 className="text-5xl md:text-6xl font-black leading-none">
+              <motion.h2
+                variants={wipe}
+                className="text-5xl md:text-6xl font-black leading-none"
+              >
                 LET'S CREATE
-              </h2>
-              <h2 className="sedgwick-ave-regular -rotate-3 text-4xl md:text-5xl text-pink-400 underline decoration-4 underline-offset-8 mt-3 w-fit">
+              </motion.h2>
+              <motion.h2
+                variants={wipe}
+                className="sedgwick-ave-regular -rotate-3 text-4xl md:text-5xl text-pink-400 underline decoration-4 underline-offset-8 mt-3 w-fit"
+              >
                 SOMETHING GREAT!
-              </h2>
+              </motion.h2>
             </div>
             <div>
-              <p className="text-sm text-pretty">
+              <motion.p variants={rise} className="text-sm text-pretty">
                 Have a project in mind? Let's bring your ideas to life.
-              </p>
+              </motion.p>
               <ul className="space-y-3 pt-10">
                 {SOCIALS.map((item) => (
-                  <li key={item.label} className="flex items-center gap-4">
+                  <motion.li
+                    variants={rise}
+                    key={item.label}
+                    className="flex items-center gap-4"
+                  >
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white">
                       <FontAwesomeIcon icon={item.icon} className="text-sm" />
                     </span>
@@ -79,7 +128,7 @@ function Contact2D({ isMobile }) {
                     ) : (
                       <span className="text-sm">{item.label}</span>
                     )}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
@@ -91,11 +140,17 @@ function Contact2D({ isMobile }) {
             className="w-full flex flex-col space-y-3"
             onSubmit={onSubmit}
           >
-            <span className="w-fit self-center md:self-start rounded-full border-2 border-slate-900 px-4 py-1 text-xs font-bold tracking-widest">
+            <motion.span
+              variants={rise}
+              className="w-fit self-center md:self-start rounded-full border-2 border-slate-900 px-4 py-1 text-xs font-bold tracking-widest"
+            >
               CONTACT ME
-            </span>
+            </motion.span>
             <div className="space-y-3">
-              <fieldset className="text-start border-2 border-slate-900 rounded-lg p-2">
+              <motion.fieldset
+                variants={rise}
+                className="text-start border-2 border-slate-900 rounded-lg p-2"
+              >
                 <legend className="px-1">Email</legend>
                 <input
                   name="email"
@@ -105,8 +160,11 @@ function Contact2D({ isMobile }) {
                   label="Email"
                   required
                 />
-              </fieldset>
-              <fieldset className="text-start border-2 border-slate-900 rounded-lg p-2">
+              </motion.fieldset>
+              <motion.fieldset
+                variants={rise}
+                className="text-start border-2 border-slate-900 rounded-lg p-2"
+              >
                 <legend className="px-1">Discription</legend>
                 <textarea
                   name="message"
@@ -115,9 +173,12 @@ function Contact2D({ isMobile }) {
                   label="Description"
                   required
                 />
-              </fieldset>
+              </motion.fieldset>
             </div>
-            <div className="flex justify-center md:justify-start md:scale-100 scale-75">
+            <motion.div
+              variants={rise}
+              className="flex justify-center md:justify-start md:scale-100 scale-75"
+            >
               <button
                 type="submit"
                 className="send bg-[#141414] text-white py-4 px-5 gap-2 flex items-center rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-95 outline-none"
@@ -129,7 +190,7 @@ function Contact2D({ isMobile }) {
                 </div>
                 <span>Send</span>
               </button>
-            </div>
+            </motion.div>
           </form>
           {result == "" ? (
             <></>
@@ -137,7 +198,7 @@ function Contact2D({ isMobile }) {
             <Popup msg={result} closePreview={() => setHidden(false)} />
           )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import axios from "axios";
 import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import Project2D from "../../components/Project-2";
 import {
   faBookAtlas,
@@ -20,7 +21,6 @@ const EXCLUDED = ["CodeCanvas", "Hotel Comission"];
 function Projects2D({ isMobile }) {
   const [prjs, setPrjs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const root = useRef(null);
   const grid = useRef(null);
   const username = "AseelFatayerji";
   const icons = [faBurger, faCloudSun, faBookAtlas];
@@ -43,24 +43,6 @@ function Projects2D({ isMobile }) {
       })
       .catch((err) => console.error("Error fetching repos:", err))
       .finally(() => setLoading(false));
-  }, []);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".project-title", {
-        x: -200,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top 70%",
-          once: true,
-        },
-      });
-    }, root);
-
-    return () => ctx.revert();
   }, []);
 
   useLayoutEffect(() => {
@@ -104,11 +86,17 @@ function Projects2D({ isMobile }) {
   }, [loading]);
 
   return (
-    <section id="Projects" ref={root} className="bg-pink-400 py-5">
+    <section id="Projects" className="bg-pink-400 py-5">
       <div className="relative ">
-        <h2 className="project-title font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] ">
+        <motion.h2
+          className="font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] "
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           SELECTED WORK
-        </h2>
+        </motion.h2>
 
         <Decor
           className="absolute rotate-40 right-[15%] top-0 z-20"
