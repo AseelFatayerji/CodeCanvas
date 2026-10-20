@@ -12,13 +12,13 @@ import Ticks from "../shapes/Ticks";
 import Squiggle from "../shapes/Squiggle";
 import Decor from "../shapes/Decor";
 
-const PERSON_IMG = "src/assets/temp.png";
+const PERSON_IMG = "https://ik.imagekit.io/sas2seqly/portfolio/portfolio%20image-v2.png";
 
 function HeroIMage() {
   return (
     <div className="relative flex h-screen min-h-112 w-[80] items-center justify-center">
       <motion.div
-        className="absolute h-[90%] w-[77%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
+        className="absolute h-[90%] w-[85%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
         initial={{ scale: 0.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
@@ -39,7 +39,7 @@ function HeroIMage() {
         <DotShape className="h-28 w-27" dot="#2F6BFF" dotSize="2px" gap="14px" />
       </Decor>
 
-      <div className="relative z-1 aspect-3/4 w-[150%] -top-5 ">
+      <div className="relative z-1 aspect-3/4 w-[77%] -top-7 ">
         <img src={PERSON_IMG} alt="" className="h-full w-full object-contain" />
       </div>
 
@@ -60,7 +60,7 @@ function HeroIMage() {
         <FontAwesomeIcon icon={faPlus} className="text-2xl text-[#FB64B6]" />
       </Decor>
       <Decor
-        className="absolute rotate-25 left-16 top-1/3 z-20"
+        className="absolute rotate-25 left-16 top-[25%] z-20"
         loop="rotate"
         delay={1}
         duration="5s"
@@ -68,7 +68,7 @@ function HeroIMage() {
         <FontAwesomeIcon icon={faCircleNotch} className="text-6xl text-white" />
       </Decor>
       <Decor
-        className="absolute rotate-25 right-1/2 top-18 z-20"
+        className="absolute right-1/3 top-18 z-20"
         loop="rotate"
         delay={1.1}
         duration="3s"
@@ -77,11 +77,11 @@ function HeroIMage() {
       </Decor>
 
       <Decor
-        className="absolute left-[25%] rotate-270 top-[20%] z-20"
+        className="absolute left-[25%]  top-[20%] z-20"
         loop="bounce"
         delay={1.2}
       >
-        <Ticks className="h-16 w-16" color="#2F6BFF" />
+        <Ticks className="h-16 w-16 rotate-270" color="#2F6BFF" />
       </Decor>
       <Decor
         className="absolute right-22 top-[58%] z-20"
@@ -93,20 +93,20 @@ function HeroIMage() {
       </Decor>
 
       <Decor
-        className="absolute right-12 rotate-45 top-16 z-20"
+        className="absolute right-12  top-16 z-20"
         loop="bob"
         delay={1.4}
         duration="3.5s"
       >
-        <Squiggle className="h-6 w-14" color="#FB64B6" />
+        <Squiggle className="h-6 w-14 rotate-45" color="#FB64B6" />
       </Decor>
       <Decor
-        className="absolute right-22 -rotate-45 top-1/2 z-20"
+        className="absolute right-22 top-1/2 z-20"
         loop="bob"
         delay={1.5}
         duration="4.2s"
       >
-        <Squiggle className="h-6 w-14" color="#fff" />
+        <Squiggle className="h-6 w-14 -rotate-45 " color="#fff" />
       </Decor>
     </div>
   );

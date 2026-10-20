@@ -61,7 +61,7 @@ function Hero2D({ isMobile }) {
               />
             </Decor>
           </div>
-          <h1 className="hero-line relative z-20 pointer-events-none select-none">
+          <h1 className="hero-line relative z-20 pointer-events-none select-none mt-4">
             A SOFTWARE DEV
           </h1>
         </div>

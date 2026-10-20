@@ -99,7 +99,7 @@ function Projects2D({ isMobile }) {
         </motion.h2>
 
         <Decor
-          className="absolute rotate-40 right-[15%] top-0 z-20"
+          className="absolute right-[15%] top-0 z-20"
           loop="pulse"
           origin="15% 85%"
           min={0.55}
@@ -108,7 +108,7 @@ function Projects2D({ isMobile }) {
           delay={0.5}
         >
           <Ticks
-            className="h-30 w-30"
+            className="rotate-40 h-30 w-30"
             color="#fff"
             strokeWidth={3}
             innerRadius={12}
