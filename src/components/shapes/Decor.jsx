@@ -86,7 +86,7 @@ function Decor({
   return (
     <motion.div
       ref={ref}
-      className={`${className} ${draggable ? "cursor-grab select-none" : ""}`}
+      className={`${className} ${draggable ? "cursor-grab select-none pointer-events-auto" : ""}`}
       style={{ x, y }}
       initial={{ scale: 0.05, opacity: 0 }}
       {...reveal}
