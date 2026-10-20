@@ -30,7 +30,7 @@ const slideIn = {
   },
 };
 
-function TechStacks() {
+function TechStacks({isMobile}) {
   const first_line = [
     { icon: faNodeJs, color: "#3C873A" },
     { icon: faReact, color: "#61DBFB" },
@@ -69,15 +69,15 @@ function TechStacks() {
           variants={slideIn}
           className="w-fit -rotate-3 sedgwick-ave-regular"
         >
-          <h3 className="bg-[#C7FF2F] text-black text-3xl md:text-2xl px-5 py-2 rounded-xl w-fit -mb-3">
+          <h3 className="bg-[#C7FF2F] text-black text-xl md:text-2xl px-5 py-2 rounded-xl w-fit -mb-3">
             MY TECH
           </h3>
-          <h3 className="bg-white text-black text-3xl md:text-2xl px-5 py-2 rounded-xl w-fit ml-14">
+          <h3 className="bg-white text-black text-xl md:text-2xl px-5 py-2 rounded-xl w-fit ml-14">
             STACKS
           </h3>
         </motion.div>
         <Decor
-          className="absolute left-30 top-6"
+          className="absolute left-25 top-3 scale-80 md:top-6 md:scale-100 md:left-30"
           loop="bob"
           inView
           delay={0.6}
@@ -89,8 +89,8 @@ function TechStacks() {
       <ScrollVelocity
         rows={[first_line, second_line]}
         velocity={60}
-        itemSize={56}
-        gap={48}
+        itemSize={isMobile? 45 : 56}
+        gap={isMobile? 25 : 48}
         fadeEdges
         draggable
         pauseOnHover
