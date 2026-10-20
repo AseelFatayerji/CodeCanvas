@@ -85,26 +85,26 @@ function Contact2D({ isMobile }) {
         viewport={{ once: true, amount: 0.25 }}
       >
         <div className=" md:w-full">
-          <div className="flex gap-2  px-10 pt-16 md:pl-16">
-            <div className="select-none w-[80%]">
+          <div className="flex gap-2 pl-5 px-3 pt-10 lg:pl-16 lg:px-10 lg:pt-16">
+            <div className="select-none md:w-[60%] lg:w-[80%]">
               <motion.h2
                 variants={wipe}
-                className="text-5xl md:text-6xl font-black leading-none"
+                className="text-3xl md:text-5xl lg:text-6xl font-black leading-none"
               >
                 LET'S CREATE
               </motion.h2>
               <motion.h2
                 variants={wipe}
-                className="sedgwick-ave-regular -rotate-3 text-4xl md:text-5xl text-pink-400 underline decoration-4 underline-offset-8 mt-3 w-fit"
+                className="sedgwick-ave-regular -rotate-3 text-xl md:text-4xl lg:text-5xl text-pink-400 underline decoration-4 underline-offset-8 mt-3 w-fit"
               >
                 SOMETHING GREAT!
               </motion.h2>
             </div>
             <div>
-              <motion.p variants={rise} className="text-sm text-pretty select-none">
+              <motion.p variants={rise} className=" text-pretty select-none px-2 text-xs md:text-sm">
                 Have a project in mind? Let's bring your ideas to life.
               </motion.p>
-              <ul className="space-y-3 pt-10">
+              <ul className="space-y-3 py-4 md:pt-10">
                 {SOCIALS.map((item) => (
                   <motion.li
                     variants={rise}
@@ -112,19 +112,19 @@ function Contact2D({ isMobile }) {
                     className="flex items-center gap-4"
                   >
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white">
-                      <FontAwesomeIcon icon={item.icon} className="text-sm" />
+                      <FontAwesomeIcon icon={item.icon} className="text-xs md:text-sm" />
                     </span>
                     {item.href ? (
                       <a
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm hover:underline"
+                        className="text-xs md:text-sm hover:underline"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span className="text-sm">{item.label}</span>
+                      <span className="text-xs md:text-sm">{item.label}</span>
                     )}
                   </motion.li>
                 ))}
