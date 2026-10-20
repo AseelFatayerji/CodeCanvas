@@ -14,6 +14,7 @@ import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
 
 import Decor from "./components/shapes/Decor";
 import TechStacks from "./components/2D items/TechStacks";
+import Process2D from "./components/2D items/Process";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,6 +84,7 @@ function App() {
 
       <Hero2D isMobile={isMobile} />
       <Services2D isMobile={isMobile} />
+      <Process2D isMobile={isMobile} />
       <TechStacks isMobile={isMobile} />
       <div
         className={`relative select-none ${isMobile ? "scale-50" : "scale-100"}`}
@@ -123,17 +125,19 @@ function App() {
           </text>
         </svg>
 
-        {!isMobile && <Decor
-          className="absolute -rotate-10 -right-10 bottom-5 z-20 scale-70 md:scale-100"
-          loop="bounce"
-          delay={1}
-          duration="5s"
-        >
-          <FontAwesomeIcon
-            icon={faAsterisk}
-            className=" text-9xl text-blue-300"
-          />
-        </Decor>}
+        {!isMobile && (
+          <Decor
+            className="absolute -rotate-10 -right-10 bottom-5 z-20 scale-70 md:scale-100"
+            loop="bounce"
+            delay={1}
+            duration="5s"
+          >
+            <FontAwesomeIcon
+              icon={faAsterisk}
+              className=" text-9xl text-blue-300"
+            />
+          </Decor>
+        )}
       </div>
 
       <Projects2D isMobile={isMobile} />

@@ -30,7 +30,7 @@ const slideIn = {
   },
 };
 
-function TechStacks({isMobile}) {
+function TechStacks({ isMobile }) {
   const first_line = [
     { icon: faNodeJs, color: "#3C873A" },
     { icon: faReact, color: "#61DBFB" },
@@ -58,39 +58,53 @@ function TechStacks({isMobile}) {
     { icon: faBootstrap, color: "#8312FA" },
   ];
   return (
-    <div>
+    <div className="flex flex-col gap-4 pb-5">
       <motion.div
-        className="relative px-10 pt-20 pb-8"
+        className="relative flex px-10 pb-8 w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div
           variants={slideIn}
-          className="w-fit -rotate-3 sedgwick-ave-regular"
+          className="absolute inset-x-0 flex items-center justify-center gap-3 md:gap-5 -rotate-3 text-3xl md:text-5xl sedgwick-ave-regular"
         >
-          <h3 className="bg-[#C7FF2F] text-black text-xl md:text-2xl px-5 py-2 rounded-xl w-fit -mb-3">
-            MY TECH
-          </h3>
-          <h3 className="bg-white text-black text-xl md:text-2xl px-5 py-2 rounded-xl w-fit ml-14">
-            STACKS
-          </h3>
+          <Decor
+            loop="bob"
+            inView
+            delay={0.6}
+            duration="4.5s"
+            draggable={!isMobile}
+          >
+            <Squiggle
+              className="h-4 w-10 md:h-6 md:w-14"
+              color="#ffffff"
+              strokeWidth={2}
+            />
+          </Decor>
+
+          <span>Tech Stacks</span>
+
+          <Decor
+            loop="bob"
+            inView
+            delay={0.8}
+            duration="3.8s"
+            draggable={!isMobile}
+          >
+            <Squiggle
+              className="h-4 w-10 md:h-6 md:w-14"
+              color="#ffffff"
+              strokeWidth={2}
+            />
+          </Decor>
         </motion.div>
-        <Decor
-          className="absolute left-25 top-3 scale-80 md:top-6 md:scale-100 md:left-30"
-          loop="bob"
-          inView
-          delay={0.6}
-          duration="4.5s"
-        >
-          <Arrow curves={1} direction="right" color="#ffffff" size={210} />
-        </Decor>
       </motion.div>
       <ScrollVelocity
         rows={[first_line, second_line]}
         velocity={60}
-        itemSize={isMobile? 45 : 56}
-        gap={isMobile? 25 : 48}
+        itemSize={isMobile ? 45 : 56}
+        gap={isMobile ? 25 : 48}
         fadeEdges
         draggable
         pauseOnHover
