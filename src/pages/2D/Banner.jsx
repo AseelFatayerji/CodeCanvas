@@ -2,7 +2,7 @@ import React from "react";
 
 function Banner() {
   return (
-    <div className="w-full flex bg-[#C7FF2F] p-15 justify-between">
+    <div className="w-full flex bg-[#C7FF2F] p-15 justify-between select-none">
       <div className="flex gap-4">
         <div className="relative px-5 mr-16 scale-70">
           {/* <!-- From Uiverse.io by pasha43 -->  */}

@@ -101,7 +101,7 @@ function Contact2D({ isMobile }) {
               </motion.h2>
             </div>
             <div>
-              <motion.p variants={rise} className="text-sm text-pretty">
+              <motion.p variants={rise} className="text-sm text-pretty select-none">
                 Have a project in mind? Let's bring your ideas to life.
               </motion.p>
               <ul className="space-y-3 pt-10">
@@ -133,21 +133,21 @@ function Contact2D({ isMobile }) {
           </div>
         </div>
 
-        <div className="bg-blue-300 h-fit text-slate-900 px-8 py-7 md:w-[45%] md:pl-[10%] md:pr-16 md:[clip-path:polygon(14%_0,100%_0,100%_100%,0_100%)]">
+        <div className="bg-blue-300 h-fit text-[#141414] px-8 py-7 md:w-[45%] md:pl-[10%] md:pr-16 md:[clip-path:polygon(14%_0,100%_0,100%_100%,0_100%)]">
           <form
             className="w-full flex flex-col space-y-3"
             onSubmit={onSubmit}
           >
             <motion.span
               variants={rise}
-              className="w-fit self-center md:self-start rounded-full border-2 border-slate-900 px-4 py-1 text-xs font-bold tracking-widest"
+              className="w-fit self-center select-none md:self-start rounded-full border-2 border-[#141414] px-4 py-1 text-xs font-bold tracking-widest"
             >
               CONTACT ME
             </motion.span>
             <div className="space-y-3">
               <motion.fieldset
                 variants={rise}
-                className="text-start border-2 border-slate-900 rounded-lg p-2"
+                className="text-start border-2 border-[#141414] rounded-lg p-2"
               >
                 <legend className="px-1">Email</legend>
                 <input
@@ -161,7 +161,7 @@ function Contact2D({ isMobile }) {
               </motion.fieldset>
               <motion.fieldset
                 variants={rise}
-                className="text-start border-2 border-slate-900 rounded-lg p-2"
+                className="text-start border-2 border-[#141414] rounded-lg p-2"
               >
                 <legend className="px-1">Discription</legend>
                 <textarea

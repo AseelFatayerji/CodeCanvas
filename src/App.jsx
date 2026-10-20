@@ -84,7 +84,7 @@ function App() {
       <Hero2D isMobile={isMobile} />
       <Services2D isMobile={isMobile} />
       <TechStacks />
-      <div className="relative" ref={badgeWrap}>
+      <div className="relative select-none" ref={badgeWrap}>
         <svg
           ref={badge}
           viewBox="0 0 150 150"
@@ -136,7 +136,7 @@ function App() {
       <Projects2D isMobile={isMobile} />
       <Contact2D isMobile={isMobile} />
       <Banner isMobile={isMobile} />
-      <footer className="w-full h-20 bg-black/30 flex items-center justify-center">
+      <footer className="w-full h-20 bg-black/30 flex items-center justify-center select-none">
         <p className="text-gray-400 text-sm">
           &copy; {year} Aseel Fatayerji. All rights reserved.
         </p>

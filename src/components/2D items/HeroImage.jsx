@@ -6,17 +6,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import Decor from "../shapes/Decor";
 import DotShape from "../shapes/DotShape";
 import TerminalBadge from "../shapes/TerminalBadge";
 import Ticks from "../shapes/Ticks";
 import Squiggle from "../shapes/Squiggle";
+import Decor from "../shapes/Decor";
 
 const PERSON_IMG = "src/assets/temp.png";
 
 function HeroIMage() {
   return (
-    <div className="relative flex h-screen min-h-112 w-[80] items-center justify-center overflow-clip">
+    <div className="relative flex h-screen min-h-112 w-[80] items-center justify-center">
       <motion.div
         className="absolute h-[90%] w-[77%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
         initial={{ scale: 0.05, opacity: 0 }}
