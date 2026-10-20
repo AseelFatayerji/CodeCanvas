@@ -83,8 +83,11 @@ function App() {
 
       <Hero2D isMobile={isMobile} />
       <Services2D isMobile={isMobile} />
-      <TechStacks />
-      <div className={`relative select-none ${isMobile ? "scale-50" : "scale-100"}`} ref={badgeWrap}>
+      <TechStacks isMobile={isMobile} />
+      <div
+        className={`relative select-none ${isMobile ? "scale-50" : "scale-100"}`}
+        ref={badgeWrap}
+      >
         <svg
           ref={badge}
           viewBox="0 0 150 150"
@@ -120,8 +123,8 @@ function App() {
           </text>
         </svg>
 
-        <Decor
-          className="absolute -rotate-10 -right-10 bottom-5 z-20"
+        {!isMobile && <Decor
+          className="absolute -rotate-10 -right-10 bottom-5 z-20 scale-70 md:scale-100"
           loop="bounce"
           delay={1}
           duration="5s"
@@ -130,7 +133,7 @@ function App() {
             icon={faAsterisk}
             className=" text-9xl text-blue-300"
           />
-        </Decor>
+        </Decor>}
       </div>
 
       <Projects2D isMobile={isMobile} />

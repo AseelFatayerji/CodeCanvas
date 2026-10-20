@@ -85,9 +85,9 @@ function Services2D({ isMobile }) {
     <div
       id="Services"
       ref={root}
-      className="w-screen p-10 flex justify-evenly select-none "
+      className="w-screen p-10 flex justify-evenly select-none flex-col md:flex-row"
     >
-      <div>
+      <div className="flex gap-2 md:flex-col">
         <h2 className="service-title text-center text-5xl md:text-9xl select-none">
           WHAT
         </h2>
@@ -95,9 +95,9 @@ function Services2D({ isMobile }) {
           I DO
         </h2>
       </div>
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         {services.map((service) => (
-          <div className="service-item w-[20%]" key={service.name}>
+          <div className="service-item md:w-[20%]" key={service.name}>
             <div className="m-4 p-4 justify-center text-center">
               <FontAwesomeIcon
                 icon={service.icon}
