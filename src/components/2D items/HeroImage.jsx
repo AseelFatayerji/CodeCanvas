@@ -6,11 +6,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import Decor from "./shapes/Decor";
-import DotShape from "./shapes/DotShape";
-import TerminalBadge from "./shapes/TerminalBadge";
-import Ticks from "./shapes/Ticks";
-import Squiggle from "./shapes/Squiggle";
+import Decor from "../shapes/Decor";
+import DotShape from "../shapes/DotShape";
+import TerminalBadge from "../shapes/TerminalBadge";
+import Ticks from "../shapes/Ticks";
+import Squiggle from "../shapes/Squiggle";
 
 const PERSON_IMG = "src/assets/temp.png";
 

@@ -12,7 +12,7 @@ import { faArrowRight, faC } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ProjectDetails from "./interactive/ProjectDetails";
+import ProjectDetails from "../interactive/ProjectDetails";
 import { createPortal } from "react-dom";
 
 const Project = ({ index, repo, title, demo, disc, link }) => {

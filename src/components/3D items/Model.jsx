@@ -3,15 +3,15 @@ import { Suspense, useEffect, useRef } from "react";
 import { easing } from "maath";
 import { useMediaQuery } from "react-responsive";
 
-import Loader from "./loaders/model-loader";
-import Astronaut from "../model_loader/Astronaut";
-import Glass from "../model_loader/Glass";
+import Loader from "../loaders/model-loader";
+import Astronaut from "../../model_loader/Astronaut";
+import Glass from "../../model_loader/Glass";
 
-import ParallaxBg from "./parallax/ParallaxBg";
-import ParallaxA from "./parallax/ParrallaxAbout";
-import ParallaxS from "./parallax/ParrallaxService";
-import ParallaxP from "./parallax/ParrallaxProject";
-import ParallaxC from "./parallax/ParrallaxContact";
+import ParallaxBg from "../parallax/ParallaxBg";
+import ParallaxA from "../parallax/ParrallaxAbout";
+import ParallaxS from "../parallax/ParrallaxService";
+import ParallaxP from "../parallax/ParrallaxProject";
+import ParallaxC from "../parallax/ParrallaxContact";
 
 function Rig() {
   return useFrame((state, delta) => {

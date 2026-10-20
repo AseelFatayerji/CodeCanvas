@@ -8,8 +8,8 @@ import {
   useTransform,
 } from "framer-motion";
 
-import { FlipWords } from "./interactive/FlipWords";
-import TypeWriter from "./interactive/TypeWriter";
+import { FlipWords } from "../interactive/FlipWords";
+import TypeWriter from "../interactive/TypeWriter";
 
 function HeroText({ modelReady }) {
   const sectionRef = useRef(null);

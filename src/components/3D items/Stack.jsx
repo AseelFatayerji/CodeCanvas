@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { OrbitingCircles } from "./interactive/OrbtingCircles";
+import { OrbitingCircles } from "../interactive/OrbtingCircles";
 import {
   faAndroid,
   faBootstrap,

@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import Arrow from "./shapes/Arrow";
-import Squiggle from "./shapes/Squiggle";
-import Decor from "./shapes/Decor";
-import ScrollVelocity from "./interactive/ScrollingImage";
+import Arrow from "../shapes/Arrow";
+import Squiggle from "../shapes/Squiggle";
+import Decor from "../shapes/Decor";
+import ScrollVelocity from "../interactive/ScrollingImage";
 
 import {
   faAndroid,

@@ -2,8 +2,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense } from "react";
 import { useMediaQuery } from "react-responsive";
 import { OrbitControls } from "@react-three/drei";
-import Loader from "./loaders/model-loader";
-import Computer from "../model_loader/Computer";
+import Loader from "../loaders/model-loader";
+import Computer from "../../model_loader/Computer";
 
 function Model(props) {
   const isMobile = useMediaQuery({ query: "(max-width: 853px)" });

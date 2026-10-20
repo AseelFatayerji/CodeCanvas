@@ -26,7 +26,7 @@ function Decor({
 
   return (
     <motion.div
-      className={className}
+      className={`${className}`}
       initial={{ scale: 0.05, opacity: 0 }}
       {...reveal}
       transition={{
