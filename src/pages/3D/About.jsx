@@ -9,8 +9,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { motion, useInView } from "framer-motion";
 
-import CopyBtn from "../components/CopyBtn";
-import Stack from "../components/Stack";
+import CopyBtn from "../components/3D items/CopyBtn";
+import Stack from "../components/3D items/Stack";
 import Card from "../components/interactive/Card";
 import ParallaxA from "../components/parallax/ParrallaxAbout";
 

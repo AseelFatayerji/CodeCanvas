@@ -2,8 +2,8 @@ import axios from "axios";
 import { memo, useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
-import Project from "../components/Project";
 import ParallaxP from "../components/parallax/ParrallaxProject";
+import Project from "../../components/3D items/Project";
 
 function Projects({isMobile}) {
   const [prjs, setPrjs] = useState([]);

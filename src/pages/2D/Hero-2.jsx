@@ -7,9 +7,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DotShape from "../../components/shapes/DotShape";
-import HeroIMage from "../../components/HeroImage";
 import Decor from "../../components/shapes/Decor";
 import BouncyView from "../../components/interactive/BouncyText";
+import HeroIMage from "../../components/2D items/HeroImage";
 
 function Hero2D({ isMobile }) {
   const root = useRef(null);

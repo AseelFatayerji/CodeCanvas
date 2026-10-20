@@ -3,7 +3,7 @@ import { memo, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import Project2D from "../../components/Project-2";
+import Project2D from "../../components/2D items/Project-2";
 import {
   faBookAtlas,
   faBurger,

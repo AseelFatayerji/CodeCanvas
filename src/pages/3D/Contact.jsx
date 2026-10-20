@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
-import Model from "../components/Computer";
+import Model from "../components/3D items/Computer";
 import Socials from "../components/interactive/Socials";
 import Popup from "../components/Popup";
 import ParallaxC from "../components/parallax/ParrallaxContact";

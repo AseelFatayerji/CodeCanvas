@@ -1,4 +1,5 @@
-import HeroText from "../components/HeroText";
+
+import HeroText from "../../components/3D items/HeroText";
 import ParallaxBg from "../components/parallax/ParallaxBg";
 
 function Hero({ modelReady, isMobile }) {

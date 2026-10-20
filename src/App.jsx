@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAsterisk } from "@fortawesome/free-solid-svg-icons";
 
 import Decor from "./components/shapes/Decor";
-import TechStacks from "./components/TechStacks";
+import TechStacks from "./components/2D items/TechStacks";
 
 gsap.registerPlugin(ScrollTrigger);
 

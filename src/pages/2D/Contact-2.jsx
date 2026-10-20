@@ -6,11 +6,9 @@ import CV from "../../assets/Aseel Fatayerji - CV.pdf";
 import {
   faPaperPlane,
   faEnvelope,
-  faGlobe,
-  faLocationDot,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const SOCIALS = [
   { icon: faEnvelope, label: "fatayerjiaseel@email.com" },
