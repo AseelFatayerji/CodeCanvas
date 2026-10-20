@@ -87,7 +87,7 @@ function Services2D({ isMobile }) {
       ref={root}
       className="w-screen p-10 flex justify-evenly select-none flex-col md:flex-row"
     >
-      <div className="flex gap-2 md:flex-col">
+      <div className="flex gap-2 justify-center md:flex-col md:justify-start">
         <h2 className="service-title text-center text-5xl md:text-9xl select-none">
           WHAT
         </h2>

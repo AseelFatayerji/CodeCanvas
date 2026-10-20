@@ -101,7 +101,7 @@ function Projects2D({ isMobile }) {
             </motion.h2>
 
             <Decor
-              className="absolute right-[15%] top-0 z-20"
+              className="absolute right-[15%] -top-[0.8rem] z-20"
               loop="pulse"
               origin="15% 85%"
               min={0.55}

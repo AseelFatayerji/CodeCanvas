@@ -31,42 +31,51 @@ function Hero2D({ isMobile }) {
     <div
       id="Hero"
       ref={root}
-      className="pl-10 pt-33 flex h-screen w-screen border-b-2 border-slate-700"
+      className="pl-5 pt-33 flex h-screen w-screen border-b-2 border-slate-700 md:pl-10"
     >
       <div className="justify-center flex flex-col ">
         <div className="flex text-7xl font-bold text-pink-400 sedgwick-ave-regular ">
           <h2 className="hero-line">
             <BouncyView text="HELLO, WORLD!" />
           </h2>
-          <Decor
-            className="absolute -rotate-5 ml-[33%] -mt-20"
-            loop="bob"
-            delay={0.7}
-            duration="5s"
-          >
-            <DotShape
-              className="w-56 h-40 rounded-[4rem]"
-              dot="#FB64B6"
-              gap="16px"
-            />
-          </Decor>
-        </div>
-        <div className="text-2xl md:text-4xl py-5 font-bold text-white">
-          <div className="flex flex-row gap-8 ">
-            <h1 className="hero-line select-none"> I'M ASEEL</h1>
-            <Decor className="rotate-20" loop="bob" delay={0.9} distance="12px">
-              <FontAwesomeIcon
-                icon={faHashtag}
-                className="text-blue-300 text-[8rem]"
+          {!isMobile && (
+            <Decor
+              className="absolute -rotate-5 ml-[33%] -mt-20"
+              loop="bob"
+              delay={0.7}
+              duration="5s"
+            >
+              <DotShape
+                className="w-56 h-40 rounded-[4rem]"
+                dot="#FB64B6"
+                gap="16px"
               />
             </Decor>
+          )}
+        </div>
+        <div className="text-lg md:text-4xl py-5 font-bold text-white">
+          <div className="flex pl-6 md:pl-0 md:flex-row md:gap-8 w-full ">
+            <h1 className="hero-line select-none text-center md:text-left"> I'M ASEEL</h1>
+            {!isMobile && (
+              <Decor
+                className="rotate-20"
+                loop="bob"
+                delay={0.9}
+                distance="12px"
+              >
+                <FontAwesomeIcon
+                  icon={faHashtag}
+                  className="text-blue-300 text-[8rem]"
+                />
+              </Decor>
+            )}
           </div>
-          <h1 className="hero-line relative z-20 pointer-events-none select-none mt-4">
+          <h1 className="hero-line relative z-20 pointer-events-none text-pretty select-none mt-4 text-center md:text-left">
             A SOFTWARE DEV
           </h1>
         </div>
-        <div className="flex">
-          <div className="anim-bounce text-lg -rotate-4 w-fit  flex flex-col items-center justify-center sedgwick-ave-regular">
+        <div className="flex flex-col  md:flex-row">
+          <div className="anim-bounce test-sm  -rotate-4 w-fit  flex flex-col items-center mt-5 justify-center sedgwick-ave-regular md:text-lg md:mt-0">
             <h3 className="bg-purple-400 p-3 rounded-xl -mb-1 w-fit text-center select-none">
               I design beautiful & functional web apps
             </h3>
@@ -74,7 +83,7 @@ function Hero2D({ isMobile }) {
               that provide seamless UI/UX.
             </h3>
           </div>
-          <div className="flex items-center ml-6 mt-18 gap-2 text-white anim-bob">
+          <div className="flex items-center justify-end mr-5 mt-18 gap-2 text-white anim-bob md:justify-start md:ml-6">
             <FontAwesomeIcon icon={faEarthAsia} className="text-4xl" />
             <div className="text-xs select-none">
               <h4>Based in Lebanon </h4>

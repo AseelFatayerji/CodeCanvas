@@ -4,7 +4,7 @@ import { HashLink as NavLink } from "react-router-hash-link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-function NavLinks() {
+function NavLinks({ isMobile }) {
   return (
     <>
       <NavLink to="#Hero" className={`text-lg font-bold transition-colors `}>
@@ -19,6 +19,14 @@ function NavLinks() {
       <NavLink to="#Contact" className={`text-lg font-bold transition-colors`}>
         Contact
       </NavLink>
+      {isMobile && (
+        <a
+          to="https://github.com/AseelFatayerji"
+          className="text-xl font-bold hover:cursor-pointer"
+        >
+          GitHub
+        </a>
+      )}
     </>
   );
 }
@@ -55,12 +63,14 @@ function Navbar({ isMobile }) {
             </label>
           )}
         </div>
-        <a
-          to="https://github.com/AseelFatayerji"
-          className="text-xl font-bold hover:cursor-pointer"
-        >
-          <FontAwesomeIcon icon={faGithub} className="text-4xl" />
-        </a>
+        {!isMobile && (
+          <a
+            to="https://github.com/AseelFatayerji"
+            className="text-xl font-bold hover:cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faGithub} className="text-4xl" />
+          </a>
+        )}
       </div>
       {isOpen && (
         <motion.div
@@ -69,8 +79,8 @@ function Navbar({ isMobile }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <nav className="py-5  w-fit flex flex-col gap-3  items-end ">
-            <NavLinks />
+          <nav className="py-5 px-3 rounded-l-xl w-fit flex flex-col gap-3  items-end bg-[#141414]/80 -mr-3 ">
+            <NavLinks isMobile={isMobile} />
           </nav>
         </motion.div>
       )}
