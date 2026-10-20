@@ -86,37 +86,41 @@ function Projects2D({ isMobile }) {
   }, [loading]);
 
   return (
-    <section id="Projects" className="bg-pink-400 py-5">
+    <section id="Projects" className="bg-pink-400 py-5 ">
       <div className="relative ">
-        <motion.h2
-          className="font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] "
-          initial={{ x: -200, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          SELECTED WORK
-        </motion.h2>
+        {!isMobile && (
+          <>
+            <motion.h2
+              className="font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] md:block hidden "
+              initial={{ x: -200, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              SELECTED WORK
+            </motion.h2>
+
+            <Decor
+              className="absolute right-[15%] top-0 z-20"
+              loop="pulse"
+              origin="15% 85%"
+              min={0.55}
+              duration="2.4s"
+              inView
+              delay={0.5}
+            >
+              <Ticks
+                className="rotate-40 h-30 w-30"
+                color="#fff"
+                strokeWidth={3}
+                innerRadius={12}
+              />
+            </Decor>
+          </>
+        )}
 
         <Decor
-          className="absolute right-[15%] top-0 z-20"
-          loop="pulse"
-          origin="15% 85%"
-          min={0.55}
-          duration="2.4s"
-          inView
-          delay={0.5}
-        >
-          <Ticks
-            className="rotate-40 h-30 w-30"
-            color="#fff"
-            strokeWidth={3}
-            innerRadius={12}
-          />
-        </Decor>
-
-        <Decor
-          className="absolute top-0 right-10 -rotate-8 w-fit"
+          className="absolute top-0 right-5 -rotate-8 w-fit scale-70 md:scale-100 md:right-10"
           loop="bob"
           inView
           delay={0.8}
@@ -136,8 +140,8 @@ function Projects2D({ isMobile }) {
         </Decor>
       </div>
 
-      <div className="w-full justify-center px-10">
-        <div className="flex" ref={grid}>
+      <div className="w-full justify-center pt-10 md:px-10 md:pt-0">
+        <div className="flex overflow-y-scroll justify-evenly" ref={grid}>
           {prjs.map((project, index) => (
             <div className="project-card" key={project.name}>
               <Project2D
@@ -164,6 +168,25 @@ function Projects2D({ isMobile }) {
           </div>
         </div>
       </div>
+      {isMobile && (
+        <motion.div
+          className="w-full py-2 text-center overflow-hidden"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <motion.h2
+            className="font-bold text-4xl select-none w-full"
+            variants={{
+              hidden: { x: -200, opacity: 0 },
+              show: { x: 0, opacity: 1 },
+            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            SELECTED WORK
+          </motion.h2>
+        </motion.div>
+      )}
     </section>
   );
 }

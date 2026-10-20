@@ -5,7 +5,7 @@ import { Font } from "three-stdlib";
 export default function Project2D({ name, repo, link, disc, demo, icon }) {
   return (
     // <!-- From Uiverse.io by imtausef -->
-    <div className="parent rounded-b-full select-none">
+    <div className="parent rounded-b-full select-none scale-80 md:scale-100">
       <div className="card2">
         <div className="content-box bg-purple-500">
           <span className="card2-title">{name}</span>
