@@ -16,7 +16,7 @@ const PERSON_IMG = "https://ik.imagekit.io/sas2seqly/portfolio/portfolio%20image
 
 function HeroIMage() {
   return (
-    <div className="relative flex h-screen min-h-112 w-[80] items-center justify-center">
+    <div className="relative flex h-screen min-h-112 w-full items-center justify-center">
       <motion.div
         className="absolute h-[90%] w-[85%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
         initial={{ scale: 0.05, opacity: 0 }}
