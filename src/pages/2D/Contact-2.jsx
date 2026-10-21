@@ -15,7 +15,7 @@ const SOCIALS = [
 
   {
     icon: faLinkedinIn,
-    label: "linkedin.com/in/your-name",
+    label: "linkedin.com/in/aseel-f-7a1b49235/",
     href: "https://www.linkedin.com/in/aseel-f-7a1b49235/",
   },
   {
