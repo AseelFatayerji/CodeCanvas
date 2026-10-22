@@ -11,14 +11,16 @@ import TerminalBadge from "../shapes/TerminalBadge";
 import Ticks from "../shapes/Ticks";
 import Squiggle from "../shapes/Squiggle";
 import Decor from "../shapes/Decor";
+import MovingEyes from "../interactive/MovingEyes";
 
-const PERSON_IMG = "https://ik.imagekit.io/sas2seqly/portfolio/portfolio%20image-v2.png";
+const PERSON_IMG =
+  "https://ik.imagekit.io/sas2seqly/portfolio/portfolio%20image-v2.png";
 
 function HeroIMage() {
   return (
     <div className="relative flex h-screen min-h-112 w-full items-center justify-center">
       <motion.div
-        className="absolute h-[90%] w-[85%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
+        className="absolute h-[89%] w-[85%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
         initial={{ scale: 0.05, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
@@ -26,8 +28,11 @@ function HeroIMage() {
           opacity: { duration: 0.3 },
         }}
       />
-
-      <Decor className="absolute rotate-45 right-25 top-25" loop="bob" delay={0.5}>
+      <Decor
+        className="absolute rotate-45 right-25 top-25"
+        loop="bob"
+        delay={0.5}
+      >
         <DotShape className="h-24 w-24" dot="#fff" dotSize="2px" gap="14px" />
       </Decor>
       <Decor
@@ -36,13 +41,16 @@ function HeroIMage() {
         delay={0.6}
         duration="5s"
       >
-        <DotShape className="h-28 w-27" dot="#2F6BFF" dotSize="2px" gap="14px" />
+        <DotShape
+          className="h-28 w-27"
+          dot="#2F6BFF"
+          dotSize="2px"
+          gap="14px"
+        />
       </Decor>
-
-      <div className="relative z-1 aspect-3/4 w-[77%] -top-7 ">
-        <img src={PERSON_IMG} alt="" className="h-full w-full object-contain" />
+      <div className="relative z-1 aspect-3/4 w-[77%] -top-8">
+        <MovingEyes src="https://ik.imagekit.io/sas2seqly/portfolio/portrait-holes.png"  upTravel={0.2} sensitivity={5}/>
       </div>
-
       <Decor
         className="absolute bottom-16 right-3 z-20 -rotate-6"
         loop="bob"
@@ -51,7 +59,6 @@ function HeroIMage() {
       >
         <TerminalBadge className="w-64" />
       </Decor>
-
       <Decor
         className="absolute rotate-25 bottom-20 right-16 z-20"
         loop="rotate"
@@ -75,7 +82,6 @@ function HeroIMage() {
       >
         <FontAwesomeIcon icon={faAsterisk} className="text-3xl text-white" />
       </Decor>
-
       <Decor
         className="absolute left-[25%]  top-[20%] z-20"
         loop="bounce"
@@ -91,7 +97,6 @@ function HeroIMage() {
       >
         <Ticks className="h-12 w-12" color="#75fffd" />
       </Decor>
-
       <Decor
         className="absolute right-12  top-16 z-20"
         loop="bob"
