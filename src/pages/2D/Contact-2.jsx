@@ -91,7 +91,7 @@ function Contact2D({ isMobile }) {
         viewport={{ once: true, amount: 0.25 }}
       >
         <div className=" md:w-full">
-          <div className="flex gap-2 pl-5 px-3 pt-10 lg:pl-16 lg:px-10 lg:pt-16">
+          <div className="flex gap-3 pl-5 px-3 pt-5 md:pt-10 lg:pl-16 lg:px-10 lg:pt-16">
             <div className="select-none md:w-[60%] lg:w-[80%]">
               <motion.h2
                 variants={wipe}
@@ -118,9 +118,9 @@ function Contact2D({ isMobile }) {
                   <motion.li
                     variants={rise}
                     key={item.label}
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-3"
                   >
-                    <span className="shadow-[3px_3px_0_#fff] flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-pink-400 text-black">
+                    <span className="shadow-[3px_3px_0_#fff] flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-pink-400 text-black">
                       <FontAwesomeIcon
                         icon={item.icon}
                         className="text-xs md:text-sm"
@@ -131,14 +131,12 @@ function Contact2D({ isMobile }) {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs md:text-sm font-bold hover:underline"
+                        className="text-xs md:text-sm  hover:underline"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span className="text-xs md:text-sm font-bold">
-                        {item.label}
-                      </span>
+                      <span className="text-xs md:text-sm ">{item.label}</span>
                     )}
                   </motion.li>
                 ))}
