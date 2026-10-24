@@ -45,7 +45,10 @@ function Navbar({ isMobile }) {
     <header className="fixed top-0 left-0 w-full z-50 bg-[#141414]/40 text-white py-4 md:px-8 px-4 select-none border-b-4 border-black">
       <div className="flex justify-between items-center">
         <nav>
-          <NavLink to="#Hero" className="text-2xl font-black tracking-tight text-white">
+          <NavLink
+            to="#Hero"
+            className="text-2xl font-black tracking-tight text-white"
+          >
             Portfolio.
           </NavLink>
         </nav>
@@ -57,17 +60,16 @@ function Navbar({ isMobile }) {
           )}
           {isMobile && (
             <label>
-              <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden">
+              <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center lg:hidden sm:not-[hidden]:">
                 <input
                   className="hidden peer"
                   type="checkbox"
                   checked={isOpen}
                   onChange={() => setIsOpen(!isOpen)}
-                  aria-label="Toggle menu"
                 />
-                <div className="w-[60%] h-1 bg-black rounded-sm transition-all duration-300 origin-left translate-y-2 peer-checked:-rotate-45"></div>
-                <div className="w-[60%] h-1 bg-black rounded-sm transition-all duration-300 origin-center peer-checked:hidden"></div>
-                <div className="w-[60%] h-1 bg-black rounded-sm transition-all duration-300 origin-left -translate-y-2 peer-checked:rotate-45"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-sm transition-all duration-300 origin-left translate-y-[0.45rem] peer-checked:-rotate-45"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-center peer-checked:hidden"></div>
+                <div className="w-[50%] h-0.5 bg-white rounded-md transition-all duration-300 origin-left translate-y-[-0.45rem] peer-checked:rotate-45"></div>
               </div>
             </label>
           )}
@@ -91,7 +93,7 @@ function Navbar({ isMobile }) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <nav className="mt-3 py-5 px-4 rounded-lg w-fit flex flex-col gap-4 items-end bg-[#C7FF2F] border-4 border-black shadow-[6px_6px_0_#fff]">
+          <nav className="mt-3 py-5 px-4 rounded-lg w-fit flex flex-col gap-4 items-end bg-[#141414]/40 ">
             <NavLinks isMobile={isMobile} />
           </nav>
         </motion.div>

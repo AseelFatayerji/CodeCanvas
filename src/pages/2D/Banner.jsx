@@ -1,7 +1,6 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
-
 function Banner({ isMobile }) {
   const medium = useMediaQuery({ query: "(min-height: 750px)" });
 
@@ -36,7 +35,9 @@ function Banner({ isMobile }) {
               </div>
               {medium && <div className="sm:h-25 md:h-15" />}
               <div className="justify-end align-middle flex flex-col">
-                <span className={`${soonClass} px-5 py-2 w-full text-sm text-center`}>
+                <span
+                  className={`shadow-[5px_5px_0_#000] transition-[translate,box-shadow] duration-100 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0_#000] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none bg-[#141414] text-white border-4 border-black rounded-lg font-bold select-none px-6 py-4 text-center`}
+                >
                   Soon...
                 </span>
               </div>
@@ -72,7 +73,9 @@ function Banner({ isMobile }) {
             </div>
           </div>
           <div className="justify-center align-middle flex flex-col">
-            <span className={`shadow-[5px_5px_0_#000] transition-[translate,box-shadow] duration-100 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0_#000] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none bg-[#141414] text-white border-4 border-black rounded-lg font-bold select-none px-6 py-4 text-center`}>
+            <span
+              className={`shadow-[5px_5px_0_#000] transition-[translate,box-shadow] duration-100 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0_#000] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none bg-[#141414] text-white border-4 border-black rounded-lg font-bold select-none px-6 py-4 text-center`}
+            >
               Soon...
             </span>
           </div>
