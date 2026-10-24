@@ -34,7 +34,7 @@ function Hero2D({ isMobile }) {
     <div
       id="Hero"
       ref={root}
-      className="pl-5 pt-33 flex h-screen w-screen border-b-3 border-white md:pl-10"
+      className="pl-5 pt-10 flex h-screen w-screen border-b-3 border-white/40 md:pl-10"
     >
       <div className="justify-center flex flex-col ">
         <div className="flex text-7xl font-bold text-pink-400 sedgwick-ave-regular ">
@@ -101,7 +101,7 @@ function Hero2D({ isMobile }) {
           </div>
         </div>
         {!isMobile && (
-          <div className="hidden md:block md:w-1/2 pb-10 w-[50%] absolute right-0 z-1 pointer-events-none">
+          <div className="hidden md:block md:w-1/2 pb-10 pt-1.5 w-[50%] absolute right-0 z-1 pointer-events-none">
             <HeroIMage />
           </div>
         )}

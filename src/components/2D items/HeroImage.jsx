@@ -18,7 +18,7 @@ const PERSON_IMG =
 
 function HeroIMage() {
   return (
-    <div className="relative flex h-screen min-h-112 w-full items-center justify-center">
+    <div className="relative flex h-full min-h-112 w-full items-center justify-center">
       <motion.div
         className="absolute h-[89%] w-[85%] -rotate-8 rounded-[58%_42%_46%_54%/48%_52%_48%_52%] bg-[#AD8DFF]"
         initial={{ scale: 0.05, opacity: 0 }}
@@ -48,7 +48,7 @@ function HeroIMage() {
           gap="14px"
         />
       </Decor>
-      <div className="relative z-1 aspect-3/4 w-[77%] -top-8">
+      <div className="relative z-1 aspect-3/4 w-[84%] -top-6">
         <MovingEyes src="https://ik.imagekit.io/sas2seqly/portfolio/portrait-holes.png"  upTravel={0.2} sensitivity={5}/>
       </div>
       <Decor
@@ -75,7 +75,7 @@ function HeroIMage() {
         <FontAwesomeIcon icon={faCircleNotch} className="text-6xl text-white" />
       </Decor>
       <Decor
-        className="absolute right-1/3 top-18 z-20"
+        className="absolute right-1/3 top-35 z-20"
         loop="rotate"
         delay={1.1}
         duration="3s"
@@ -98,7 +98,7 @@ function HeroIMage() {
         <Ticks className="h-12 w-12" color="#75fffd" />
       </Decor>
       <Decor
-        className="absolute right-12  top-16 z-20"
+        className="absolute right-12  top-56 z-20"
         loop="bob"
         delay={1.4}
         duration="3.5s"
