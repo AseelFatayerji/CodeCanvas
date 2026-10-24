@@ -111,7 +111,7 @@ function Process2D({ isMobile }) {
       </Decor>
 
       <Decor
-        className="absolute left-[6%] top-24 z-20 hidden rotate-12 sm:block"
+        className="absolute left-[6%] top-24 hidden rotate-12 sm:block"
         loop="bob"
         delay={0.8}
         duration="4s"
@@ -125,7 +125,7 @@ function Process2D({ isMobile }) {
         />
       </Decor>
 
-      <div className="mx-auto mt-10 grid max-w-sm grid-cols-1 gap-6 sm:mt-12 sm:max-w-3xl sm:grid-cols-2 sm:gap-8 lg:max-w-6xl lg:grid-cols-4 lg:gap-6">
+      <div className="mx-auto mt-10 grid max-w-sm grid-cols-1 pointer-events-none gap-6 sm:mt-12 sm:max-w-3xl sm:grid-cols-2 sm:gap-8 lg:max-w-6xl lg:grid-cols-4 lg:gap-6">
         {STEPS.map((step, index) => (
           <div className={`process-step ${step.offset}`} key={step.title}>
             <div

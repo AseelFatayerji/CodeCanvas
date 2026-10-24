@@ -86,12 +86,13 @@ function Projects2D({ isMobile }) {
   }, [loading]);
 
   return (
-    <section id="Projects" className="bg-pink-400 py-5 ">
+    <section id="Projects" className="bg-pink-400 py-5 border-y-4 border-black">
       <div className="relative ">
         {!isMobile && (
           <>
+            {/* white fill + hard black offset shadow keeps the look, adds contrast */}
             <motion.h2
-              className="font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] md:block hidden "
+              className="font-bold text-center text-3xl select-none mr-15 md:text-[6.5rem] md:block hidden text-white [text-shadow:0.05em_0.05em_0_#000]"
               initial={{ x: -200, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true, amount: 0.5 }}
@@ -111,7 +112,7 @@ function Projects2D({ isMobile }) {
             >
               <Ticks
                 className="rotate-40 h-30 w-30"
-                color="#fff"
+                color="#000"
                 strokeWidth={3}
                 innerRadius={12}
               />
@@ -126,14 +127,14 @@ function Projects2D({ isMobile }) {
           delay={0.8}
           duration="4.5s"
         >
-          <div className="relative flex flex-col items-center justify-center sedgwick-ave-regular">
-            <h3 className="bg-[#141414] py-2 px-4 rounded-xl -mb-1 w-fit text-center">
+          <div className="relative flex flex-col items-center justify-center gap-2 sedgwick-ave-regular">
+            <h3 className="bg-[#141414] text-white py-2 px-4 rounded-lg border-4 border-[#141414] shadow-[4px_4px_0_#fff] w-fit text-center">
               A Few Projects
             </h3>
-            <h3 className="bg-[#141414] py-2 px-3 rounded-xl w-fit text-center">
-              Im Proud of.
+            <h3 className="bg-[#141414] text-white py-2 px-3 -mt-2.5 rounded-lg border-4 border-[#141414] shadow-[4px_4px_0_#fff] w-fit text-center">
+              I'm Proud of.
             </h3>
-            <div className="absolute z-10 top-5 -right-20 rotate-55">
+            <div className="absolute z-10 top-5 -right-22 rotate-55">
               <Arrow direction="left" flipY flipX curves={1} size={200} />
             </div>
           </div>
@@ -160,7 +161,7 @@ function Projects2D({ isMobile }) {
               repo={"//"}
               link={"//"}
               disc={
-                "A fully funstional e-commerce website for a handmade bead charm business, built with React, Tailwind CSS, and Firebase."
+                "A fully functional e-commerce website for a handmade bead charm business, built with React, Tailwind CSS, and Firebase."
               }
               demo={"//"}
               icon={faMoneyBill}
@@ -176,7 +177,7 @@ function Projects2D({ isMobile }) {
           viewport={{ once: true, amount: 0.5 }}
         >
           <motion.h2
-            className="font-bold text-4xl select-none w-full"
+            className="font-bold text-4xl select-none w-full text-white [text-shadow:0.05em_0.05em_0_#000]"
             variants={{
               hidden: { x: -200, opacity: 0 },
               show: { x: 0, opacity: 1 },

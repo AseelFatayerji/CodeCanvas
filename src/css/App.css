@@ -3,38 +3,7 @@
 body {
   background-color: #08080d;
 }
-nav a {
-  color: #e0e0e0;
-}
 
-nav a::after {
-  background: white;
-  border-radius: 3px;
-  color: white;
-  content: "";
-  display: block;
-  height: 3px;
-  width: 0px;
-  transition: width 300ms ease-in;
-}
-
-nav a:hover {
-  color: white;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-nav a.active::after {
-  color: white;
-  border-radius: 3px;
-  width: 100%;
-}
-
-nav a.active {
-  color: white;
-}
 .scene {
   position: relative;
   perspective: 1000px;
@@ -66,15 +35,18 @@ nav a.active {
 .grid-5 {
   @apply row-span-1 md:col-span-4 h-30 md:h-full relative overflow-hidden hover:translate-y-1 duration-200;
 }
+
+/* Flat fills, thick borders, one radius, hard offset shadows (no gradients) */
 .grid-default-color {
-  @apply md:p-6 p-3 bg-linear-to-b from-[#191b30] to-indigo-950 rounded-2xl outline-neutral-500 outline-3;
+  @apply md:p-6 p-3 bg-[#191b30] rounded-lg border-4 border-white shadow-[6px_6px_0_#C7FF2F];
 }
 
 .grid-special-color {
-  @apply md:p-6 p-3 bg-linear-to-b from-[#5c33cc] to-[#7a57db] rounded-2xl outline-neutral-500 outline-3;
+  @apply md:p-6 p-3 bg-[#7a57db] rounded-lg border-4 border-black shadow-[6px_6px_0_#fff];
 }
+
 .grid-black-color {
-  @apply px-6 bg-[#242424] rounded-2xl outline-neutral-500 outline-3;
+  @apply px-6 bg-[#242424] rounded-lg border-4 border-white shadow-[6px_6px_0_#FB64B6];
 }
 
 @theme inline {

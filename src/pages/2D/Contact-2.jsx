@@ -9,6 +9,7 @@ import {
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import Popup from "../../components/Popup";
 
 const SOCIALS = [
   { icon: faEnvelope, label: "fatayerjiaseel@email.com" },
@@ -57,6 +58,11 @@ const rise = {
   },
 };
 
+const fieldClass =
+  "shadow-[4px_4px_0_#000] transition-[translate,box-shadow] duration-100 focus-within:translate-x-0.5 focus-within:translate-y-0.5 focus-within:shadow-[2px_2px_0_#000] text-start bg-white border-4 border-black rounded-lg p-2";
+const legendClass =
+  "px-2 text-sm font-bold bg-blue-300 border-2 border-black rounded-md";
+
 function Contact2D({ isMobile }) {
   const [result, setResult] = useState("");
 
@@ -101,7 +107,10 @@ function Contact2D({ isMobile }) {
               </motion.h2>
             </div>
             <div>
-              <motion.p variants={rise} className=" text-pretty select-none px-2 text-xs md:text-sm">
+              <motion.p
+                variants={rise}
+                className=" text-pretty select-none px-2 text-xs md:text-sm"
+              >
                 Have a project in mind? Let's bring your ideas to life.
               </motion.p>
               <ul className="space-y-3 py-4 md:pt-10">
@@ -111,20 +120,25 @@ function Contact2D({ isMobile }) {
                     key={item.label}
                     className="flex items-center gap-4"
                   >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-white">
-                      <FontAwesomeIcon icon={item.icon} className="text-xs md:text-sm" />
+                    <span className="shadow-[3px_3px_0_#fff] flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border-2 border-black bg-pink-400 text-black">
+                      <FontAwesomeIcon
+                        icon={item.icon}
+                        className="text-xs md:text-sm"
+                      />
                     </span>
                     {item.href ? (
                       <a
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs md:text-sm hover:underline"
+                        className="text-xs md:text-sm font-bold hover:underline"
                       >
                         {item.label}
                       </a>
                     ) : (
-                      <span className="text-xs md:text-sm">{item.label}</span>
+                      <span className="text-xs md:text-sm font-bold">
+                        {item.label}
+                      </span>
                     )}
                   </motion.li>
                 ))}
@@ -134,41 +148,32 @@ function Contact2D({ isMobile }) {
         </div>
 
         <div className="bg-blue-300 h-fit text-[#141414] px-8 py-7 md:w-[45%] md:pl-[10%] md:pr-16 md:[clip-path:polygon(14%_0,100%_0,100%_100%,0_100%)]">
-          <form
-            className="w-full flex flex-col space-y-3"
-            onSubmit={onSubmit}
-          >
+          <form className="w-full flex flex-col space-y-5" onSubmit={onSubmit}>
             <motion.span
               variants={rise}
-              className="w-fit self-center select-none md:self-start rounded-full border-2 border-[#141414] px-4 py-1 text-xs font-bold tracking-widest"
+              className="shadow-[3px_3px_0_#000] w-fit self-center select-none md:self-start rounded-lg border-4 border-black bg-blue-300 px-4 py-1 text-xs font-black tracking-widest"
             >
               CONTACT ME
             </motion.span>
-            <div className="space-y-3">
-              <motion.fieldset
-                variants={rise}
-                className="text-start border-2 border-[#141414] rounded-lg p-2"
-              >
-                <legend className="px-1">Email</legend>
+            <div className="space-y-5">
+              <motion.fieldset variants={rise} className={fieldClass}>
+                <legend className={legendClass}>Email</legend>
                 <input
                   name="email"
                   type="email"
-                  className="w-full h-full outline-none text-lg bg-transparent placeholder:text-slate-700"
+                  className="w-full h-full outline-none text-lg bg-transparent placeholder:text-slate-600"
                   placeholder="Enter your email"
-                  label="Email"
+                  aria-label="Email"
                   required
                 />
               </motion.fieldset>
-              <motion.fieldset
-                variants={rise}
-                className="text-start border-2 border-[#141414] rounded-lg p-2"
-              >
-                <legend className="px-1">Discription</legend>
+              <motion.fieldset variants={rise} className={fieldClass}>
+                <legend className={legendClass}>Description</legend>
                 <textarea
                   name="message"
-                  placeholder="Project Discription"
-                  className="w-full h-max outline-none text-lg bg-transparent placeholder:text-slate-700"
-                  label="Description"
+                  placeholder="Project description"
+                  className="w-full h-max outline-none text-lg bg-transparent placeholder:text-slate-600"
+                  aria-label="Description"
                   required
                 />
               </motion.fieldset>
@@ -179,7 +184,7 @@ function Contact2D({ isMobile }) {
             >
               <button
                 type="submit"
-                className="send bg-[#141414] text-white py-4 px-5 gap-2 flex items-center rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-95 outline-none"
+                className="send shadow-[5px_5px_0_#fff] transition-[translate,box-shadow] duration-100 hover:translate-x-0.75 hover:translate-y-0.75 hover:shadow-[2px_2px_0_#fff] active:translate-x-1.25 active:translate-y-1.25 active:shadow-none bg-[#141414] text-white font-bold p-2 gap-2 flex items-center rounded-lg border-4 border-black overflow-hidden cursor-pointer outline-none focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-black"
               >
                 <div className="svg-wrapper-1">
                   <div className="svg-wrapper">
